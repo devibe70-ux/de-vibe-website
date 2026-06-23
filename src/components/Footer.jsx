@@ -24,8 +24,11 @@ export default function Footer() {
             <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               DE VIBE
             </h4>
-            <p style={{ color: 'var(--text-secondary)' }}>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>
               Feel The Vibe. Crafting digital experiences that matter.
+            </p>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              <strong>Contact:</strong> +91 93284 12916
             </p>
           </div>
           <div className="footer-col" style={{ alignItems: 'flex-start' }}>

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 const phases = [
   {
@@ -41,7 +43,7 @@ const phases = [
     title: "Contact & Communication Channels",
     questions: [
       { id: "q22", label: "Do you have a dedicated business email address?", type: "text" },
-      { id: "q23", label: "Do you have a general phone number?", type: "text" },
+      { id: "q23", label: "Do you have a general phone number?", type: "phone" },
       { id: "q24", label: "Do you have a WhatsApp account specifically for the business?", type: "select", options: ["Yes", "No"] },
       { id: "q25", label: "Do you have physical business cards?", type: "select", options: ["Yes", "No"] },
       { id: "q26", label: "Who is the primary point of contact for day-to-day communications?", type: "text" },
@@ -185,6 +187,24 @@ export default function GetQuote() {
                       <option key={opt} value={opt}>{opt}</option>
                     ))}
                   </select>
+                )}
+                {q.type === 'phone' && (
+                  <PhoneInput
+                    defaultCountry="IN"
+                    value={formData[q.id] || ''}
+                    onChange={(value) => handleInputChange(q.id, value)}
+                    style={{ '--PhoneInput-color--focus': 'var(--accent)', '--PhoneInputInternationalIconPhone-opacity': 0.8, backgroundColor: 'var(--bg-secondary)', borderRadius: '6px', border: '1px solid var(--border)', padding: '0.5rem 0.75rem' }}
+                    numberInputProps={{
+                      style: {
+                        border: 'none',
+                        background: 'transparent',
+                        color: 'var(--text-primary)',
+                        width: '100%',
+                        outline: 'none',
+                        fontSize: '1rem'
+                      }
+                    }}
+                  />
                 )}
               </div>
             ))}

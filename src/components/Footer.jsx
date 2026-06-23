@@ -41,8 +41,14 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="footer-bottom">
-          &copy; {new Date().getFullYear()} De Vibe. All rights reserved.
+        <div className="footer-bottom" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
+          <span>&copy; {new Date().getFullYear()} De Vibe. All rights reserved.</span>
+          <a 
+            href="javascript:googlefc.callbackQueue.push(googlefc.showRevocationMessage)" 
+            style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textDecoration: 'underline' }}
+          >
+            Do Not Sell or Share My Personal Information
+          </a>
         </div>
       </div>
     </footer>

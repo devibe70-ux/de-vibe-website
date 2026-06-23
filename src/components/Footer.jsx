@@ -33,12 +33,12 @@ export default function Footer() {
           </div>
           <div className="footer-col" style={{ alignItems: 'flex-start' }}>
             <h4>Our Developers</h4>
-            <a href="https://github.com/DavinciShah" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <GithubIcon size={18} /> DavinciShah
-            </a>
-            <a href="https://github.com/devibe70-ux" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <GithubIcon size={18} /> devibe70-ux
-            </a>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
+              <GithubIcon size={18} /> DAVINCISHAH
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
+              <GithubIcon size={18} /> DEVIBE70-UX
+            </div>
           </div>
         </div>
         <div className="footer-bottom" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>

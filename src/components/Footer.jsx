@@ -47,7 +47,7 @@ export default function Footer() {
             href="javascript:googlefc.callbackQueue.push(googlefc.showRevocationMessage)" 
             style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textDecoration: 'underline' }}
           >
-            Do Not Sell or Share My Personal Information
+            We Do Not Sell Data
           </a>
         </div>
       </div>

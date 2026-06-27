@@ -1,19 +1,14 @@
 import { Link } from 'react-router-dom';
-import heroImg from '../assets/hero.png';
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="container">
         <img 
-          src={heroImg} 
+          src="/banner.jpg" 
           alt="De Vibe Team" 
-          width="343"
-          height="361"
-          fetchpriority="high"
           style={{ 
             width: '100%', 
-            height: 'auto',
             maxWidth: '900px', 
             borderRadius: '16px', 
             marginBottom: '3rem', 

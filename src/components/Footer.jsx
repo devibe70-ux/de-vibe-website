@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const GithubIcon = ({ size = 18 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -43,12 +45,16 @@ export default function Footer() {
         </div>
         <div className="footer-bottom" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
           <span>&copy; {new Date().getFullYear()} De Vibe. All rights reserved.</span>
-          <a 
-            href="javascript:googlefc.callbackQueue.push(googlefc.showRevocationMessage)" 
-            style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textDecoration: 'underline' }}
-          >
-            We Do Not Sell Data
-          </a>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Link to="/privacy" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Privacy Policy</Link>
+            <Link to="/terms" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Terms of Service</Link>
+            <a 
+              href="javascript:googlefc.callbackQueue.push(googlefc.showRevocationMessage)" 
+              style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textDecoration: 'underline' }}
+            >
+              We Do Not Sell Data
+            </a>
+          </div>
         </div>
       </div>
     </footer>

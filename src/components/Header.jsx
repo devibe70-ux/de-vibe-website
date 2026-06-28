@@ -11,8 +11,9 @@ export default function Header() {
         </Link>
         <nav className="nav-links">
           <Link to="/">Home</Link>
-          <a href="#services">Services</a>
-          <a href="#projects">Projects</a>
+          <a href="/#services">Services</a>
+          <a href="/#projects">Projects</a>
+          <Link to="/blog">Insights</Link>
           <Link to="/quote" className="btn">Get Quote</Link>
         </nav>
       </div>

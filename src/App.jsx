@@ -6,6 +6,10 @@ import Home from './components/Home';
 import './App.css';
 
 const GetQuote = lazy(() => import('./components/GetQuote'));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./components/TermsOfService'));
+const Blog = lazy(() => import('./components/Blog'));
+const BlogPost = lazy(() => import('./components/BlogPost'));
 
 function App() {
   return (
@@ -17,6 +21,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/quote" element={<GetQuote />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
             </Routes>
           </Suspense>
         </main>

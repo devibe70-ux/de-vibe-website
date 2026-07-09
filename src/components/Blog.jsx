@@ -19,6 +19,36 @@ const blogPosts = [
     title: 'How Custom Software Scales Your Corporate Operations',
     date: 'April 10, 2026',
     excerpt: 'Off-the-shelf software often forces you to change your workflow. Learn how bespoke enterprise software adapts to your business needs.',
+  },
+  {
+    id: 'roi-responsive-ecommerce',
+    title: 'The ROI of Responsive Web Design in E-Commerce',
+    date: 'May 12, 2026',
+    excerpt: 'Discover why mobile-first and responsive design is no longer just a luxury, but the primary driver of conversion rates and revenue.',
+  },
+  {
+    id: 'monolithic-vs-microservices',
+    title: 'Why Monolithic Architectures Are Failing Modern Startups',
+    date: 'June 05, 2026',
+    excerpt: 'A deep dive into why agile startups are migrating from rigid monoliths to scalable, modern microservice and serverless architectures.',
+  },
+  {
+    id: 'ultimate-rebranding-guide',
+    title: 'The Ultimate Guide to Rebranding Your Legacy Business',
+    date: 'June 22, 2026',
+    excerpt: 'Rebranding is risky. Learn the data-driven framework for modernizing your corporate identity without alienating your existing customer base.',
+  },
+  {
+    id: 'headless-cms-revolution',
+    title: 'Headless CMS vs Traditional CMS: What You Need to Know',
+    date: 'July 01, 2026',
+    excerpt: 'WordPress is showing its age. Discover how headless content management systems deliver unparalleled speed and omnichannel flexibility.',
+  },
+  {
+    id: 'securing-enterprise-web',
+    title: 'Securing Your Enterprise Web Application Against 2026 Threats',
+    date: 'July 08, 2026',
+    excerpt: 'From sophisticated AI-driven phishing to zero-day exploits, learn the modern security protocols necessary to protect your digital assets.',
   }
 ];
 

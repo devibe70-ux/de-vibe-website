@@ -14,6 +14,7 @@ export default function Header() {
           <a href="/#services">Services</a>
           <a href="/#projects">Projects</a>
           <Link to="/blog">Insights</Link>
+          <Link to="/contact">Contact</Link>
           <Link to="/quote" className="btn">Get Quote</Link>
         </nav>
       </div>

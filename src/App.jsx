@@ -11,6 +11,9 @@ const TermsOfService = lazy(() => import('./components/TermsOfService'));
 const Blog = lazy(() => import('./components/Blog'));
 const BlogPost = lazy(() => import('./components/BlogPost'));
 const Contact = lazy(() => import('./components/Contact'));
+const AndroidApps = lazy(() => import('./components/AndroidApps'));
+const MicrosoftApps = lazy(() => import('./components/MicrosoftApps'));
+const Support = lazy(() => import('./components/Support'));
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/android" element={<AndroidApps />} />
+              <Route path="/microsoft" element={<MicrosoftApps />} />
+              <Route path="/support/:appId" element={<Support />} />
             </Routes>
           </Suspense>
         </main>

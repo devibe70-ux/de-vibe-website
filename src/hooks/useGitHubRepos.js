@@ -26,7 +26,7 @@ export function useGitHubRepos() {
         });
 
         // Filter out forks if we only want original projects, but let's keep it simple
-        const filtered = merged.filter(repo => !repo.fork).slice(0, 6); // Show top 6
+        const filtered = merged.filter(repo => !repo.fork).slice(0, 12); // Show top 12
 
         setRepos(filtered);
       } catch (err) {

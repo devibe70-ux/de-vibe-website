@@ -13,6 +13,8 @@ export default function Header() {
           <Link to="/">Home</Link>
           <a href="/#services">Services</a>
           <a href="/#projects">Projects</a>
+          <Link to="/android">Android</Link>
+          <Link to="/microsoft">Windows</Link>
           <Link to="/blog">Insights</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/quote" className="btn">Get Quote</Link>

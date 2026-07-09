@@ -46,6 +46,8 @@ export default function Footer() {
         <div className="footer-bottom" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
           <span>&copy; {new Date().getFullYear()} De Vibe. All rights reserved.</span>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Link to="/android" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Android Apps</Link>
+            <Link to="/microsoft" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Windows Software</Link>
             <Link to="/contact" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Contact Us</Link>
             <Link to="/privacy" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Privacy Policy</Link>
             <Link to="/terms" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Terms of Service</Link>

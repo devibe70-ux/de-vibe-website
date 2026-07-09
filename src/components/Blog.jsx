@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 const blogPosts = [
@@ -23,7 +24,12 @@ const blogPosts = [
 
 export default function Blog() {
   return (
-    <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
+    <>
+      <Helmet>
+        <title>Insights & Articles - De Vibe Agency</title>
+        <meta name="description" content="Read the latest insights on web development, enterprise software, and branding from the experts at De Vibe." />
+      </Helmet>
+      <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
       <div className="container">
         <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>De Vibe Insights</h2>
         <div className="grid grid-2 grid-3">

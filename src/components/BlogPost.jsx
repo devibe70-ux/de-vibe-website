@@ -1,9 +1,11 @@
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 
 const articles = {
   'why-custom-website-2026': {
     title: 'Why Your Business Needs a Custom Website in 2026',
     date: 'February 15, 2026',
+    excerpt: 'In an era of generic templates, a custom-built website is the key to standing out, improving SEO, and driving actual conversions.',
     content: (
       <>
         <p>In today's hyper-competitive digital landscape, relying on a generic, cookie-cutter template is no longer enough. Consumers in 2026 expect fast, intuitive, and highly personalized digital experiences. A custom website is your ultimate digital storefront, tailored specifically to your unique brand identity and operational needs.</p>
@@ -22,6 +24,7 @@ const articles = {
   'psychology-logo-design': {
     title: 'The Psychology Behind Memorable Logo Design',
     date: 'March 02, 2026',
+    excerpt: 'Your logo is the face of your brand. Discover how shapes, colors, and typography influence consumer perception and trust.',
     content: (
       <>
         <p>A logo is far more than just a pretty graphic; it is the silent ambassador of your brand. Within milliseconds of viewing your logo, a consumer makes subconscious judgments about your company's trustworthiness, industry, and value proposition. Understanding the psychology behind logo design is crucial for creating an identity that resonates deeply with your target audience.</p>
@@ -40,6 +43,7 @@ const articles = {
   'custom-software-scaling': {
     title: 'How Custom Software Scales Your Corporate Operations',
     date: 'April 10, 2026',
+    excerpt: 'Off-the-shelf software often forces you to change your workflow. Learn how bespoke enterprise software adapts to your business needs.',
     content: (
       <>
         <p>As corporations scale, their operational complexities multiply exponentially. While off-the-shelf software (SaaS) provides immediate, generic solutions, it often forces companies to alter their proprietary workflows to fit the software's limitations. Custom enterprise software flips this paradigm, molding the technology to fit your exact business processes.</p>
@@ -71,18 +75,27 @@ export default function BlogPost() {
   }
 
   return (
-    <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
-      <div className="container" style={{ maxWidth: '800px' }}>
-        <Link to="/blog" style={{ color: 'var(--accent)', textDecoration: 'none', display: 'inline-block', marginBottom: '2rem' }}>
-          &larr; Back to Blog
-        </Link>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: '1.2' }}>{article.title}</h1>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Published on {article.date}</p>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', fontSize: '1.1rem', lineHeight: '1.7', color: 'var(--text-primary)' }}>
-          {article.content}
+    <>
+      <Helmet>
+        <title>{article.title} - De Vibe Insights</title>
+        <meta name="description" content={article.excerpt} />
+        <meta property="og:title" content={`${article.title} - De Vibe`} />
+        <meta property="og:description" content={article.excerpt} />
+        <meta property="og:type" content="article" />
+      </Helmet>
+      <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <Link to="/blog" style={{ color: 'var(--accent)', textDecoration: 'none', display: 'inline-block', marginBottom: '2rem' }}>
+            &larr; Back to Blog
+          </Link>
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: '1.2' }}>{article.title}</h1>
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Published on {article.date}</p>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', fontSize: '1.1rem', lineHeight: '1.7', color: 'var(--text-primary)' }}>
+            {article.content}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

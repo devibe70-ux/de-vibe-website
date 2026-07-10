@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import PhoneInput from 'react-phone-number-input';
+import { useState, useEffect } from 'react';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
 const phases = [
@@ -10,9 +10,9 @@ const phases = [
       { id: "q2", label: "What is your field of business?", type: "text" },
       { id: "q3", label: "Are you a registered business?", type: "select", options: ["Yes", "No", "In Process"] },
       { id: "q4", label: "Do you have a co-owner?", type: "select", options: ["Yes", "No"] },
-      { id: "q5", label: "What is the official address of the business?", type: "textarea" },
-      { id: "q6", label: "What are your primary products or services?", type: "textarea" },
-      { id: "q7", label: "What is your company's core mission or vision?", type: "textarea" },
+      { id: "q5", label: "What is the official address of the business? (Include Street, City)", type: "textarea", minLength: 20 },
+      { id: "q6", label: "What are your primary products or services?", type: "textarea", minLength: 15 },
+      { id: "q7", label: "What is your company's core mission or vision?", type: "textarea", minLength: 15 },
     ]
   },
   {
@@ -20,10 +20,10 @@ const phases = [
     questions: [
       { id: "q8", label: "Do you have a logo?", type: "select", options: ["Yes", "No", "Need a redesign"] },
       { id: "q9", label: "Do you have a slogan or tagline?", type: "text" },
-      { id: "q10", label: "Do you have a defined business target audience?", type: "textarea" },
+      { id: "q10", label: "Do you have a defined business target audience?", type: "textarea", minLength: 15 },
       { id: "q11", label: "Do you have established brand guidelines?", type: "select", options: ["Yes", "No", "Partially"] },
-      { id: "q12", label: "Who are your top three main competitors?", type: "textarea" },
-      { id: "q13", label: "What is your Unique Selling Proposition (USP)?", type: "textarea" },
+      { id: "q12", label: "Who are your top three main competitors?", type: "textarea", minLength: 10 },
+      { id: "q13", label: "What is your Unique Selling Proposition (USP)?", type: "textarea", minLength: 15 },
     ]
   },
   {
@@ -36,7 +36,7 @@ const phases = [
       { id: "q18", label: "Do you use a content planner?", type: "select", options: ["Yes", "No"] },
       { id: "q19", label: "Is your website currently live? (If yes, provide URL)", type: "text" },
       { id: "q20", label: "Are you currently running any paid advertising campaigns?", type: "textarea", placeholder: "E.g., Google Ads, Meta Ads" },
-      { id: "q21", label: "What are your primary short-term and long-term marketing goals?", type: "textarea" },
+      { id: "q21", label: "What are your primary short-term and long-term marketing goals?", type: "textarea", minLength: 20 },
     ]
   },
   {
@@ -54,15 +54,72 @@ const phases = [
 export default function GetQuote() {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
+  const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
+  useEffect(() => {
+    // Clear errors when stepping
+    setErrors({});
+  }, [currentStep]);
+
   const handleInputChange = (id, value) => {
     setFormData(prev => ({ ...prev, [id]: value }));
+    // Clear error for this field as they type
+    if (errors[id]) {
+      setErrors(prev => ({ ...prev, [id]: null }));
+    }
+  };
+
+  const validateCurrentPhase = () => {
+    const currentPhase = phases[currentStep];
+    const newErrors = {};
+    let isValid = true;
+
+    currentPhase.questions.forEach(q => {
+      const val = formData[q.id];
+      
+      // 1. Required Check
+      if (!val || (typeof val === 'string' && val.trim() === '')) {
+        newErrors[q.id] = 'This field is required';
+        isValid = false;
+        return;
+      }
+
+      // 2. Phone Validation (Must be exactly correct format for the country)
+      if (q.type === 'phone') {
+        if (!isValidPhoneNumber(val)) {
+          newErrors[q.id] = 'Please enter a valid, active phone number (e.g. 10 digits)';
+          isValid = false;
+        }
+      }
+
+      // 3. Gibberish & Length Prevention for Text/Textarea
+      if (q.type === 'textarea' || q.type === 'text') {
+        const textVal = val.trim();
+        
+        // Check minLength if specified
+        if (q.minLength && textVal.length < q.minLength) {
+          newErrors[q.id] = `Please provide a more detailed response (min ${q.minLength} characters)`;
+          isValid = false;
+        }
+
+        // Prevent gibberish without spaces in long text
+        if (q.type === 'textarea' && textVal.length > 10 && !textVal.includes(' ')) {
+          newErrors[q.id] = 'Please provide a valid format with actual words';
+          isValid = false;
+        }
+      }
+    });
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   const handleNext = () => {
-    if (currentStep < phases.length - 1) setCurrentStep(currentStep + 1);
+    if (validateCurrentPhase()) {
+      if (currentStep < phases.length - 1) setCurrentStep(currentStep + 1);
+    }
   };
 
   const handlePrev = () => {
@@ -71,10 +128,21 @@ export default function GetQuote() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateCurrentPhase()) {
+      return;
+    }
+
+    // 1-Hour Rate Limit Check
+    const lastSubmit = localStorage.getItem('lastQuoteSubmit');
+    if (lastSubmit && (Date.now() - parseInt(lastSubmit)) < 3600000) {
+      setSubmitStatus("cooldown");
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Map answers to readable labels for the email
     const payload = {
       access_key: "45435487-fdf4-41dd-972a-de5a219ce29f",
       subject: "New Project Inquiry - De Vibe",
@@ -102,6 +170,7 @@ export default function GetQuote() {
       const result = await response.json();
       if (result.success) {
         setSubmitStatus("success");
+        localStorage.setItem('lastQuoteSubmit', Date.now().toString());
       } else {
         setSubmitStatus("error");
       }
@@ -119,6 +188,19 @@ export default function GetQuote() {
           <h2>Thank You!</h2>
           <p style={{ color: 'var(--text-secondary)' }}>
             Your comprehensive project details have been received. We will review them and get back to you shortly.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  if (submitStatus === "cooldown") {
+    return (
+      <section className="bg-alt" style={{ flex: 1, padding: '6rem 0' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <h2>Submission Limit Reached</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>
+            You have already submitted a quote request recently. Please wait 1 hour before submitting another one to prevent spam.
           </p>
         </div>
       </section>
@@ -164,7 +246,7 @@ export default function GetQuote() {
                     value={formData[q.id] || ''}
                     onChange={(e) => handleInputChange(q.id, e.target.value)}
                     placeholder={q.placeholder || ''}
-                    style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border)', backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
+                    style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: `1px solid ${errors[q.id] ? 'red' : 'var(--border)'}`, backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
                   />
                 )}
                 {q.type === 'textarea' && (
@@ -173,14 +255,14 @@ export default function GetQuote() {
                     onChange={(e) => handleInputChange(q.id, e.target.value)}
                     placeholder={q.placeholder || ''}
                     rows={3}
-                    style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border)', backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)', resize: 'vertical' }}
+                    style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: `1px solid ${errors[q.id] ? 'red' : 'var(--border)'}`, backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)', resize: 'vertical' }}
                   />
                 )}
                 {q.type === 'select' && (
                   <select 
                     value={formData[q.id] || ''}
                     onChange={(e) => handleInputChange(q.id, e.target.value)}
-                    style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border)', backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
+                    style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: `1px solid ${errors[q.id] ? 'red' : 'var(--border)'}`, backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
                   >
                     <option value="" disabled>Select an option</option>
                     {q.options.map(opt => (
@@ -193,7 +275,7 @@ export default function GetQuote() {
                     defaultCountry="IN"
                     value={formData[q.id] || ''}
                     onChange={(value) => handleInputChange(q.id, value)}
-                    style={{ '--PhoneInput-color--focus': 'var(--accent)', '--PhoneInputInternationalIconPhone-opacity': 0.8, backgroundColor: 'var(--bg-secondary)', borderRadius: '6px', border: '1px solid var(--border)', padding: '0.5rem 0.75rem' }}
+                    style={{ '--PhoneInput-color--focus': 'var(--accent)', '--PhoneInputInternationalIconPhone-opacity': 0.8, backgroundColor: 'var(--bg-secondary)', borderRadius: '6px', border: `1px solid ${errors[q.id] ? 'red' : 'var(--border)'}`, padding: '0.5rem 0.75rem' }}
                     numberInputProps={{
                       style: {
                         border: 'none',
@@ -205,6 +287,11 @@ export default function GetQuote() {
                       }
                     }}
                   />
+                )}
+                {errors[q.id] && (
+                  <div style={{ color: 'red', fontSize: '0.85rem', marginTop: '0.5rem' }}>
+                    {errors[q.id]}
+                  </div>
                 )}
               </div>
             ))}

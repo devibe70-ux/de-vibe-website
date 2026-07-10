@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
@@ -49,10 +50,61 @@ const blogPosts = [
     title: 'Securing Your Enterprise Web Application Against 2026 Threats',
     date: 'July 08, 2026',
     excerpt: 'From sophisticated AI-driven phishing to zero-day exploits, learn the modern security protocols necessary to protect your digital assets.',
+  },
+  {
+    id: 'power-of-ui-ux-design',
+    title: 'The Impact of UI/UX Design on Customer Retention',
+    date: 'July 15, 2026',
+    excerpt: 'Great design is more than aesthetics. Learn how intuitive UI/UX directly correlates with higher customer retention and lifetime value.',
+  },
+  {
+    id: 'seo-best-practices-2026',
+    title: 'SEO Best Practices for Modern Web Applications',
+    date: 'July 22, 2026',
+    excerpt: 'SEO has evolved significantly. Discover the technical and content strategies required to rank high on Google in 2026.',
+  },
+  {
+    id: 'cloud-hosting-vs-on-premise',
+    title: 'Cloud Hosting vs On-Premise: Making the Right Choice',
+    date: 'August 05, 2026',
+    excerpt: 'Deciding between cloud infrastructure and on-premise servers is a critical business decision. We break down the pros and cons of each approach.',
+  },
+  {
+    id: 'ai-in-web-development',
+    title: 'The Role of AI in Modern Web Development',
+    date: 'August 12, 2026',
+    excerpt: 'Artificial Intelligence is revolutionizing how we build and interact with the web. Explore the future of AI-driven digital experiences.',
   }
 ];
 
+// Seeded random number generator
+const getSeededRandom = (seed) => {
+  let value = seed;
+  return function() {
+    value = (value * 9301 + 49297) % 233280;
+    return value / 233280;
+  }
+};
+
+// Shuffles an array based on a seed
+const shuffleArray = (array, seed) => {
+  const rng = getSeededRandom(seed);
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
+
 export default function Blog() {
+  const shuffledPosts = useMemo(() => {
+    const date = new Date();
+    // Create a seed based on Year and Month (e.g., 202607 for July 2026)
+    const seed = date.getFullYear() * 100 + date.getMonth();
+    return shuffleArray(blogPosts, seed);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -63,7 +115,7 @@ export default function Blog() {
       <div className="container">
         <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>De Vibe Insights</h2>
         <div className="grid grid-2 grid-3">
-          {blogPosts.map(post => (
+          {shuffledPosts.map(post => (
             <Link to={`/blog/${post.id}`} key={post.id} className="project-card" style={{ display: 'block', textDecoration: 'none' }}>
               <div className="project-header" style={{ marginBottom: '0.5rem' }}>
                 <span className="project-title" style={{ fontSize: '1.25rem' }}>{post.title}</span>

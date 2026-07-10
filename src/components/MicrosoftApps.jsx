@@ -28,7 +28,14 @@ export default function MicrosoftApps() {
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
                 OptiSpace PC brings our powerful AI-driven storage optimization engine to the Windows desktop environment. It deeply scans NTFS and FAT32 file systems to locate deeply buried duplicate files, residual uninstaller data, and uncompressed media caches, safely freeing up gigabytes of critical drive space.
               </p>
-              <Link to="/support/optispace-pc" className="btn">View Documentation & Support</Link>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a href="https://github.com/devibe70-ux/optispace-pc-version-/releases/latest/download/OptiSpace.msix" className="btn" download>
+                  Download for Windows (.msix)
+                </a>
+                <Link to="/support/optispace-pc" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
+                  View Documentation
+                </Link>
+              </div>
             </div>
 
             {/* De-Vibe OMS */}

@@ -42,7 +42,14 @@ export default function AndroidApps() {
                 </div>
               </div>
               
-              <Link to="/support/optispace-mobile" className="btn">View Documentation & Support</Link>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a href="https://github.com/devibe70-ux/optispace-mobile/releases/latest/download/OptiSpace.apk" className="btn" download>
+                  Download APK
+                </a>
+                <Link to="/support/optispace-mobile" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
+                  View Documentation
+                </Link>
+              </div>
             </div>
 
             {/* Sniper Kill */}
@@ -55,7 +62,14 @@ export default function AndroidApps() {
                 Sniper Kill is a high-octane mobile gaming experience developed in-house. Featuring advanced ballistics physics and high-fidelity 3D environments, it pushes the boundaries of what is possible on modern Android hardware.
               </p>
               
-              <Link to="/support/sniper-kill" className="btn">Game Support & FAQ</Link>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a href="https://github.com/davincishah/sniper-kill/releases/latest/download/SniperKill.apk" className="btn" download>
+                  Download Game APK
+                </a>
+                <Link to="/support/sniper-kill" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
+                  Game Support & FAQ
+                </Link>
+              </div>
             </div>
 
           </div>

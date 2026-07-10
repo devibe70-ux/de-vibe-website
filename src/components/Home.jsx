@@ -1,8 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import Hero from './Hero';
 import About from './About';
-import Services from './Services';
-import Projects from './Projects';
 
 export default function Home() {
   return (
@@ -13,8 +11,6 @@ export default function Home() {
       </Helmet>
       <Hero />
       <About />
-      <Services />
-      <Projects />
     </>
   );
 }

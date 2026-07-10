@@ -1,4 +1,5 @@
 import { Monitor, PenTool, Rocket, Code } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const services = [
   {
@@ -25,19 +26,25 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services">
-      <div className="container">
-        <h2>Our Services</h2>
-        <div className="grid grid-2 grid-4">
-          {services.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon">{service.icon}</div>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </div>
-          ))}
+    <>
+      <Helmet>
+        <title>Our Services - De Vibe Agency</title>
+        <meta name="description" content="Explore our premium web design, enterprise software, and branding services." />
+      </Helmet>
+      <section id="services" style={{ minHeight: '80vh', padding: '6rem 0' }}>
+        <div className="container">
+          <h2>Our Services</h2>
+          <div className="grid grid-2 grid-4">
+            {services.map((service, index) => (
+              <div key={index} className="service-card">
+                <div className="service-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

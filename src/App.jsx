@@ -14,6 +14,8 @@ const Contact = lazy(() => import('./components/Contact'));
 const AndroidApps = lazy(() => import('./components/AndroidApps'));
 const MicrosoftApps = lazy(() => import('./components/MicrosoftApps'));
 const Support = lazy(() => import('./components/Support'));
+const Services = lazy(() => import('./components/Services'));
+const Projects = lazy(() => import('./components/Projects'));
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
               <Route path="/android" element={<AndroidApps />} />
               <Route path="/microsoft" element={<MicrosoftApps />} />
               <Route path="/support/:appId" element={<Support />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/projects" element={<Projects />} />
             </Routes>
           </Suspense>
         </main>

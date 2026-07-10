@@ -47,7 +47,14 @@ export default function MicrosoftApps() {
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
                 Our proprietary Order Management System (OMS) built to handle complex, omni-channel operational workflows. It serves as the central nervous system for enterprise clients, integrating seamlessly with existing ERPs and frontend systems to automate data routing, status updates, and inventory synchronization.
               </p>
-              <Link to="/support/de-vibe-oms" className="btn">Enterprise Documentation</Link>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a href="https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix" className="btn" download>
+                  Download Enterprise Installer
+                </a>
+                <Link to="/support/de-vibe-oms" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
+                  Enterprise Documentation
+                </Link>
+              </div>
             </div>
 
             {/* Bahamut OMS */}

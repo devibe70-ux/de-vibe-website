@@ -45,19 +45,6 @@ export default function AndroidApps() {
               <Link to="/support/optispace-mobile" className="btn">View Documentation & Support</Link>
             </div>
 
-            {/* Sniper Kill */}
-            <div style={{ backgroundColor: 'var(--surface)', padding: '3rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                <Zap size={32} color="var(--accent)" />
-                <h2 style={{ margin: 0, fontSize: '2rem' }}>Sniper Kill</h2>
-              </div>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                Sniper Kill is a high-octane mobile gaming experience developed in-house. Featuring advanced ballistics physics and high-fidelity 3D environments, it pushes the boundaries of what is possible on modern Android hardware.
-              </p>
-              
-              <Link to="/support/sniper-kill" className="btn">Game Support & FAQ</Link>
-            </div>
-
           </div>
         </div>
       </section>

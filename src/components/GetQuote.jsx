@@ -76,7 +76,7 @@ export default function GetQuote() {
 
     // Map answers to readable labels for the email
     const payload = {
-      access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+      access_key: "45435487-fdf4-41dd-972a-de5a219ce29f",
       subject: "New Project Inquiry - De Vibe",
       from_name: formData.q1 || "New Client",
     };

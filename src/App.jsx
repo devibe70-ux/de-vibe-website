@@ -1,21 +1,19 @@
-import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import GetQuote from './components/GetQuote';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
+import Blog from './components/Blog';
+import BlogPost from './components/BlogPost';
+import Contact from './components/Contact';
+import AndroidApps from './components/AndroidApps';
+import MicrosoftApps from './components/MicrosoftApps';
+import Support from './components/Support';
+import Services from './components/Services';
+import Projects from './components/Projects';
 import './App.css';
-
-const GetQuote = lazy(() => import('./components/GetQuote'));
-const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
-const TermsOfService = lazy(() => import('./components/TermsOfService'));
-const Blog = lazy(() => import('./components/Blog'));
-const BlogPost = lazy(() => import('./components/BlogPost'));
-const Contact = lazy(() => import('./components/Contact'));
-const AndroidApps = lazy(() => import('./components/AndroidApps'));
-const MicrosoftApps = lazy(() => import('./components/MicrosoftApps'));
-const Support = lazy(() => import('./components/Support'));
-const Services = lazy(() => import('./components/Services'));
-const Projects = lazy(() => import('./components/Projects'));
 
 function App() {
   return (
@@ -23,22 +21,20 @@ function App() {
       <div className="app-wrapper">
         <Header />
         <main>
-          <Suspense fallback={<div style={{ textAlign: 'center', padding: '5rem 0' }}>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/quote" element={<GetQuote />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/terms" element={<TermsOfService />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogPost />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/android" element={<AndroidApps />} />
-              <Route path="/microsoft" element={<MicrosoftApps />} />
-              <Route path="/support/:appId" element={<Support />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/projects" element={<Projects />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/quote" element={<GetQuote />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/android" element={<AndroidApps />} />
+            <Route path="/microsoft" element={<MicrosoftApps />} />
+            <Route path="/support/:appId" element={<Support />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
         </main>
         <Footer />
       </div>

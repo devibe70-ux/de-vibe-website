@@ -13,6 +13,7 @@ import MicrosoftApps from './components/MicrosoftApps';
 import Support from './components/Support';
 import Services from './components/Services';
 import Projects from './components/Projects';
+import Reviews from './components/Reviews';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path="/support/:appId" element={<Support />} />
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/reviews" element={<Reviews />} />
           </Routes>
         </main>
         <Footer />

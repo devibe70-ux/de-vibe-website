@@ -16,6 +16,7 @@ export default function Header() {
           <Link to="/android">Android</Link>
           <Link to="/microsoft">Windows</Link>
           <Link to="/blog">Insights</Link>
+          <Link to="/reviews">Reviews</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/quote" className="btn">Get Quote</Link>
         </nav>

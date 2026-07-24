@@ -101,18 +101,46 @@ export default function Support() {
     );
   }
 
+  const canonicalUrl = `https://www.devibestudio.com/support/${appId}`;
+  const techArticleSchema = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": doc.title,
+    "description": `Official technical documentation and support for ${doc.title}.`,
+    "mainEntityOfPage": canonicalUrl,
+    "author": { "@type": "Organization", "name": "De Vibe Enterprise Engineering" }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devibestudio.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Ecosystem", "item": `https://www.devibestudio.com${doc.ecosystem}` },
+      { "@type": "ListItem", "position": 3, "name": doc.title, "item": canonicalUrl }
+    ]
+  };
+
   return (
     <>
       <Helmet>
         <title>{doc.title} - De Vibe Documentation</title>
         <meta name="description" content={`Official technical documentation and support for ${doc.title}.`} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={`${doc.title} - De Vibe`} />
+        <meta property="og:description" content={`Official technical documentation for ${doc.title}.`} />
+        <meta property="og:url" content={canonicalUrl} />
+        <script type="application/ld+json">{JSON.stringify(techArticleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
         <div className="container" style={{ maxWidth: '900px' }}>
-          <Link to={doc.ecosystem} style={{ color: 'var(--accent)', textDecoration: 'none', display: 'inline-block', marginBottom: '2rem' }}>
-            &larr; Back to Ecosystem
-          </Link>
+          <div style={{ marginBottom: '1.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+            <Link to="/" style={{ color: 'var(--text-secondary)' }}>Home</Link> &nbsp;&gt;&nbsp; 
+            <Link to={doc.ecosystem} style={{ color: 'var(--text-secondary)' }}>Ecosystem</Link> &nbsp;&gt;&nbsp; 
+            <span style={{ color: 'var(--text-primary)', fontWeight: '500' }}>{doc.title}</span>
+          </div>
           
           <h1 style={{ fontSize: '2.5rem', marginBottom: '3rem', borderBottom: '1px solid var(--border)', paddingBottom: '1rem' }}>
             {doc.title}

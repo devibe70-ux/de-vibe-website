@@ -3,11 +3,30 @@ import { Smartphone, Shield, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function AndroidApps() {
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "OptiSpace Mobile",
+    "operatingSystem": "Android",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "On-device storage optimization utility using AI machine learning models."
+  };
+
   return (
     <>
       <Helmet>
         <title>Android Ecosystem - De Vibe Apps & Games</title>
         <meta name="description" content="Explore De Vibe's powerful Android ecosystem, including OptiSpace Mobile and immersive gaming experiences." />
+        <link rel="canonical" href="https://www.devibestudio.com/android" />
+        <meta property="og:title" content="Android Ecosystem - De Vibe Apps" />
+        <meta property="og:description" content="Explore De Vibe's powerful Android ecosystem, featuring OptiSpace Mobile." />
+        <meta property="og:url" content="https://www.devibestudio.com/android" />
+        <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
       </Helmet>
       
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>

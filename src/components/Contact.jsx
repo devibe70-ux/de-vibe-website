@@ -7,6 +7,9 @@ export default function Contact() {
       <Helmet>
         <title>Contact Us - De Vibe Agency</title>
         <meta name="description" content="Get in touch with De Vibe for premium web development, custom software, and branding solutions." />
+        <link rel="canonical" href="https://www.devibestudio.com/contact" />
+        <meta property="og:title" content="Contact Us - De Vibe Agency" />
+        <meta property="og:url" content="https://www.devibestudio.com/contact" />
       </Helmet>
       
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>

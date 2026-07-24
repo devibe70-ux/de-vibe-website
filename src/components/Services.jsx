@@ -25,11 +25,28 @@ const services = [
 ];
 
 export default function Services() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Web & Software Development Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "De Vibe Agency"
+    },
+    "serviceType": "Web Development, Corporate Software, Logo Design, Digital Consulting",
+    "areaServed": "Global"
+  };
+
   return (
     <>
       <Helmet>
         <title>Our Services - De Vibe Agency</title>
         <meta name="description" content="Explore our premium web design, enterprise software, and branding services." />
+        <link rel="canonical" href="https://www.devibestudio.com/services" />
+        <meta property="og:title" content="Our Services - De Vibe Agency" />
+        <meta property="og:description" content="Explore our premium web design, enterprise software, and branding services." />
+        <meta property="og:url" content="https://www.devibestudio.com/services" />
+        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
       </Helmet>
       <section id="services" style={{ minHeight: '80vh', padding: '6rem 0' }}>
         <div className="container">

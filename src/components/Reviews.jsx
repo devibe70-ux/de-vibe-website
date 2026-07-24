@@ -41,6 +41,9 @@ export default function Reviews() {
       <Helmet>
         <title>Client Reviews - De Vibe Agency</title>
         <meta name="description" content="Read authentic reviews from clients who have partnered with De Vibe for custom web development, branding, and enterprise software solutions." />
+        <link rel="canonical" href="https://www.devibestudio.com/reviews" />
+        <meta property="og:title" content="Client Reviews - De Vibe Agency" />
+        <meta property="og:url" content="https://www.devibestudio.com/reviews" />
       </Helmet>
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
         <div className="container">

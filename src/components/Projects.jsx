@@ -9,6 +9,9 @@ export default function Projects() {
       <Helmet>
         <title>Our Projects & Ecosystem - De Vibe Agency</title>
         <meta name="description" content="View our portfolio of custom software, websites, and open-source projects." />
+        <link rel="canonical" href="https://www.devibestudio.com/projects" />
+        <meta property="og:title" content="Our Projects & Ecosystem - De Vibe Agency" />
+        <meta property="og:url" content="https://www.devibestudio.com/projects" />
       </Helmet>
       <section id="projects" style={{ minHeight: '80vh', padding: '6rem 0' }}>
         <div className="container">

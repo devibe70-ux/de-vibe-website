@@ -14,6 +14,7 @@ import Support from './components/Support';
 import Services from './components/Services';
 import Projects from './components/Projects';
 import Reviews from './components/Reviews';
+import CookieBanner from './components/CookieBanner';
 import './App.css';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <CookieBanner />
       </div>
     </Router>
   );

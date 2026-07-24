@@ -3,11 +3,36 @@ import { Monitor, Briefcase, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function MicrosoftApps() {
+  const msAppSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "OptiSpace PC",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "downloadUrl": "https://github.com/devibe70-ux/optispace-pc-version-/releases/latest/download/OptiSpace.msix"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "De-Vibe OMS",
+      "operatingSystem": "Windows, Cloud",
+      "applicationCategory": "BusinessApplication",
+      "downloadUrl": "https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix"
+    }
+  ];
+
   return (
     <>
       <Helmet>
         <title>Microsoft & Windows Ecosystem - De Vibe Enterprise</title>
         <meta name="description" content="Explore De Vibe's Windows and enterprise software ecosystem, featuring OptiSpace PC and De-Vibe OMS." />
+        <link rel="canonical" href="https://www.devibestudio.com/microsoft" />
+        <meta property="og:title" content="Windows Ecosystem - De Vibe Software" />
+        <meta property="og:description" content="Explore De Vibe's Windows software ecosystem, featuring OptiSpace PC and De-Vibe OMS." />
+        <meta property="og:url" content="https://www.devibestudio.com/microsoft" />
+        <script type="application/ld+json">{JSON.stringify(msAppSchema)}</script>
       </Helmet>
       
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>

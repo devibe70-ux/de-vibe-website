@@ -225,20 +225,62 @@ export default function BlogPost() {
     );
   }
 
+  const canonicalUrl = `https://www.devibestudio.com/blog/${id}`;
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": article.title,
+    "datePublished": article.date,
+    "description": article.excerpt,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "De Vibe Agency"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "De Vibe",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.devibestudio.com/banner.jpg"
+      }
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devibestudio.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.devibestudio.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": article.title, "item": canonicalUrl }
+    ]
+  };
+
   return (
     <>
       <Helmet>
         <title>{article.title} - De Vibe Insights</title>
         <meta name="description" content={article.excerpt} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={`${article.title} - De Vibe`} />
         <meta property="og:description" content={article.excerpt} />
         <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content="https://www.devibestudio.com/banner.jpg" />
+        <script type="application/ld+json">{JSON.stringify(blogPostingSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <Link to="/blog" style={{ color: 'var(--accent)', textDecoration: 'none', display: 'inline-block', marginBottom: '2rem' }}>
-            &larr; Back to Blog
-          </Link>
+          <div style={{ marginBottom: '1.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+            <Link to="/" style={{ color: 'var(--text-secondary)' }}>Home</Link> &nbsp;&gt;&nbsp; 
+            <Link to="/blog" style={{ color: 'var(--text-secondary)' }}>Insights</Link> &nbsp;&gt;&nbsp; 
+            <span style={{ color: 'var(--text-primary)', fontWeight: '500' }}>{article.title}</span>
+          </div>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: '1.2' }}>{article.title}</h1>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Published on {article.date}</p>
           

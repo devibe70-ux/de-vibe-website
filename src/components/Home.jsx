@@ -8,6 +8,7 @@ export default function Home() {
       <Helmet>
         <title>De Vibe | Premium Web & Software Agency</title>
         <meta name="description" content="Elevate your digital presence. De Vibe specializes in custom web development, corporate software solutions, and premium logo design." />
+        <link rel="canonical" href="https://www.devibestudio.com/" />
       </Helmet>
       <Hero />
       <About />

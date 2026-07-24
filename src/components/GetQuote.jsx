@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
@@ -210,9 +211,17 @@ export default function GetQuote() {
   const currentPhase = phases[currentStep];
 
   return (
-    <section className="bg-alt" style={{ flex: 1, padding: '4rem 0' }}>
-      <div className="container quote-container" style={{ maxWidth: '700px' }}>
-        <h2>Start Your Project</h2>
+    <>
+      <Helmet>
+        <title>Get a Free Quote - De Vibe Agency</title>
+        <meta name="description" content="Request a free project estimate for web development, software solutions, or logo design." />
+        <link rel="canonical" href="https://www.devibestudio.com/quote" />
+        <meta property="og:title" content="Get a Free Quote - De Vibe Agency" />
+        <meta property="og:url" content="https://www.devibestudio.com/quote" />
+      </Helmet>
+      <section className="bg-alt" style={{ flex: 1, padding: '4rem 0' }}>
+        <div className="container quote-container" style={{ maxWidth: '700px' }}>
+          <h1>Start Your Project</h1>
         
         {/* Progress Bar */}
         <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem' }}>
@@ -327,5 +336,6 @@ export default function GetQuote() {
         </form>
       </div>
     </section>
+    </>
   );
 }

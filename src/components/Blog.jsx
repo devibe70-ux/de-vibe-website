@@ -110,6 +110,9 @@ export default function Blog() {
       <Helmet>
         <title>Insights & Articles - De Vibe Agency</title>
         <meta name="description" content="Read the latest insights on web development, enterprise software, and branding from the experts at De Vibe." />
+        <link rel="canonical" href="https://www.devibestudio.com/blog" />
+        <meta property="og:title" content="Insights & Articles - De Vibe Agency" />
+        <meta property="og:url" content="https://www.devibestudio.com/blog" />
       </Helmet>
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
       <div className="container">

@@ -116,17 +116,12 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.devibestudio.com/support/optispace-mobile</loc>
+    <loc>https://www.devibestudio.com/support/optispace-pc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.devibestudio.com/support/sniper-kill</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.devibestudio.com/support/optispace-pc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

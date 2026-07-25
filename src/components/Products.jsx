@@ -276,16 +276,16 @@ export default function Products() {
           
           <div className="grid grid-3">
             
-            {/* OptiSpace Mobile */}
+            {/* OptiSpace PC / OptiSpec PC */}
             <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <Smartphone size={24} color="var(--accent)" />
-                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>OptiSpace Mobile</h3>
+                <HardDrive size={24} color="var(--accent)" />
+                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>OptiSpace PC</h3>
               </div>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                On-device Android storage optimization utilizing edge Machine Learning models. Safely detects similar duplicate visual media without uploading data to the cloud.
+                Windows desktop disk analyzer and high-performance storage manager. Scans system volumes, visualizes space consumption, purges orphaned installers, and optimizes file allocation tables locally without cloud upload.
               </p>
-              <Link to="/android" className="btn btn-outline" style={{ textAlign: 'center' }}>Explore Android Suite</Link>
+              <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>Explore Windows Suite</Link>
             </div>
 
             {/* De-Vibe OMS */}

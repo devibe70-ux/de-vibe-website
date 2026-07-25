@@ -2,23 +2,19 @@ import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 
 const supportDocs = {
-  'optispace-mobile': {
-    title: 'OptiSpace Mobile - Support & Documentation',
-    ecosystem: '/android',
+  'optispace-pc': {
+    title: 'OptiSpace PC (OptiSpec PC) - Support & Documentation',
+    ecosystem: '/microsoft',
     content: (
       <>
-        <h3>Introduction to OptiSpace Mobile</h3>
-        <p>OptiSpace Mobile is a revolutionary on-device storage optimization utility designed specifically for Android. Unlike cloud-based cleaners that upload your private photos to external servers for analysis, OptiSpace utilizes a highly optimized TensorFlow Lite model running locally on your device's NPU (Neural Processing Unit). This ensures absolute privacy and immediate results.</p>
+        <h3>Introduction to OptiSpace PC</h3>
+        <p>OptiSpace PC (OptiSpec PC Suite) is a native Windows desktop disk space analyzer and high-performance storage manager. Designed specifically for desktop power users and repair technicians, it visualizes drive usage, purges orphaned installers, and optimizes file allocation tables locally without cloud upload.</p>
         
-        <h3>How the Fuzzy Matching Algorithm Works</h3>
-        <p>Traditional duplicate finders rely on exact cryptographic hashes (like MD5 or SHA-256). If a photo is slightly cropped, has a different EXIF timestamp, or has a subtle filter applied, a hash-checker will consider them two entirely different files. OptiSpace uses perceptual hashing and structural similarity indexing (SSIM). It "looks" at the photos exactly like a human would. If you took burst photos of a landscape, OptiSpace will identify them as a cluster of fuzzy duplicates, allowing you to select the sharpest one and discard the rest, saving gigabytes of storage.</p>
-        
-        <h3>Troubleshooting: "Analysis Paused Due to Thermal Throttling"</h3>
-        <p>If you see this error message, your device is protecting itself. Analyzing thousands of high-resolution images using Machine Learning is a highly compute-intensive task that generates significant heat. If your phone's internal temperature exceeds safe operating limits, OptiSpace will automatically pause the scan. <strong>Solution:</strong> Remove your device from its case, do not charge it during a deep scan, and allow the device to cool for 5 minutes. The scan will automatically resume.</p>
+        <h3>How the Disk Analysis Engine Works</h3>
+        <p>OptiSpace PC scans system volume partitions, analyzing directory trees and identifying large orphaned files, dead shortcut structures, and duplicate media files locally on your computer.</p>
         
         <h3>Frequently Asked Questions</h3>
-        <p><strong>Q: Does OptiSpace delete my photos automatically?</strong><br/>A: Never. OptiSpace only flags and groups similar photos. You must manually select which photos to keep and which to delete. We believe in putting the user in absolute control of their data.</p>
-        <p><strong>Q: Why does the app need storage permissions?</strong><br/>A: To analyze your photo gallery and video files, the app requires standard Android Read/Write permissions to access the local storage directories. We do not require, nor do we ask for, internet access permissions for the core analysis engine.</p>
+        <p><strong>Q: Does OptiSpace PC require internet connection?</strong><br/>A: No. OptiSpace PC runs 100% locally on your Windows machine, keeping your files completely private.</p>
       </>
     )
   },

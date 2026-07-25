@@ -37,9 +37,8 @@ const routes = [
   '/blog/ai-in-web-development',
 
   // Support docs
-  '/support/optispace-mobile',
-  '/support/sniper-kill',
   '/support/optispace-pc',
+  '/support/sniper-kill',
   '/support/de-vibe-oms',
   '/support/bahamut-oms',
 ];

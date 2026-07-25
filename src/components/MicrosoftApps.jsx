@@ -21,7 +21,7 @@ export default function MicrosoftApps() {
       "name": "OptimaFix Pro",
       "operatingSystem": "Windows 10, Windows 11",
       "applicationCategory": "UtilitiesApplication",
-      "offers": { "@type": "Offer", "price": "999", "priceCurrency": "INR" },
+      "offers": { "@type": "Offer", "price": "1178.82", "priceCurrency": "INR" },
       "downloadUrl": "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix"
     },
     {
@@ -38,11 +38,10 @@ export default function MicrosoftApps() {
     const downloadLink = "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix";
     
     openPaymentModal({
-      amountInINR: 999,
-      productName: "OptimaFix Pro",
-      productDescription: "Full Windows System Optimization License",
+      amountInINR: 1178.82,
+      productName: "OptimaFix Pro (Digital Home License)",
+      productDescription: "Full Windows System Optimization License (Base ₹999 + 18% GST)",
       onSuccess: (response) => {
-        // Automatically trigger download and open success modal
         setPaymentSuccess({
           isOpen: true,
           productName: "OptimaFix Pro",
@@ -50,7 +49,6 @@ export default function MicrosoftApps() {
           paymentId: response.razorpay_payment_id
         });
 
-        // Trigger file download
         const link = document.createElement('a');
         link.href = downloadLink;
         link.setAttribute('download', '');
@@ -68,7 +66,7 @@ export default function MicrosoftApps() {
     <>
       <Helmet>
         <title>Microsoft & Windows Ecosystem - De Vibe Enterprise</title>
-        <meta name="description" content="Explore De Vibe's Windows and enterprise software ecosystem, featuring OptimaFix Pro and De-Vibe OMS." />
+        <meta name="description" content="Explore De Vibe's Windows and enterprise software ecosystem. Prices are Exclusive of 18% GST (GSTIN: 24ASHPS97771ZE)." />
         <link rel="canonical" href="https://www.devibestudio.com/microsoft" />
         <meta property="og:title" content="Windows Ecosystem - De Vibe Software" />
         <meta property="og:description" content="Explore De Vibe's Windows software ecosystem, featuring OptimaFix Pro and De-Vibe OMS." />
@@ -92,25 +90,25 @@ export default function MicrosoftApps() {
                   <Monitor size={32} color="var(--accent)" />
                   <h2 style={{ margin: 0, fontSize: '2rem' }}>OptimaFix Pro</h2>
                 </div>
-                <span style={{ backgroundColor: 'rgba(37, 99, 235, 0.1)', color: 'var(--accent)', padding: '0.4rem 1rem', borderRadius: '20px', fontWeight: '700', fontSize: '1.1rem' }}>
-                  ₹999 INR
+                <span style={{ backgroundColor: 'rgba(37, 99, 235, 0.1)', color: 'var(--accent)', padding: '0.4rem 1rem', borderRadius: '20px', fontWeight: '700', fontSize: '1rem' }}>
+                  ₹999 Excl. GST (₹1,178.82 Total)
                 </span>
               </div>
 
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                OptimaFix Pro brings our powerful diagnostics and automated system optimization engine to the Windows desktop environment. It deeply scans disk health (SMART parameters), clears cache, fixes dead shortcuts, resets DNS, and applies registry customization tweaks (like Telemetry disabling and visual speedup parameters).
+                OptimaFix Pro brings our powerful diagnostics and automated system optimization engine to the Windows desktop environment. It deeply scans disk health, clears cache, fixes dead shortcuts, resets DNS, and applies registry customization tweaks.
               </p>
 
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
                 <button onClick={handleBuyOptimaFix} className="btn" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.85rem 1.75rem', fontSize: '1rem', fontWeight: '600' }}>
-                  <ShoppingCart size={18} /> Buy Now & Download (₹999)
+                  <ShoppingCart size={18} /> Buy Now & Download (₹1,178.82 Total)
                 </button>
-                <Link to="/support/optimafix-pro" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
-                  View Documentation
+                <Link to="/products" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
+                  View All Formats
                 </Link>
               </div>
               <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                <ShieldCheck size={16} color="#10b981" /> Instant digital delivery via official Razorpay Payment Gateway.
+                <ShieldCheck size={16} color="#10b981" /> 18% GST Tax Invoice (Seller GSTIN: 24ASHPS97771ZE) issued automatically.
               </div>
             </div>
 
@@ -121,12 +119,12 @@ export default function MicrosoftApps() {
                 <h2 style={{ margin: 0, fontSize: '2rem' }}>De-Vibe OMS</h2>
               </div>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                Our proprietary Order Management System (OMS) built to handle complex, omni-channel operational workflows. It serves as the central nervous system for enterprise clients, integrating seamlessly with existing ERPs and frontend systems to automate data routing, status updates, and inventory synchronization.
+                Our proprietary Order Management System (OMS) built to handle complex, omni-channel operational workflows. It serves as the central nervous system for enterprise clients, integrating seamlessly with existing ERPs and frontend systems.
               </p>
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <a href="https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix" className="btn" download>
-                  Download Enterprise Installer
-                </a>
+                <Link to="/products" className="btn">
+                  Buy Enterprise License (₹14,999 Excl. GST)
+                </Link>
                 <Link to="/support/de-vibe-oms" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
                   Enterprise Documentation
                 </Link>
@@ -140,9 +138,16 @@ export default function MicrosoftApps() {
                 <h2 style={{ margin: 0, fontSize: '2rem' }}>Bahamut OMS</h2>
               </div>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                A highly specialized fork of our core OMS technology, Bahamut OMS is designed for high-frequency, extreme-volume transaction environments. It leverages aggressive caching strategies and distributed database architectures to maintain sub-millisecond response times under heavy enterprise loads.
+                A highly specialized fork of our core OMS technology, Bahamut OMS is designed for high-frequency, extreme-volume transaction environments.
               </p>
-              <Link to="/support/bahamut-oms" className="btn">Enterprise Documentation</Link>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link to="/products" className="btn">
+                  Buy High-Freq License (₹29,999 Excl. GST)
+                </Link>
+                <Link to="/support/bahamut-oms" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
+                  Enterprise Documentation
+                </Link>
+              </div>
             </div>
 
           </div>

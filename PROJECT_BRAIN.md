@@ -30,19 +30,24 @@
 
 ---
 
-## 3. Product Catalog & Commercial Formats
+### 3.1. Product Catalog & Pricing Structure (Exclusive of 18% GST)
+- **GST Compliance**: 18% GST (SAC Code 997331 - IT Software Product License)
+- **Seller GSTIN**: `24ASHPS97771ZE` (State Code 24 - Gujarat)
+- **Pricing Model**: Listed prices are **Exclusive of 18% GST**. 18% GST is added at checkout.
 
-### 3.1. OptimaFix Pro (Windows Diagnostic & Repair Suite)
-- **Repository**: `pc-repair-tool`
-- **Installer URL**: `https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix`
-- **GST Compliance**: 18% GST (SAC 997331 - IT Software Product License) | **Seller GSTIN**: `24ASHPS97771ZE`
-- **Pricing & Variants (Incl. 18% GST)**:
-  1. **Digital Home License** — **₹999.00 INR** (Base: ₹846.61 + 18% GST: ₹152.39)
-  2. **Tech Pro License** — **₹3,999.00 INR / year** (Base: ₹3,388.98 + 18% GST: ₹610.02)
-  3. **Technician Rescue USB** — **₹5,999.00 INR** (Base: ₹5,083.90 + 18% GST: ₹915.10)
-
-
-### 3.2. OptiSpace Mobile (Android AI Storage Cleaner)
+#### Products & Formats:
+1. **OptimaFix Pro (Digital Home License)**:
+   - Base Price: **₹999.00** | +18% GST (₹179.82) ➔ **Total Payable: ₹1,178.82**
+2. **OptimaFix Pro (Tech Pro License)**:
+   - Base Price: **₹3,999.00 / year** | +18% GST (₹719.82) ➔ **Total Payable: ₹4,718.82 / year**
+3. **OptimaFix Pro (Technician Boot USB)**:
+   - Base Price: **₹5,999.00** | +18% GST (₹1,079.82) ➔ **Total Payable: ₹7,078.82**
+4. **OptiSpace PC Pro (OptiSpec PC)**:
+   - Base Price: **₹499.00** | +18% GST (₹89.82) ➔ **Total Payable: ₹588.82**
+5. **De-Vibe OMS Enterprise**:
+   - Base Price: **₹14,999.00** | +18% GST (₹2,699.82) ➔ **Total Payable: ₹17,698.82**
+6. **Bahamut OMS High-Frequency Engine**:
+   - Base Price: **₹29,999.00** | +18% GST (₹5,399.82) ➔ **Total Payable: ₹35,398.82**
 - **Repository**: `optispace-mobile`
 - **Architecture**: Edge Machine Learning (TensorFlow Lite running on device NPU). Scans photo/video libraries for fuzzy duplicates and structural similarity (SSIM) without cloud data upload.
 - **Format**: Free / Freemium download.

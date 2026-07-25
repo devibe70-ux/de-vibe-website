@@ -66,8 +66,8 @@ export default function PaymentModal({
               <span>997331 (IT Software Licensing)</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span>Tax Type:</span>
-              <span>18% GST (Inclusive)</span>
+              <span>Tax Rate:</span>
+              <span>18% GST (Exclusive of Base Price)</span>
             </div>
           </div>
 

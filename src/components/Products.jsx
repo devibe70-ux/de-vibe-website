@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck, HardDrive, Key, Award } from 'lucide-react';
+import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck, HardDrive, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRazorpay } from '../hooks/useRazorpay';
 import PaymentModal from './PaymentModal';
@@ -41,6 +41,26 @@ const optimafixVariants = [
   }
 ];
 
+// AEO FAQ Questions & Answers
+const faqs = [
+  {
+    question: "How do I purchase software directly on De Vibe Studio before Microsoft Store availability?",
+    answer: "You can purchase direct digital licenses right here using our integrated Razorpay payment gateway. Upon verified payment, your digital license key activates immediately and your software installer (.msix) downloads directly."
+  },
+  {
+    question: "Is 18% GST tax invoice included with software purchases?",
+    answer: "Yes! Every purchase includes an official 18% GST Tax Invoice (SAC Code 997331) issued under Seller GSTIN 24ASHPS97771ZE."
+  },
+  {
+    question: "Does OptimaFix Pro work on Windows 10 and Windows 11?",
+    answer: "Yes, OptimaFix Pro is fully compatible with Windows 10, Windows 11 (64-bit), and Windows Server environments."
+  },
+  {
+    question: "How does De-Vibe OMS integrate with existing enterprise systems?",
+    answer: "De-Vibe OMS provides REST and GraphQL webhooks to sync omni-channel inventory, sales status, and ERP data in real-time."
+  }
+];
+
 export default function Products() {
   const [selectedVariantId, setSelectedVariantId] = useState('digital');
   const { openPaymentModal } = useRazorpay();
@@ -53,52 +73,100 @@ export default function Products() {
 
   const selectedVariant = optimafixVariants.find(v => v.id === selectedVariantId) || optimafixVariants[0];
 
-  const productSchema = {
+  // Full-Stack SEO, AEO (Answer Engine Optimization), GEO (Generative Engine Optimization) Schema Graph
+  const seoAeoGeoSchema = {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://www.devibestudio.com/#organization",
+        "name": "De Vibe Studio",
+        "url": "https://www.devibestudio.com",
+        "logo": "https://www.devibestudio.com/banner.jpg",
+        "vatID": "24ASHPS97771ZE",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ahmedabad",
+          "addressRegion": "Gujarat",
+          "addressCountry": "IN"
+        }
+      },
+      ...optimafixVariants.map(v => ({
         "@type": "SoftwareApplication",
-        "name": "OptimaFix Pro",
+        "name": `OptimaFix Pro - ${v.title}`,
         "operatingSystem": "Windows 10, Windows 11",
         "applicationCategory": "UtilitiesApplication",
-        "offers": optimafixVariants.map(v => ({
+        "offers": {
           "@type": "Offer",
-          "name": v.title,
           "price": v.price.toString(),
           "priceCurrency": "INR",
           "eligibleRegion": "IN",
+          "vatID": "24ASHPS97771ZE",
+          "availability": "https://schema.org/InStock"
+        }
+      })),
+      {
+        "@type": "SoftwareApplication",
+        "name": "OptiSpace PC (OptiSpec PC)",
+        "operatingSystem": "Windows 10, Windows 11",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "499",
+          "priceCurrency": "INR",
           "vatID": "24ASHPS97771ZE"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "De-Vibe OMS Enterprise",
+        "operatingSystem": "Windows, Cloud",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "14999",
+          "priceCurrency": "INR",
+          "vatID": "24ASHPS97771ZE"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
         }))
       }
     ]
   };
 
-  const handleCheckout = (variant) => {
-    const targetVariant = variant || selectedVariant;
-    const downloadLink = "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix";
-
+  const handleCheckoutProduct = (name, price, description, downloadLink) => {
     openPaymentModal({
-      amountInINR: targetVariant.price,
-      productName: `OptimaFix Pro (${targetVariant.title})`,
-      productDescription: targetVariant.description,
+      amountInINR: price,
+      productName: name,
+      productDescription: description,
       onSuccess: (response) => {
         setPaymentSuccess({
           isOpen: true,
-          productName: `OptimaFix Pro - ${targetVariant.title}`,
+          productName: name,
           downloadUrl: downloadLink,
           paymentId: response.razorpay_payment_id
         });
 
-        // Trigger automatic file download
-        const link = document.createElement('a');
-        link.href = downloadLink;
-        link.setAttribute('download', '');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        if (downloadLink) {
+          const link = document.createElement('a');
+          link.href = downloadLink;
+          link.setAttribute('download', '');
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
       },
       onFailure: (errorMsg) => {
-        console.log('Razorpay dismiss:', errorMsg);
+        console.log('Payment checkout cancelled:', errorMsg);
       }
     });
   };
@@ -106,20 +174,29 @@ export default function Products() {
   return (
     <>
       <Helmet>
-        <title>Software Products & Utilities - De Vibe Studio</title>
-        <meta name="description" content="Explore De Vibe's software suites with 18% GST tax invoice compliance (GSTIN: 24ASHPS97771ZE), featuring OptimaFix Pro, OptiSpace Mobile, and enterprise OMS." />
+        <title>Software Products & Direct License Sales - De Vibe Studio</title>
+        <meta name="description" content="Purchase official software licenses directly on De Vibe Studio before Microsoft Store launch. OptimaFix Pro, OptiSpace PC, De-Vibe OMS. 18% GST Tax Invoice (GSTIN: 24ASHPS97771ZE)." />
         <link rel="canonical" href="https://www.devibestudio.com/products" />
-        <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
+        
+        {/* GEO & Geo-Targeting Meta Tags */}
+        <meta name="geo.region" content="IN-GJ" />
+        <meta name="geo.placename" content="Ahmedabad, Gujarat, India" />
+        <meta name="geo.position" content="23.0225;72.5714" />
+        <meta name="ICBM" content="23.0225, 72.5714" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="en_IN" />
+
+        <script type="application/ld+json">{JSON.stringify(seoAeoGeoSchema)}</script>
       </Helmet>
 
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
           
           <h1 style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
-            Software Products
+            Software Products & Direct License Store
           </h1>
           <p style={{ color: 'var(--text-secondary)', textAlign: 'center', marginBottom: '1.5rem', fontSize: '1.2rem' }}>
-            Next-generation system utility software and enterprise database environments.
+            Purchase official software licenses directly on our site prior to Microsoft Store release.
           </p>
 
           {/* GSTIN & Tax Compliance Banner */}
@@ -172,7 +249,7 @@ export default function Products() {
               OptimaFix Pro is an elite computer diagnostic and automated repair toolkit for Windows systems. Modeled after professional hardware diagnostics suites, it sequentially analyzes system files health, clears caches, deletes dead shortcut structures, purges orphaned installers, resets DNS latency, and applies custom visual tweaks.
             </p>
 
-            {/* 3 Formats / Variants Selector Grid */}
+            {/* 3 Formats Grid */}
             <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', textAlign: 'center' }}>
               Select Your OptimaFix Pro Format:
             </h3>
@@ -217,7 +294,7 @@ export default function Products() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleCheckout(variant);
+                        handleCheckoutProduct(`OptimaFix Pro (${variant.title})`, variant.price, variant.description, "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix");
                       }}
                       className="btn"
                       style={{
@@ -237,42 +314,10 @@ export default function Products() {
                 );
               })}
             </div>
-
-            {/* Selected Format Summary Bar */}
-            <div style={{ 
-              backgroundColor: 'var(--bg-secondary)', 
-              padding: '1.5rem 2rem', 
-              borderRadius: '12px', 
-              border: '1px solid var(--border)', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'space-between', 
-              flexWrap: 'wrap', 
-              gap: '1rem' 
-            }}>
-              <div>
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: '600' }}>Selected Package:</span>
-                <h4 style={{ margin: '0.25rem 0 0 0', fontSize: '1.1rem' }}>
-                  {selectedVariant.title} ({selectedVariant.priceDisplay} incl. 18% GST)
-                </h4>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-                  Base Price: {selectedVariant.basePrice} | 18% GST: {selectedVariant.gstAmount} | GSTIN: 24ASHPS97771ZE
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <button
-                  onClick={() => handleCheckout(selectedVariant)}
-                  className="btn"
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1.5rem' }}
-                >
-                  <ShieldCheck size={18} /> Proceed to Razorpay Checkout ({selectedVariant.priceDisplay})
-                </button>
-              </div>
-            </div>
           </div>
 
-          {/* Sibling Products Grid */}
-          <h2 style={{ fontSize: '2rem', marginBottom: '2.5rem', textAlign: 'center' }}>Additional Ecosystem Solutions</h2>
+          {/* Sibling Direct Purchase Products Grid */}
+          <h2 style={{ fontSize: '2rem', marginBottom: '2.5rem', textAlign: 'center' }}>Direct Software License Purchases</h2>
           
           <div className="grid grid-3">
             
@@ -280,38 +325,82 @@ export default function Products() {
             <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
                 <HardDrive size={24} color="var(--accent)" />
-                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>OptiSpace PC</h3>
+                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>OptiSpace PC Pro</h3>
               </div>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                Windows desktop disk analyzer and high-performance storage manager. Scans system volumes, visualizes space consumption, purges orphaned installers, and optimizes file allocation tables locally without cloud upload.
+              <div style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.5rem' }}>
+                ₹499 <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '400' }}>(Incl. 18% GST)</span>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1.5rem', flex: 1 }}>
+                Windows desktop disk analyzer and high-performance storage manager. Visualizes drive usage and purges orphaned files locally.
               </p>
-              <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>Explore Windows Suite</Link>
+              <button 
+                onClick={() => handleCheckoutProduct("OptiSpace PC Pro License", 499, "Full OptiSpace PC Pro Windows License", "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix")}
+                className="btn"
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%' }}
+              >
+                <ShoppingCart size={16} /> Buy License (₹499)
+              </button>
             </div>
 
             {/* De-Vibe OMS */}
             <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
                 <Briefcase size={24} color="var(--accent)" />
-                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>De-Vibe OMS</h3>
+                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>De-Vibe OMS Enterprise</h3>
               </div>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+              <div style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.5rem' }}>
+                ₹14,999 <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '400' }}>(Incl. 18% GST)</span>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1.5rem', flex: 1 }}>
                 Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.
               </p>
-              <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>Enterprise OMS Specs</Link>
+              <button 
+                onClick={() => handleCheckoutProduct("De-Vibe OMS Enterprise Server", 14999, "Enterprise Server Order Management License", "https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix")}
+                className="btn"
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%' }}
+              >
+                <ShoppingCart size={16} /> Buy Enterprise (₹14,999)
+              </button>
             </div>
 
             {/* Bahamut OMS */}
             <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
                 <Database size={24} color="var(--accent)" />
-                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Bahamut OMS</h3>
+                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Bahamut OMS High-Freq</h3>
               </div>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+              <div style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.5rem' }}>
+                ₹29,999 <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '400' }}>(Incl. 18% GST)</span>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1.5rem', flex: 1 }}>
                 Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.
               </p>
-              <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>View Database Specs</Link>
+              <button 
+                onClick={() => handleCheckoutProduct("Bahamut OMS High-Frequency Distributed Engine", 29999, "High-Frequency Distributed Database Engine License", "https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix")}
+                className="btn"
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%' }}
+              >
+                <ShoppingCart size={16} /> Buy High-Freq (₹29,999)
+              </button>
             </div>
 
+          </div>
+
+          {/* AEO (Answer Engine Optimization) & FAQ Section */}
+          <div style={{ marginTop: '5rem', backgroundColor: 'var(--bg-primary)', padding: '3rem', borderRadius: '16px', border: '1px solid var(--border)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+              <HelpCircle size={28} color="var(--accent)" />
+              <h2 style={{ margin: 0, fontSize: '2rem' }}>Frequently Asked Questions & Licensing Guide</h2>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {faqs.map((faq, index) => (
+                <div key={index} style={{ borderBottom: index < faqs.length - 1 ? '1px solid var(--border)' : 'none', paddingBottom: '1.5rem' }}>
+                  <h3 style={{ fontSize: '1.2rem', margin: '0 0 0.5rem 0', color: 'var(--text-primary)' }}>{faq.question}</h3>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.6', margin: 0 }}>{faq.answer}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>

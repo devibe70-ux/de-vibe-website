@@ -9,10 +9,10 @@ const optimafixVariants = [
   {
     id: 'digital',
     title: 'Digital Home License',
-    price: 999,
-    basePrice: '₹846.61',
-    gstAmount: '₹152.39',
-    priceDisplay: '₹999',
+    price: 1,
+    basePrice: '₹0.85',
+    gstAmount: '₹0.15',
+    priceDisplay: '₹1 (Test Price)',
     badge: 'Single PC',
     description: 'Instant digital key for 1 Windows PC with full diagnostics & cleanup.',
     features: ['1 PC Lifetime Activation', '5-Stage Repair Wizard', 'Registry & DNS Optimizer', 'Instant Digital Key']
@@ -20,10 +20,10 @@ const optimafixVariants = [
   {
     id: 'tech',
     title: 'Tech Pro License',
-    price: 3999,
-    basePrice: '₹3,388.98',
-    gstAmount: '₹610.02',
-    priceDisplay: '₹3,999 / year',
+    price: 2,
+    basePrice: '₹1.69',
+    gstAmount: '₹0.31',
+    priceDisplay: '₹2 (Test Price)',
     badge: 'Multi-PC / Pro',
     description: 'Unlimited PC repair license for technicians & computer repair shops.',
     features: ['Unlimited PC Repair Scans', 'Apple AST-2 Diagnostics', 'Client Comparison Reports', 'Priority 24/7 Support']
@@ -31,10 +31,10 @@ const optimafixVariants = [
   {
     id: 'usb',
     title: 'Technician Boot USB',
-    price: 5999,
-    basePrice: '₹5,083.90',
-    gstAmount: '₹915.10',
-    priceDisplay: '₹5,999',
+    price: 3,
+    basePrice: '₹2.54',
+    gstAmount: '₹0.46',
+    priceDisplay: '₹3 (Test Price)',
     badge: 'Hardware + Tech',
     description: 'Pre-loaded 16GB Bootable Rescue USB drive with offline PE console.',
     features: ['16GB Custom Hardware Drive', 'Zero-Click Offline PE Console', 'Pre-activated Tech License', 'Free Express Shipping']

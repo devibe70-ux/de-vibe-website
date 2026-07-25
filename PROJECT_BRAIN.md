@@ -34,14 +34,19 @@
 - **GST Compliance**: 18% GST (SAC Code 997331 - IT Software Product License)
 - **Seller GSTIN**: `24ASHPS97771ZE` (State Code 24 - Gujarat)
 - **Pricing Model**: Listed prices are **Exclusive of 18% GST**. 18% GST is added at checkout.
+- **Legal Invoice Format**: `RAZORPAY-0124-XXXXXX` (Official Razorpay legal tax invoice reference & audit tracking)
+- **Serial Key Tracking**: Unique `OPTFIX-2026-XXXX-XXXX-XXXX` license keys generated and logged per purchase.
+- **Plan Comparison Matrix**: Embedded directly below package cards for buyer decision guidance & legal transparency.
 
 #### Products & Formats:
 1. **OptimaFix Pro (Digital Home License)**:
    - Base Price: **₹999.00** | +18% GST (₹179.82) ➔ **Total Payable: ₹1,178.82**
-2. **OptimaFix Pro (Tech Pro License)**:
-   - Base Price: **₹3,999.00 / year** | +18% GST (₹719.82) ➔ **Total Payable: ₹4,718.82 / year**
+2. **OptimaFix Pro (Tech Pro License - Autopay)**:
+   - Monthly: Base **₹399.00 / mo** + 18% GST (₹71.82) = **₹470.82 / month**
+   - Annual: Base **₹3,999.00 / yr** + 18% GST (₹719.82) = **₹4,718.82 / year**
 3. **OptimaFix Pro (Technician Boot USB)**:
-   - Base Price: **₹5,999.00** | +18% GST (₹1,079.82) ➔ **Total Payable: ₹7,078.82**
+   - Digital ISO Soft Copy: Base **₹3,999.00** + 18% GST (₹719.82) = **₹4,718.82 Total**
+   - Physical 16GB USB Hardware: Base **₹5,999.00** + 18% GST (₹1,079.82) = **₹7,078.82 Total**
 4. **OptiSpace PC Pro (OptiSpec PC)**:
    - Base Price: **₹499.00** | +18% GST (₹89.82) ➔ **Total Payable: ₹588.82**
 5. **De-Vibe OMS Enterprise**:

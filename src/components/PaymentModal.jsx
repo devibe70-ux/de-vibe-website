@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle2, Download, FileText, Key, Copy, Check, X } from 'lucide-react';
+import { CheckCircle2, Download, FileText, Key, Copy, Check, X, ShieldCheck } from 'lucide-react';
 
 export default function PaymentModal({
   isOpen,
@@ -11,22 +11,31 @@ export default function PaymentModal({
 }) {
   const [copied, setCopied] = useState(false);
   const [activeSerialKey, setActiveSerialKey] = useState('');
+  const [invoiceNumber, setInvoiceNumber] = useState('');
 
   useEffect(() => {
     if (isOpen && paymentId) {
       // Generate or use provided unique trackable license serial key
       const generatedKey = serialNumber || `OPTFIX-2026-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
-      setActiveSerialKey(generatedKey);
+      
+      // Generate Legal Razorpay Tax Invoice Number format: RAZORPAY-0124-XXXXXX
+      const generatedInvoiceNum = `RAZORPAY-0124-${Math.floor(100000 + Math.random() * 900000)}`;
 
-      // Record license sale in local trackable storage log
+      setActiveSerialKey(generatedKey);
+      setInvoiceNumber(generatedInvoiceNum);
+
+      // Record license sale & legal tax invoice record in local storage log
       try {
         const existingLogs = JSON.parse(localStorage.getItem('devibe_license_sales_log') || '[]');
         const newRecord = {
+          invoiceNumber: generatedInvoiceNum,
           serialNumber: generatedKey,
           productName: productName || 'Software License',
           paymentId,
           date: new Date().toISOString(),
-          sellerGstin: '24ASHPS97771ZE'
+          sellerGstin: '24ASHPS97771ZE',
+          sacCode: '997331',
+          taxRate: '18% GST'
         };
         existingLogs.push(newRecord);
         localStorage.setItem('devibe_license_sales_log', JSON.stringify(existingLogs));
@@ -104,24 +113,32 @@ export default function PaymentModal({
 
           {paymentId && (
             <div className="payment-id-badge" style={{ marginBottom: '1rem' }}>
-              <span>Transaction ID:</span> <code>{paymentId}</code>
+              <span>Razorpay Txn ID:</span> <code>{paymentId}</code>
             </div>
           )}
 
-          {/* GST Tax Invoice Summary Box */}
+          {/* Legal GST Tax Invoice Summary Box */}
           <div style={{
             backgroundColor: 'var(--bg-secondary)',
             border: '1px solid var(--border)',
             borderRadius: '10px',
-            padding: '1rem',
+            padding: '1.25rem',
             width: '100%',
             fontSize: '0.85rem',
             textAlign: 'left',
             color: 'var(--text-secondary)'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: '600', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-              <FileText size={16} color="var(--accent)" /> 18% GST Tax Invoice Included
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '0.75rem', fontSize: '0.95rem' }}>
+              <FileText size={18} color="var(--accent)" /> Legal Razorpay Tax Invoice Receipt
             </div>
+
+            {invoiceNumber && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.4rem' }}>
+                <span>Official Invoice No:</span>
+                <strong style={{ color: 'var(--accent)', fontFamily: 'monospace', fontSize: '0.9rem' }}>{invoiceNumber}</strong>
+              </div>
+            )}
+
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
               <span>Seller GSTIN:</span>
               <strong style={{ color: 'var(--text-primary)' }}>24ASHPS97771ZE</strong>

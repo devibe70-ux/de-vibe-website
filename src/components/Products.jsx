@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck, HardDrive, HelpCircle, Key, Radio, Disc } from 'lucide-react';
+import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck, HardDrive, HelpCircle, Key, Radio, Disc, FileSpreadsheet, XCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRazorpay } from '../hooks/useRazorpay';
 import PaymentModal from './PaymentModal';
@@ -143,7 +143,7 @@ export default function Products() {
     <>
       <Helmet>
         <title>Software Products & Direct License Store - De Vibe Studio</title>
-        <meta name="description" content="Purchase official software licenses (Base Price + 18% GST, GSTIN: 24ASHPS97771ZE) on De Vibe Studio with trackable Serial Keys and Autopay Subscriptions." />
+        <meta name="description" content="Purchase official software licenses (Base Price + 18% GST, GSTIN: 24ASHPS97771ZE) on De Vibe Studio with trackable Serial Keys, Autopay Subscriptions, and Plan Comparison Matrix." />
         <link rel="canonical" href="https://www.devibestudio.com/products" />
       </Helmet>
 
@@ -376,7 +376,8 @@ export default function Products() {
               alignItems: 'center', 
               justifyContent: 'space-between', 
               flexWrap: 'wrap', 
-              gap: '1rem' 
+              gap: '1rem',
+              marginBottom: '3.5rem'
             }}>
               <div>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: '600' }}>Selected Package:</span>
@@ -397,6 +398,75 @@ export default function Products() {
                 </button>
               </div>
             </div>
+
+            {/* LEGAL & DECISION COMPARISON MATRIX TABLE */}
+            <div style={{ marginTop: '2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <FileSpreadsheet size={24} color="var(--accent)" />
+                <h3 style={{ margin: 0, fontSize: '1.6rem' }}>Comprehensive Plan Comparison Matrix</h3>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
+                Detailed specification breakdown for transparent legal compliance and buyer decision guidance.
+              </p>
+
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem', color: 'var(--text-primary)' }}>
+                  <thead>
+                    <tr style={{ backgroundColor: 'var(--bg-secondary)', borderBottom: '2px solid var(--border)' }}>
+                      <th style={{ padding: '1rem', border: '1px solid var(--border)' }}>Features & Legal Specs</th>
+                      <th style={{ padding: '1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Digital Home License</th>
+                      <th style={{ padding: '1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Tech Pro License</th>
+                      <th style={{ padding: '1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Technician Rescue Boot</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Target Audience / Usage Scope</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Personal Single PC</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Commercial Tech / Repair Shops</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Emergency Field Repair & Boot Recovery</td>
+                    </tr>
+                    <tr style={{ backgroundColor: 'var(--bg-secondary)' }}>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Device License Activations</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>1 Windows PC Lifetime</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Unlimited PCs & Scans</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Unlimited PCs & WinPE USB</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Base Price (Excl. 18% GST)</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center', fontWeight: '700', color: 'var(--accent)' }}>₹999.00</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center', fontWeight: '700', color: 'var(--accent)' }}>₹399/mo or ₹3,999/yr</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center', fontWeight: '700', color: 'var(--accent)' }}>₹3,999 (ISO) / ₹5,999 (USB)</td>
+                    </tr>
+                    <tr style={{ backgroundColor: 'var(--bg-secondary)' }}>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Delivery & Hardware Format</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Instant MSIX Key Download</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Instant MSIX Key Download</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Digital ISO Soft Copy or Physical 16GB USB</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Autopay Recurring Billing</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}><XCircle size={18} color="#ef4444" style={{ display: 'inline' }} /> Lifetime (No Subscription)</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}><Check size={18} color="#10b981" style={{ display: 'inline' }} /> Monthly / Annual Autopay</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}><XCircle size={18} color="#ef4444" style={{ display: 'inline' }} /> Lifetime (No Subscription)</td>
+                    </tr>
+                    <tr style={{ backgroundColor: 'var(--bg-secondary)' }}>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Unique License Serial Number</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}><Check size={18} color="#10b981" style={{ display: 'inline' }} /> OPTFIX-2026-XXXX</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}><Check size={18} color="#10b981" style={{ display: 'inline' }} /> OPTFIX-2026-XXXX</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}><Check size={18} color="#10b981" style={{ display: 'inline' }} /> OPTFIX-2026-XXXX</td>
+                    </tr>
+                    <tr>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Official Legal GST Tax Invoice</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0124-XXXXXX</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0124-XXXXXX</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0124-XXXXXX</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
           </div>
 
           {/* Sibling Direct Purchases */}
@@ -435,7 +505,7 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Payment Confirmation Modal with Serial Key Generation */}
+      {/* Payment Confirmation Modal with Serial Key & Legal Razorpay Invoice Number Generation */}
       <PaymentModal
         isOpen={paymentSuccess.isOpen}
         onClose={() => setPaymentSuccess(prev => ({ ...prev, isOpen: false }))}

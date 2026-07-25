@@ -7,11 +7,11 @@ export default function MicrosoftApps() {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "OptiSpace PC",
+      "name": "OptimaFix Pro",
       "operatingSystem": "Windows 10, Windows 11",
       "applicationCategory": "UtilitiesApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "downloadUrl": "https://github.com/devibe70-ux/optispace-pc-version-/releases/latest/download/OptiSpace.msix"
+      "offers": { "@type": "Offer", "price": "999", "priceCurrency": "INR" },
+      "downloadUrl": "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix"
     },
     {
       "@context": "https://schema.org",
@@ -44,20 +44,20 @@ export default function MicrosoftApps() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
             
-            {/* OptiSpace PC */}
+            {/* OptimaFix Pro */}
             <div style={{ backgroundColor: 'var(--surface)', padding: '3rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
                 <Monitor size={32} color="var(--accent)" />
-                <h2 style={{ margin: 0, fontSize: '2rem' }}>OptiSpace PC Version</h2>
+                <h2 style={{ margin: 0, fontSize: '2rem' }}>OptimaFix Pro</h2>
               </div>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                OptiSpace PC brings our powerful AI-driven storage optimization engine to the Windows desktop environment. It deeply scans NTFS and FAT32 file systems to locate deeply buried duplicate files, residual uninstaller data, and uncompressed media caches, safely freeing up gigabytes of critical drive space.
+                OptimaFix Pro brings our powerful diagnostics and automated system optimization engine to the Windows desktop environment. It deeply scans disk health (SMART parameters), clears cache, fixes dead shortcuts, resets DNS, and applies registry customization tweaks (like Telemetry disabling and visual speedup parameters).
               </p>
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <a href="https://github.com/devibe70-ux/optispace-pc-version-/releases/latest/download/OptiSpace.msix" className="btn" download>
+                <a href="https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix" className="btn" download>
                   Download for Windows (.msix)
                 </a>
-                <Link to="/support/optispace-pc" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
+                <Link to="/support/optimafix-pro" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
                   View Documentation
                 </Link>
               </div>

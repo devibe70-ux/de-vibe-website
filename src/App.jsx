@@ -15,6 +15,7 @@ import Services from './components/Services';
 import Projects from './components/Projects';
 import Reviews from './components/Reviews';
 import CookieBanner from './components/CookieBanner';
+import Products from './components/Products';
 import './App.css';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/reviews" element={<Reviews />} />
+            <Route path="/products" element={<Products />} />
           </Routes>
         </main>
         <Footer />

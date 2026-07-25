@@ -11,6 +11,7 @@ export default function Header() {
         </Link>
         <nav className="nav-links">
           <Link to="/">Home</Link>
+          <Link to="/products">Products</Link>
           <Link to="/services">Services</Link>
           <Link to="/projects">Projects</Link>
           <Link to="/android">Android</Link>

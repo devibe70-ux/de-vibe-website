@@ -1,8 +1,19 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Monitor, Briefcase, Database } from 'lucide-react';
+import { Monitor, Briefcase, Database, ShieldCheck, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useRazorpay } from '../hooks/useRazorpay';
+import PaymentModal from './PaymentModal';
 
 export default function MicrosoftApps() {
+  const { openPaymentModal } = useRazorpay();
+  const [paymentSuccess, setPaymentSuccess] = useState({
+    isOpen: false,
+    productName: '',
+    downloadUrl: '',
+    paymentId: ''
+  });
+
   const msAppSchema = [
     {
       "@context": "https://schema.org",
@@ -23,14 +34,44 @@ export default function MicrosoftApps() {
     }
   ];
 
+  const handleBuyOptimaFix = () => {
+    const downloadLink = "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix";
+    
+    openPaymentModal({
+      amountInINR: 999,
+      productName: "OptimaFix Pro",
+      productDescription: "Full Windows System Optimization License",
+      onSuccess: (response) => {
+        // Automatically trigger download and open success modal
+        setPaymentSuccess({
+          isOpen: true,
+          productName: "OptimaFix Pro",
+          downloadUrl: downloadLink,
+          paymentId: response.razorpay_payment_id
+        });
+
+        // Trigger file download
+        const link = document.createElement('a');
+        link.href = downloadLink;
+        link.setAttribute('download', '');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      },
+      onFailure: (errorMsg) => {
+        console.log('Payment status / dismiss:', errorMsg);
+      }
+    });
+  };
+
   return (
     <>
       <Helmet>
         <title>Microsoft & Windows Ecosystem - De Vibe Enterprise</title>
-        <meta name="description" content="Explore De Vibe's Windows and enterprise software ecosystem, featuring OptiSpace PC and De-Vibe OMS." />
+        <meta name="description" content="Explore De Vibe's Windows and enterprise software ecosystem, featuring OptimaFix Pro and De-Vibe OMS." />
         <link rel="canonical" href="https://www.devibestudio.com/microsoft" />
         <meta property="og:title" content="Windows Ecosystem - De Vibe Software" />
-        <meta property="og:description" content="Explore De Vibe's Windows software ecosystem, featuring OptiSpace PC and De-Vibe OMS." />
+        <meta property="og:description" content="Explore De Vibe's Windows software ecosystem, featuring OptimaFix Pro and De-Vibe OMS." />
         <meta property="og:url" content="https://www.devibestudio.com/microsoft" />
         <script type="application/ld+json">{JSON.stringify(msAppSchema)}</script>
       </Helmet>
@@ -46,20 +87,30 @@ export default function MicrosoftApps() {
             
             {/* OptimaFix Pro */}
             <div style={{ backgroundColor: 'var(--surface)', padding: '3rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                <Monitor size={32} color="var(--accent)" />
-                <h2 style={{ margin: 0, fontSize: '2rem' }}>OptimaFix Pro</h2>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <Monitor size={32} color="var(--accent)" />
+                  <h2 style={{ margin: 0, fontSize: '2rem' }}>OptimaFix Pro</h2>
+                </div>
+                <span style={{ backgroundColor: 'rgba(37, 99, 235, 0.1)', color: 'var(--accent)', padding: '0.4rem 1rem', borderRadius: '20px', fontWeight: '700', fontSize: '1.1rem' }}>
+                  ₹999 INR
+                </span>
               </div>
+
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
                 OptimaFix Pro brings our powerful diagnostics and automated system optimization engine to the Windows desktop environment. It deeply scans disk health (SMART parameters), clears cache, fixes dead shortcuts, resets DNS, and applies registry customization tweaks (like Telemetry disabling and visual speedup parameters).
               </p>
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <a href="https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix" className="btn" download>
-                  Download for Windows (.msix)
-                </a>
+
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                <button onClick={handleBuyOptimaFix} className="btn" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.85rem 1.75rem', fontSize: '1rem', fontWeight: '600' }}>
+                  <ShoppingCart size={18} /> Buy Now & Download (₹999)
+                </button>
                 <Link to="/support/optimafix-pro" className="btn btn-secondary" style={{ backgroundColor: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}>
                   View Documentation
                 </Link>
+              </div>
+              <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                <ShieldCheck size={16} color="#10b981" /> Instant digital delivery via official Razorpay Payment Gateway.
               </div>
             </div>
 
@@ -97,6 +148,15 @@ export default function MicrosoftApps() {
           </div>
         </div>
       </section>
+
+      {/* Payment Confirmation Modal */}
+      <PaymentModal
+        isOpen={paymentSuccess.isOpen}
+        onClose={() => setPaymentSuccess(prev => ({ ...prev, isOpen: false }))}
+        productName={paymentSuccess.productName}
+        downloadUrl={paymentSuccess.downloadUrl}
+        paymentId={paymentSuccess.paymentId}
+      />
     </>
   );
 }

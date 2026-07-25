@@ -21,8 +21,8 @@ if (!razorpayKeyId || !razorpayKeySecret) {
 }
 
 const razorpay = new Razorpay({
-  key_id: razorpayKeyId || 'rzp_test_THonuwRGOpJ1KH',
-  key_secret: razorpayKeySecret || 'x7yQohzlMgYAeybb6AbTkpqp'
+  key_id: razorpayKeyId || 'rzp_live_THqZNN253oUslA',
+  key_secret: razorpayKeySecret || 'pl9ZhXYXhxp6FygjfHcV13IE'
 });
 
 /**
@@ -83,7 +83,7 @@ app.post('/api/verify-payment', (req, res) => {
 
     // HMAC SHA256 Signature Verification Algorithm: order_id + "|" + payment_id
     const generatedSignature = crypto
-      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET || 'x7yQohzlMgYAeybb6AbTkpqp')
+      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET || 'pl9ZhXYXhxp6FygjfHcV13IE')
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
       .digest('hex');
 

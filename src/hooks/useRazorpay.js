@@ -49,7 +49,7 @@ export function useRazorpay() {
       }
 
       const amountInPaise = Math.round(amountInINR * 100);
-      const razorpayKey = import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_THonuwRGOpJ1KH';
+      const razorpayKey = import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_live_THqZNN253oUslA';
 
       let orderId = null;
       let hasBackend = false;

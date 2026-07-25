@@ -28,8 +28,8 @@ export default async function handler(req, res) {
       });
     }
 
-    const razorpayKeyId = process.env.RAZORPAY_KEY_ID || 'rzp_test_THonuwRGOpJ1KH';
-    const razorpayKeySecret = process.env.RAZORPAY_KEY_SECRET || 'x7yQohzlMgYAeybb6AbTkpqp';
+    const razorpayKeyId = process.env.RAZORPAY_KEY_ID || 'rzp_live_THqZNN253oUslA';
+    const razorpayKeySecret = process.env.RAZORPAY_KEY_SECRET || 'pl9ZhXYXhxp6FygjfHcV13IE';
 
     const razorpay = new Razorpay({
       key_id: razorpayKeyId,

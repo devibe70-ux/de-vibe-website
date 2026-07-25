@@ -1,12 +1,42 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck } from 'lucide-react';
+import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck, HardDrive, Key, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRazorpay } from '../hooks/useRazorpay';
 import PaymentModal from './PaymentModal';
 
+const optimafixVariants = [
+  {
+    id: 'digital',
+    title: 'Digital Home License',
+    price: 999,
+    priceDisplay: '₹999',
+    badge: 'Single PC',
+    description: 'Instant digital key for 1 Windows PC with full diagnostics & cleanup.',
+    features: ['1 PC Lifetime Activation', '5-Stage Repair Wizard', 'Registry & DNS Optimizer', 'Instant Digital Key']
+  },
+  {
+    id: 'tech',
+    title: 'Tech Pro License',
+    price: 3999,
+    priceDisplay: '₹3,999 / year',
+    badge: 'Multi-PC / Pro',
+    description: 'Unlimited PC repair license for technicians & computer repair shops.',
+    features: ['Unlimited PC Repair Scans', 'Apple AST-2 Diagnostics', 'Client Comparison Reports', 'Priority 24/7 Support']
+  },
+  {
+    id: 'usb',
+    title: 'Technician Boot USB',
+    price: 5999,
+    priceDisplay: '₹5,999',
+    badge: 'Hardware + Tech',
+    description: 'Pre-loaded 16GB Bootable Rescue USB drive with offline PE console.',
+    features: ['16GB Custom Hardware Drive', 'Zero-Click Offline PE Console', 'Pre-activated Tech License', 'Free Express Shipping']
+  }
+];
+
 export default function Products() {
-  const [isPhysical, setIsPhysical] = useState(false);
+  const [selectedVariantId, setSelectedVariantId] = useState('digital');
   const { openPaymentModal } = useRazorpay();
   const [paymentSuccess, setPaymentSuccess] = useState({
     isOpen: false,
@@ -14,6 +44,8 @@ export default function Products() {
     downloadUrl: '',
     paymentId: ''
   });
+
+  const selectedVariant = optimafixVariants.find(v => v.id === selectedVariantId) || optimafixVariants[0];
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -23,43 +55,28 @@ export default function Products() {
         "name": "OptimaFix Pro",
         "operatingSystem": "Windows 10, Windows 11",
         "applicationCategory": "UtilitiesApplication",
-        "offers": {
+        "offers": optimafixVariants.map(v => ({
           "@type": "Offer",
-          "price": "999",
+          "name": v.title,
+          "price": v.price.toString(),
           "priceCurrency": "INR"
-        }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "OptiSpace Mobile",
-        "operatingSystem": "Android",
-        "applicationCategory": "UtilitiesApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "INR"
-        }
+        }))
       }
     ]
   };
 
-  const handleCheckout = () => {
-    if (isPhysical) {
-      window.open("https://www.amazon.in", "_blank");
-      return;
-    }
-
-    const price = 999;
+  const handleCheckout = (variant) => {
+    const targetVariant = variant || selectedVariant;
     const downloadLink = "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix";
 
     openPaymentModal({
-      amountInINR: price,
-      productName: "OptimaFix Pro",
-      productDescription: "Full Windows Optimization License",
+      amountInINR: targetVariant.price,
+      productName: `OptimaFix Pro (${targetVariant.title})`,
+      productDescription: targetVariant.description,
       onSuccess: (response) => {
         setPaymentSuccess({
           isOpen: true,
-          productName: "OptimaFix Pro",
+          productName: `OptimaFix Pro - ${targetVariant.title}`,
           downloadUrl: downloadLink,
           paymentId: response.razorpay_payment_id
         });
@@ -73,7 +90,7 @@ export default function Products() {
         document.body.removeChild(link);
       },
       onFailure: (errorMsg) => {
-        console.log('Payment modal dismissed:', errorMsg);
+        console.log('Razorpay dismiss:', errorMsg);
       }
     });
   };
@@ -82,7 +99,7 @@ export default function Products() {
     <>
       <Helmet>
         <title>Software Products & Utilities - De Vibe Studio</title>
-        <meta name="description" content="Explore De Vibe's premium software suites, featuring OptimaFix Pro for Windows system repair, OptiSpace Mobile, and enterprise order management solutions." />
+        <meta name="description" content="Explore De Vibe's software suites, featuring OptimaFix Pro (Digital Key, Tech Pro, Boot USB), OptiSpace Mobile, and enterprise order management solutions." />
         <link rel="canonical" href="https://www.devibestudio.com/products" />
         <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
       </Helmet>
@@ -90,14 +107,14 @@ export default function Products() {
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
           
-          <h1 style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center', fontFamily: 'var(--font-outfit)' }}>
+          <h1 style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
             Software Products
           </h1>
           <p style={{ color: 'var(--text-secondary)', textAlign: 'center', marginBottom: '4rem', fontSize: '1.2rem' }}>
             Next-generation system utility software and enterprise database environments.
           </p>
 
-          {/* OptimaFix Pro Highlight Product Card */}
+          {/* OptimaFix Pro Main Card */}
           <div style={{ 
             backgroundColor: 'var(--bg-primary)', 
             padding: '3rem', 
@@ -106,186 +123,167 @@ export default function Products() {
             marginBottom: '4rem',
             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)'
           }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '2rem' }}>
-              <div style={{ flex: '1', minWidth: '300px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <div style={{ 
-                    width: '48px', 
-                    height: '48px', 
-                    borderRadius: '10px', 
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    color: 'var(--accent)'
-                  }}>
-                    <Monitor size={28} />
-                  </div>
-                  <div>
-                    <h2 style={{ margin: 0, fontSize: '2.2rem', textAlign: 'left' }}>OptimaFix Pro</h2>
-                    <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--accent)', fontWeight: '600' }}>Windows Diagnostics & Guided System Repair</p>
-                  </div>
-                </div>
-                
-                <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-                  OptimaFix Pro is an elite computer diagnostic and automated repair toolkit for Windows systems. Modeled after professional hardware diagnostics suites, it sequentially analyzes system files health, clears caches, deletes dead shortcut structures, purges orphaned installers, resets DNS latency, and locks custom visual registry tweaks for a snappier GUI performance.
-                </p>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-                  <div style={{ display: 'flex', gap: '0.75rem' }}>
-                    <Shield size={20} color="var(--accent)" style={{ flexShrink: 0 }} />
-                    <div>
-                      <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '0.95rem' }}>Apple-Style Invoices</h4>
-                      <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', margin: 0 }}>Generates professional before/after client repair comparison reports.</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '0.75rem' }}>
-                    <Zap size={20} color="var(--accent)" style={{ flexShrink: 0 }} />
-                    <div>
-                      <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '0.95rem' }}>Automated Wizard</h4>
-                      <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', margin: 0 }}>Runs 5 repair stages sequentially, updating progress bars in real-time.</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '0.75rem' }}>
-                    <RefreshCw size={20} color="var(--accent)" style={{ flexShrink: 0 }} />
-                    <div>
-                      <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '0.95rem' }}>PE USB Auto-Run</h4>
-                      <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', margin: 0 }}>Create bootable media with zero-click offline repair consoles.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                  <button onClick={handleCheckout} className="btn" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <ShoppingCart size={18} /> Buy Now & Download (₹999)
-                  </button>
-                  <Link to="/support/optimafix-pro" className="btn btn-outline">
-                    View Setup Documentation
-                  </Link>
-                </div>
-              </div>
-
-              {/* Interactive Pricing Card inside Products.jsx */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
               <div style={{ 
-                width: '380px', 
-                backgroundColor: 'var(--bg-secondary)', 
-                padding: '2.5rem', 
-                borderRadius: '12px', 
-                border: '1px solid var(--border)',
-                display: 'flex',
-                flexDirection: 'column',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+                width: '48px', 
+                height: '48px', 
+                borderRadius: '10px', 
+                backgroundColor: 'rgba(37, 99, 235, 0.1)', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                color: 'var(--accent)'
               }}>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '2rem' }}>
-                  <span style={{ fontSize: '0.85rem', fontWeight: '600', color: !isPhysical ? 'var(--accent)' : 'var(--text-secondary)' }}>Digital Key</span>
-                  <label style={{ position: 'relative', display: 'inline-block', width: '46px', height: '24px' }}>
-                    <input 
-                      type="checkbox" 
-                      checked={isPhysical} 
-                      onChange={() => setIsPhysical(!isPhysical)} 
-                      style={{ opacity: 0, width: 0, height: 0 }}
-                    />
-                    <span style={{ 
-                      position: 'absolute', 
-                      cursor: 'pointer', 
-                      top: 0, left: 0, right: 0, bottom: 0, 
-                      backgroundColor: 'rgba(0,0,0,0.1)', 
-                      borderRadius: '34px',
-                      border: '1px solid var(--border)',
-                      transition: '0.3s'
-                    }}>
-                      <span style={{ 
-                        position: 'absolute', 
-                        content: '""', 
-                        height: '16px', width: '16px', 
-                        left: isPhysical ? '24px' : '4px', 
-                        bottom: '3px', 
-                        backgroundColor: 'var(--accent)', 
-                        borderRadius: '50%',
-                        transition: '0.3s'
-                      }} />
-                    </span>
-                  </label>
-                  <span style={{ fontSize: '0.85rem', fontWeight: '600', color: isPhysical ? 'var(--accent)' : 'var(--text-secondary)' }}>Physical USB</span>
-                </div>
-
-                <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                  <h4 style={{ margin: '0 0 0.5rem 0', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '1px', color: 'var(--text-secondary)' }}>
-                    {isPhysical ? 'Technician Boot USB' : 'Tech Pro License'}
-                  </h4>
-                  <div style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--text-primary)' }}>
-                    {isPhysical ? '₹5,999' : '₹999'}
-                    {!isPhysical && <span style={{ fontSize: '1rem', fontWeight: '500', opacity: 0.7 }}> / key</span>}
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
-                    {isPhysical ? 'Pre-loaded 16GB Rescue USB drive in custom box.' : 'Full digital license key with instant download.'}
-                  </p>
-                </div>
-
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} color="var(--accent)" /> Apple AST-2 Diagnostics</li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} color="var(--accent)" /> 5-Stage Guided Wizard</li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} color="var(--accent)" /> DNS and Network Switchers</li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} color="var(--accent)" /> Cryptographic verification keys</li>
-                </ul>
-
-                <button 
-                  onClick={handleCheckout} 
-                  className="btn" 
-                  style={{ textAlign: 'center', width: '100%', background: 'var(--accent)', color: '#fff', border: 'none', cursor: 'pointer', padding: '0.85rem', fontWeight: '600' }}
-                >
-                  {isPhysical ? 'Order on Amazon / Flipkart' : 'Secure License Checkout (₹999)'}
-                </button>
-                <div style={{ marginTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
-                  <ShieldCheck size={14} color="#10b981" /> Razorpay Secured Checkout
-                </div>
+                <Monitor size={28} />
+              </div>
+              <div>
+                <h2 style={{ margin: 0, fontSize: '2.2rem', textAlign: 'left' }}>OptimaFix Pro</h2>
+                <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--accent)', fontWeight: '600' }}>
+                  Available in 3 Formats: Home Digital Key, Tech Pro License, & Rescue Boot USB
+                </p>
               </div>
             </div>
 
-            {/* Sibling Products Grid */}
-            <h2 style={{ fontSize: '2rem', marginBottom: '2.5rem', textAlign: 'center' }}>Additional Ecosystem Solutions</h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2.5rem' }}>
+              OptimaFix Pro is an elite computer diagnostic and automated repair toolkit for Windows systems. Modeled after professional hardware diagnostics suites, it sequentially analyzes system files health, clears caches, deletes dead shortcut structures, purges orphaned installers, resets DNS latency, and applies custom visual tweaks.
+            </p>
+
+            {/* 3 Formats / Variants Selector Grid */}
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', textAlign: 'center' }}>
+              Select Your OptimaFix Pro Format:
+            </h3>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+              {optimafixVariants.map((variant) => {
+                const isSelected = variant.id === selectedVariantId;
+                return (
+                  <div
+                    key={variant.id}
+                    onClick={() => setSelectedVariantId(variant.id)}
+                    style={{
+                      backgroundColor: isSelected ? 'rgba(37, 99, 235, 0.04)' : 'var(--bg-secondary)',
+                      border: isSelected ? '2px solid var(--accent)' : '1px solid var(--border)',
+                      borderRadius: '12px',
+                      padding: '1.75rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      position: 'relative'
+                    }}
+                  >
+                    {isSelected && (
+                      <span style={{ position: 'absolute', top: '12px', right: '12px', backgroundColor: 'var(--accent)', color: '#fff', fontSize: '0.75rem', padding: '0.2rem 0.6rem', borderRadius: '10px', fontWeight: '600' }}>
+                        Selected
+                      </span>
+                    )}
+                    <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-secondary)', fontWeight: '600', marginBottom: '0.5rem' }}>
+                      {variant.badge}
+                    </span>
+                    <h4 style={{ fontSize: '1.25rem', margin: '0 0 0.5rem 0' }}>{variant.title}</h4>
+                    <div style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.75rem' }}>
+                      {variant.priceDisplay}
+                    </div>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1.5rem', flex: 1, lineHeight: '1.5' }}>
+                      {variant.description}
+                    </p>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCheckout(variant);
+                      }}
+                      className="btn"
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
+                        background: isSelected ? 'var(--accent)' : 'var(--text-primary)',
+                        color: '#fff',
+                        fontWeight: '600'
+                      }}
+                    >
+                      <ShoppingCart size={16} /> Pay {variant.priceDisplay} via Razorpay
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Selected Format Summary Bar */}
+            <div style={{ 
+              backgroundColor: 'var(--bg-secondary)', 
+              padding: '1.5rem 2rem', 
+              borderRadius: '12px', 
+              border: '1px solid var(--border)', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'space-between', 
+              flexWrap: 'wrap', 
+              gap: '1rem' 
+            }}>
+              <div>
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: '600' }}>Selected Package:</span>
+                <h4 style={{ margin: '0.25rem 0 0 0', fontSize: '1.1rem' }}>
+                  {selectedVariant.title} ({selectedVariant.priceDisplay})
+                </h4>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <button
+                  onClick={() => handleCheckout(selectedVariant)}
+                  className="btn"
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1.5rem' }}
+                >
+                  <ShieldCheck size={18} /> Proceed to Razorpay Checkout ({selectedVariant.priceDisplay})
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Sibling Products Grid */}
+          <h2 style={{ fontSize: '2rem', marginBottom: '2.5rem', textAlign: 'center' }}>Additional Ecosystem Solutions</h2>
+          
+          <div className="grid grid-3">
             
-            <div className="grid grid-3">
-              
-              {/* OptiSpace Mobile */}
-              <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                  <Smartphone size={24} color="var(--accent)" />
-                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>OptiSpace Mobile</h3>
-                </div>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                  On-device Android storage optimization utilizing edge Machine Learning models. Safely detects similar duplicate visual media without uploading data to the cloud.
-                </p>
-                <Link to="/android" className="btn btn-outline" style={{ textAlign: 'center' }}>Explore Android Suite</Link>
+            {/* OptiSpace Mobile */}
+            <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <Smartphone size={24} color="var(--accent)" />
+                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>OptiSpace Mobile</h3>
               </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+                On-device Android storage optimization utilizing edge Machine Learning models. Safely detects similar duplicate visual media without uploading data to the cloud.
+              </p>
+              <Link to="/android" className="btn btn-outline" style={{ textAlign: 'center' }}>Explore Android Suite</Link>
+            </div>
 
-              {/* De-Vibe OMS */}
-              <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                  <Briefcase size={24} color="var(--accent)" />
-                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>De-Vibe OMS</h3>
-                </div>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                  Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.
-                </p>
-                <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>Enterprise OMS Specs</Link>
+            {/* De-Vibe OMS */}
+            <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <Briefcase size={24} color="var(--accent)" />
+                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>De-Vibe OMS</h3>
               </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+                Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.
+              </p>
+              <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>Enterprise OMS Specs</Link>
+            </div>
 
-              {/* Bahamut OMS */}
-              <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                  <Database size={24} color="var(--accent)" />
-                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Bahamut OMS</h3>
-                </div>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                  Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.
-                </p>
-                <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>View Database Specs</Link>
+            {/* Bahamut OMS */}
+            <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                <Database size={24} color="var(--accent)" />
+                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Bahamut OMS</h3>
               </div>
-
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+                Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.
+              </p>
+              <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>View Database Specs</Link>
             </div>
 
           </div>
+
         </div>
       </section>
 

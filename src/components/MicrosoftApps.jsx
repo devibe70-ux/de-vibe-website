@@ -22,7 +22,7 @@ export default function MicrosoftApps() {
       "operatingSystem": "Windows 10, Windows 11",
       "applicationCategory": "UtilitiesApplication",
       "offers": { "@type": "Offer", "price": "1178.82", "priceCurrency": "INR" },
-      "downloadUrl": "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix"
+      "downloadUrl": "/downloads/OptimaFix.msix"
     },
     {
       "@context": "https://schema.org",
@@ -30,12 +30,12 @@ export default function MicrosoftApps() {
       "name": "De-Vibe OMS",
       "operatingSystem": "Windows, Cloud",
       "applicationCategory": "BusinessApplication",
-      "downloadUrl": "https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix"
+      "downloadUrl": "/downloads/DeVibe-OMS-Installer.msix"
     }
   ];
 
   const handleBuyOptimaFix = () => {
-    const downloadLink = "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix";
+    const downloadLink = "/downloads/OptimaFix.msix";
     
     openPaymentModal({
       amountInINR: 1178.82,

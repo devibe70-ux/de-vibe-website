@@ -18,8 +18,9 @@ export default function PaymentModal({
       // Generate or use provided unique trackable license serial key
       const generatedKey = serialNumber || `OPTFIX-2026-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
       
-      // Sequential Legal Razorpay Tax Invoice Bill Number format: RAZORPAY-0124, RAZORPAY-0125, etc.
-      let currentSeq = parseInt(localStorage.getItem('devibe_last_invoice_seq') || '124', 10);
+      // Sequential Legal Razorpay Tax Invoice Bill Number format: RAZORPAY-0111, RAZORPAY-0112, etc.
+      let storedSeq = parseInt(localStorage.getItem('devibe_last_invoice_seq') || '111', 10);
+      let currentSeq = (isNaN(storedSeq) || storedSeq < 111) ? 111 : storedSeq;
       const generatedInvoiceNum = `RAZORPAY-${String(currentSeq).padStart(4, '0')}`;
       localStorage.setItem('devibe_last_invoice_seq', String(currentSeq + 1));
 

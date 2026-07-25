@@ -34,7 +34,7 @@
 - **GST Compliance**: 18% GST (SAC Code 997331 - IT Software Product License)
 - **Seller GSTIN**: `24ASHPS97771ZE` (State Code 24 - Gujarat)
 - **Pricing Model**: Listed prices are **Exclusive of 18% GST**. 18% GST is added at checkout.
-- **Legal Invoice Format**: `RAZORPAY-0124`, `RAZORPAY-0125`, `RAZORPAY-0126` (Sequential Razorpay legal tax invoice reference & audit tracking)
+- **Legal Invoice Format**: `RAZORPAY-0111`, `RAZORPAY-0112`, `RAZORPAY-0113` (Sequential Razorpay legal tax invoice reference starting at 0111)
 - **Serial Key Tracking**: Unique `OPTFIX-2026-XXXX-XXXX-XXXX` license keys generated and logged per purchase.
 - **Plan Comparison Matrix**: Embedded directly below package cards for buyer decision guidance & legal transparency.
 

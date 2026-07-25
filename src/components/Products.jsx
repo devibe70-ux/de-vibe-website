@@ -23,8 +23,8 @@ export default function Products() {
     serialNumber: ''
   });
 
-  // Official Production Pricing (Exclusive of 18% GST)
-  const isTestMode = false;
+  // Trial Test Mode Pricing (Base ₹1, ₹2, ₹3 + 18% GST)
+  const isTestMode = true;
 
   const optimafixVariants = [
     {
@@ -458,9 +458,9 @@ export default function Products() {
                     </tr>
                     <tr>
                       <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Official Legal GST Tax Invoice</td>
-                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0124-XXXXXX</td>
-                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0124-XXXXXX</td>
-                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0124-XXXXXX</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0124 (Sequential)</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0125 (Sequential)</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>RAZORPAY-0126 (Sequential)</td>
                     </tr>
                   </tbody>
                 </table>

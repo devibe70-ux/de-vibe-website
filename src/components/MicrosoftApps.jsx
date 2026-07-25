@@ -11,7 +11,8 @@ export default function MicrosoftApps() {
     isOpen: false,
     productName: '',
     downloadUrl: '',
-    paymentId: ''
+    paymentId: '',
+    serialNumber: ''
   });
 
   const msAppSchema = [
@@ -36,17 +37,19 @@ export default function MicrosoftApps() {
 
   const handleBuyOptimaFix = () => {
     const downloadLink = "/downloads/OptimaFix.msix";
+    const generatedSerial = `OPTFIX-2026-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
     
     openPaymentModal({
       amountInINR: 1178.82,
       productName: "OptimaFix Pro (Digital Home License)",
-      productDescription: "Full Windows System Optimization License (Base ₹999 + 18% GST)",
+      productDescription: `Full Windows System Optimization License (Base ₹999 + 18% GST) | License Serial: ${generatedSerial}`,
       onSuccess: (response) => {
         setPaymentSuccess({
           isOpen: true,
           productName: "OptimaFix Pro",
           downloadUrl: downloadLink,
-          paymentId: response.razorpay_payment_id
+          paymentId: response.razorpay_payment_id,
+          serialNumber: generatedSerial
         });
 
         const link = document.createElement('a');
@@ -161,6 +164,7 @@ export default function MicrosoftApps() {
         productName={paymentSuccess.productName}
         downloadUrl={paymentSuccess.downloadUrl}
         paymentId={paymentSuccess.paymentId}
+        serialNumber={paymentSuccess.serialNumber}
       />
     </>
   );

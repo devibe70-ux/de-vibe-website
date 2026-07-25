@@ -79,7 +79,7 @@ export default function Products() {
       totalPrice: 588.82,
       totalDisplay: '₹588.82',
       description: 'Windows desktop disk analyzer and high-performance storage manager. Visualizes drive usage and purges orphaned files locally.',
-      downloadLink: 'https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix'
+      downloadLink: '/downloads/OptimaFix.msix'
     },
     {
       id: 'devibe-oms',
@@ -90,7 +90,7 @@ export default function Products() {
       totalPrice: 17698.82,
       totalDisplay: '₹17,698.82',
       description: 'Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.',
-      downloadLink: 'https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix'
+      downloadLink: '/downloads/DeVibe-OMS-Installer.msix'
     },
     {
       id: 'bahamut-oms',
@@ -101,15 +101,20 @@ export default function Products() {
       totalPrice: 35398.82,
       totalDisplay: '₹35,398.82',
       description: 'Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.',
-      downloadLink: 'https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix'
+      downloadLink: '/downloads/DeVibe-OMS-Installer.msix'
     }
   ];
 
   const selectedVariant = optimafixVariants.find(v => v.id === selectedVariantId) || optimafixVariants[0];
 
   const handleCheckoutProduct = (name, totalPrice, description, downloadLink) => {
-    // Generate unique serial number before launching checkout
-    const generatedSerial = `OPTFIX-2026-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
+    // Generate unique serial number with product-specific prefix before launching checkout
+    let prefix = 'OPTFIX';
+    if (name.toLowerCase().includes('optispace')) prefix = 'OPTSPC';
+    else if (name.toLowerCase().includes('oms') && name.toLowerCase().includes('de-vibe')) prefix = 'DVOMS';
+    else if (name.toLowerCase().includes('bahamut')) prefix = 'BAHAMUT';
+
+    const generatedSerial = `${prefix}-2026-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
 
     openPaymentModal({
       amountInINR: totalPrice,
@@ -345,7 +350,7 @@ export default function Products() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleCheckoutProduct(`OptimaFix Pro (${variant.title})`, variant.totalPrice, variant.description, "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix");
+                        handleCheckoutProduct(`OptimaFix Pro (${variant.title})`, variant.totalPrice, variant.description, "/downloads/OptimaFix.msix");
                       }}
                       className="btn"
                       style={{
@@ -390,7 +395,7 @@ export default function Products() {
               </div>
               <div>
                 <button
-                  onClick={() => handleCheckoutProduct(`OptimaFix Pro (${selectedVariant.title})`, selectedVariant.totalPrice, selectedVariant.description, "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix")}
+                  onClick={() => handleCheckoutProduct(`OptimaFix Pro (${selectedVariant.title})`, selectedVariant.totalPrice, selectedVariant.description, "/downloads/OptimaFix.msix")}
                   className="btn"
                   style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1.5rem' }}
                 >

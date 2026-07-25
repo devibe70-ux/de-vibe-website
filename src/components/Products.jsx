@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw } from 'lucide-react';
+import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useRazorpay } from '../hooks/useRazorpay';
+import PaymentModal from './PaymentModal';
 
 export default function Products() {
   const [isPhysical, setIsPhysical] = useState(false);
+  const { openPaymentModal } = useRazorpay();
+  const [paymentSuccess, setPaymentSuccess] = useState({
+    isOpen: false,
+    productName: '',
+    downloadUrl: '',
+    paymentId: ''
+  });
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -32,6 +41,41 @@ export default function Products() {
         }
       }
     ]
+  };
+
+  const handleCheckout = () => {
+    if (isPhysical) {
+      window.open("https://www.amazon.in", "_blank");
+      return;
+    }
+
+    const price = 999;
+    const downloadLink = "https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix";
+
+    openPaymentModal({
+      amountInINR: price,
+      productName: "OptimaFix Pro",
+      productDescription: "Full Windows Optimization License",
+      onSuccess: (response) => {
+        setPaymentSuccess({
+          isOpen: true,
+          productName: "OptimaFix Pro",
+          downloadUrl: downloadLink,
+          paymentId: response.razorpay_payment_id
+        });
+
+        // Trigger automatic file download
+        const link = document.createElement('a');
+        link.href = downloadLink;
+        link.setAttribute('download', '');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      },
+      onFailure: (errorMsg) => {
+        console.log('Payment modal dismissed:', errorMsg);
+      }
+    });
   };
 
   return (
@@ -112,9 +156,9 @@ export default function Products() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                  <a href="https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix" className="btn">
-                    Download MSIX Package
-                  </a>
+                  <button onClick={handleCheckout} className="btn" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <ShoppingCart size={18} /> Buy Now & Download (₹999)
+                  </button>
                   <Link to="/support/optimafix-pro" className="btn btn-outline">
                     View Setup Documentation
                   </Link>
@@ -167,14 +211,14 @@ export default function Products() {
 
                 <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                   <h4 style={{ margin: '0 0 0.5rem 0', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '1px', color: 'var(--text-secondary)' }}>
-                    {isPhysical ? 'Technician Boot USB' : 'Tech Pro Annual License'}
+                    {isPhysical ? 'Technician Boot USB' : 'Tech Pro License'}
                   </h4>
                   <div style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--text-primary)' }}>
-                    {isPhysical ? '₹5,999' : '₹3,999'}
-                    {!isPhysical && <span style={{ fontSize: '1rem', fontWeight: '500', opacity: 0.7 }}> / year</span>}
+                    {isPhysical ? '₹5,999' : '₹999'}
+                    {!isPhysical && <span style={{ fontSize: '1rem', fontWeight: '500', opacity: 0.7 }}> / key</span>}
                   </div>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
-                    {isPhysical ? 'Pre-loaded 16GB Rescue USB drive in custom box.' : 'Or ₹7,999 for One-Time Lifetime License.'}
+                    {isPhysical ? 'Pre-loaded 16GB Rescue USB drive in custom box.' : 'Full digital license key with instant download.'}
                   </p>
                 </div>
 
@@ -185,62 +229,74 @@ export default function Products() {
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} color="var(--accent)" /> Cryptographic verification keys</li>
                 </ul>
 
-                <a 
-                  href={isPhysical ? "https://www.amazon.in" : "https://github.com/devibe70-ux/pc-repair-tool"} 
+                <button 
+                  onClick={handleCheckout} 
                   className="btn" 
-                  style={{ textAlign: 'center', width: '100%', background: 'var(--accent)', color: '#fff' }}
+                  style={{ textAlign: 'center', width: '100%', background: 'var(--accent)', color: '#fff', border: 'none', cursor: 'pointer', padding: '0.85rem', fontWeight: '600' }}
                 >
-                  {isPhysical ? 'Order on Amazon / Flipkart' : 'Secure License Checkout'}
-                </a>
+                  {isPhysical ? 'Order on Amazon / Flipkart' : 'Secure License Checkout (₹999)'}
+                </button>
+                <div style={{ marginTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
+                  <ShieldCheck size={14} color="#10b981" /> Razorpay Secured Checkout
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Sibling Products Grid */}
-          <h2 style={{ fontSize: '2rem', marginBottom: '2.5rem', textAlign: 'center' }}>Additional Ecosystem Solutions</h2>
-          
-          <div className="grid grid-3">
+            {/* Sibling Products Grid */}
+            <h2 style={{ fontSize: '2rem', marginBottom: '2.5rem', textAlign: 'center' }}>Additional Ecosystem Solutions</h2>
             
-            {/* OptiSpace Mobile */}
-            <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <Smartphone size={24} color="var(--accent)" />
-                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>OptiSpace Mobile</h3>
+            <div className="grid grid-3">
+              
+              {/* OptiSpace Mobile */}
+              <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <Smartphone size={24} color="var(--accent)" />
+                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>OptiSpace Mobile</h3>
+                </div>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+                  On-device Android storage optimization utilizing edge Machine Learning models. Safely detects similar duplicate visual media without uploading data to the cloud.
+                </p>
+                <Link to="/android" className="btn btn-outline" style={{ textAlign: 'center' }}>Explore Android Suite</Link>
               </div>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                On-device Android storage optimization utilizing edge Machine Learning models. Safely detects similar duplicate visual media without uploading data to the cloud.
-              </p>
-              <Link to="/android" className="btn btn-outline" style={{ textAlign: 'center' }}>Explore Android Suite</Link>
-            </div>
 
-            {/* De-Vibe OMS */}
-            <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <Briefcase size={24} color="var(--accent)" />
-                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>De-Vibe OMS</h3>
+              {/* De-Vibe OMS */}
+              <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <Briefcase size={24} color="var(--accent)" />
+                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>De-Vibe OMS</h3>
+                </div>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+                  Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.
+                </p>
+                <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>Enterprise OMS Specs</Link>
               </div>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.
-              </p>
-              <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>Enterprise OMS Specs</Link>
-            </div>
 
-            {/* Bahamut OMS */}
-            <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <Database size={24} color="var(--accent)" />
-                <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Bahamut OMS</h3>
+              {/* Bahamut OMS */}
+              <div style={{ backgroundColor: 'var(--surface)', padding: '2.5rem', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <Database size={24} color="var(--accent)" />
+                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Bahamut OMS</h3>
+                </div>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
+                  Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.
+                </p>
+                <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>View Database Specs</Link>
               </div>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem', flex: 1 }}>
-                Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.
-              </p>
-              <Link to="/microsoft" className="btn btn-outline" style={{ textAlign: 'center' }}>View Database Specs</Link>
+
             </div>
 
           </div>
-
         </div>
       </section>
+
+      {/* Payment Confirmation Modal */}
+      <PaymentModal
+        isOpen={paymentSuccess.isOpen}
+        onClose={() => setPaymentSuccess(prev => ({ ...prev, isOpen: false }))}
+        productName={paymentSuccess.productName}
+        downloadUrl={paymentSuccess.downloadUrl}
+        paymentId={paymentSuccess.paymentId}
+      />
     </>
   );
 }

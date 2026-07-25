@@ -1,13 +1,50 @@
-import { CheckCircle2, Download, FileText, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { CheckCircle2, Download, FileText, Key, Copy, Check, X } from 'lucide-react';
 
 export default function PaymentModal({
   isOpen,
   onClose,
   productName,
   downloadUrl,
-  paymentId
+  paymentId,
+  serialNumber
 }) {
+  const [copied, setCopied] = useState(false);
+  const [activeSerialKey, setActiveSerialKey] = useState('');
+
+  useEffect(() => {
+    if (isOpen && paymentId) {
+      // Generate or use provided unique trackable license serial key
+      const generatedKey = serialNumber || `OPTFIX-2026-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
+      setActiveSerialKey(generatedKey);
+
+      // Record license sale in local trackable storage log
+      try {
+        const existingLogs = JSON.parse(localStorage.getItem('devibe_license_sales_log') || '[]');
+        const newRecord = {
+          serialNumber: generatedKey,
+          productName: productName || 'Software License',
+          paymentId,
+          date: new Date().toISOString(),
+          sellerGstin: '24ASHPS97771ZE'
+        };
+        existingLogs.push(newRecord);
+        localStorage.setItem('devibe_license_sales_log', JSON.stringify(existingLogs));
+      } catch (err) {
+        console.error('License log error:', err);
+      }
+    }
+  }, [isOpen, paymentId, serialNumber, productName]);
+
   if (!isOpen) return null;
+
+  const handleCopy = () => {
+    if (activeSerialKey) {
+      navigator.clipboard.writeText(activeSerialKey);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
 
   const handleDownload = () => {
     if (downloadUrl) {
@@ -36,6 +73,34 @@ export default function PaymentModal({
           <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', marginBottom: '1.25rem' }}>
             Thank you for purchasing <strong>{productName}</strong>. Your digital software license is active.
           </p>
+
+          {/* Trackable License Serial Key Display Box */}
+          {activeSerialKey && (
+            <div style={{
+              backgroundColor: 'rgba(37, 99, 235, 0.06)',
+              border: '2px dashed var(--accent)',
+              borderRadius: '12px',
+              padding: '1.25rem',
+              width: '100%',
+              marginBottom: '1.25rem',
+              textAlign: 'center'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--accent)', fontWeight: '700', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+                <Key size={18} /> Unique Product License Serial Key:
+              </div>
+              <div style={{ fontSize: '1.25rem', fontWeight: '800', fontFamily: 'monospace', color: 'var(--text-primary)', letterSpacing: '1px', marginBottom: '0.75rem' }}>
+                {activeSerialKey}
+              </div>
+              <button
+                onClick={handleCopy}
+                className="btn btn-outline"
+                style={{ fontSize: '0.85rem', padding: '0.4rem 1rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+              >
+                {copied ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
+                {copied ? 'Serial Key Copied!' : 'Copy Serial Key'}
+              </button>
+            </div>
+          )}
 
           {paymentId && (
             <div className="payment-id-badge" style={{ marginBottom: '1rem' }}>

@@ -7,7 +7,6 @@ export function useRazorpay() {
   const [loadingError, setLoadingError] = useState(null);
 
   useEffect(() => {
-    // Check if script is already present
     if (window.Razorpay) {
       setIsLoaded(true);
       return;
@@ -31,14 +30,21 @@ export function useRazorpay() {
       amountInINR,
       productName,
       productDescription,
+      paymentLinkUrl,
       onSuccess,
       onFailure,
       prefillEmail = '',
       prefillPhone = '',
       prefillName = ''
     }) => {
+      // If a dedicated Razorpay Payment Link URL is provided (recommended for static sites)
+      if (paymentLinkUrl) {
+        window.open(paymentLinkUrl, '_blank');
+        return;
+      }
+
       if (!window.Razorpay) {
-        alert('Razorpay Payment Gateway is still loading. Please try again in a second.');
+        alert('Razorpay Payment Gateway is still loading. Please try again in a moment.');
         return;
       }
 
@@ -48,7 +54,7 @@ export function useRazorpay() {
       let orderId = null;
       let hasBackend = false;
 
-      // STEP 1: Attempt to create backend order if server API is available
+      // Attempt backend order creation
       try {
         const orderResponse = await fetch('/api/create-order', {
           method: 'POST',
@@ -68,11 +74,9 @@ export function useRazorpay() {
           }
         }
       } catch (err) {
-        // Static hosting mode (e.g. GitHub Pages) - fallback to direct client SDK checkout
-        console.log('Backend API not available, falling back to direct Razorpay Standard Checkout');
+        console.log('Static site environment detected.');
       }
 
-      // STEP 2: Configure Razorpay Checkout Modal
       const options = {
         key: razorpayKey,
         amount: amountInPaise,
@@ -81,7 +85,6 @@ export function useRazorpay() {
         description: `${productName} - ${productDescription || 'Software License'}`,
         image: 'https://www.devibestudio.com/banner.jpg',
         handler: async function (response) {
-          // If backend verification is enabled
           if (hasBackend && response.razorpay_order_id && response.razorpay_signature) {
             try {
               const verifyResponse = await fetch('/api/verify-payment', {
@@ -96,17 +99,13 @@ export function useRazorpay() {
               const verifyData = await verifyResponse.json();
               if (verifyResponse.ok && verifyData.success) {
                 if (onSuccess) onSuccess(response);
-              } else {
-                alert(`⚠️ Payment Signature Verification Error: ${verifyData.error || 'Invalid signature'}`);
-                if (onFailure) onFailure(verifyData.error);
+                return;
               }
-              return;
             } catch (vErr) {
               console.error('Signature verification error:', vErr);
             }
           }
 
-          // Direct client-side success callback (Static site mode)
           if (onSuccess) {
             onSuccess(response);
           }
@@ -121,15 +120,13 @@ export function useRazorpay() {
         },
         modal: {
           ondismiss: function () {
-            console.log('Payment modal dismissed by user');
             if (onFailure) {
-              onFailure('Payment checkout cancelled by user.');
+              onFailure('Checkout cancelled by user.');
             }
           }
         }
       };
 
-      // If backend order ID was generated, attach it
       if (orderId) {
         options.order_id = orderId;
       }
@@ -137,19 +134,16 @@ export function useRazorpay() {
       try {
         const razorpayInstance = new window.Razorpay(options);
 
-        // Handle payment failure event
         razorpayInstance.on('payment.failed', function (response) {
-          console.error('Razorpay Payment Failed:', response.error);
-          alert(`❌ Payment Failed: ${response.error.description || 'Transaction declined'}`);
+          console.warn('Razorpay SDK requires order_id from backend API:', response.error);
           if (onFailure) {
-            onFailure(response.error.description || 'Payment Failed');
+            onFailure(response.error ? response.error.description : 'Payment failed');
           }
         });
 
         razorpayInstance.open();
       } catch (err) {
-        console.error('Razorpay Checkout Open Error:', err);
-        alert(`❌ Error opening Razorpay Payment Gateway: ${err.message}`);
+        console.error('Razorpay Modal Error:', err);
         if (onFailure) {
           onFailure(err.message);
         }

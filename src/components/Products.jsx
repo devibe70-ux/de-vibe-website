@@ -23,8 +23,8 @@ export default function Products() {
     serialNumber: ''
   });
 
-  // Trial Test Mode Pricing (Base ₹1, ₹2, ₹3 + 18% GST)
-  const isTestMode = true;
+  // Official Production Pricing (Exclusive of 18% GST)
+  const isTestMode = false;
 
   const optimafixVariants = [
     {

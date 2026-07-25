@@ -1,4 +1,30 @@
+# User-agent directives for Web Crawlers and AI Search Agents
 User-agent: *
+Allow: /
+
+# Explicit AI Agent & LLM Crawler Permissions
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://www.devibestudio.com/sitemap.xml

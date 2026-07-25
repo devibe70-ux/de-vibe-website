@@ -222,18 +222,17 @@ export default function Products() {
 
           {/* GSTIN & Tax Compliance Banner (Exclusive of GST Notice) */}
           <div style={{
-            backgroundColor: 'rgba(37, 99, 235, 0.05)',
-            border: '1px solid var(--border)',
+            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            border: '2px dashed #ef4444',
             borderRadius: '10px',
-            padding: '0.85rem 1.5rem',
+            padding: '1rem 1.5rem',
             marginBottom: '3rem',
             textAlign: 'center',
-            fontSize: '0.9rem',
-            color: 'var(--text-secondary)'
+            fontSize: '1rem',
+            color: '#ef4444',
+            fontWeight: '700'
           }}>
-            <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>📢 Note: All listed prices are Exclusive of 18% GST (SAC 997331). 18% GST is added at checkout.</span>
-            <span style={{ margin: '0 0.75rem', opacity: 0.5 }}>|</span>
-            <span>Seller GSTIN: <strong style={{ color: 'var(--accent)' }}>24ASHPS97771ZE</strong></span>
+            🧪 TRIAL PAYMENT MODE ACTIVE: All products set to ₹1.00, ₹2.00, and ₹3.00 for live Razorpay checkout testing. (Seller GSTIN: 24ASHPS97771ZE)
           </div>
 
           {/* OptimaFix Pro Main Card */}

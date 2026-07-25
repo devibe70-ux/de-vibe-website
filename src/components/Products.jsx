@@ -23,18 +23,18 @@ export default function Products() {
     serialNumber: ''
   });
 
-  // Base Prices (Exclusive of 18% GST) for Test Mode (₹1, ₹2, ₹3 + GST)
-  const isTestMode = true;
+  // Official Production Pricing (Exclusive of 18% GST)
+  const isTestMode = false;
 
   const optimafixVariants = [
     {
       id: 'digital',
       title: 'Digital Home License',
-      basePriceNum: isTestMode ? 1 : 999,
-      basePriceDisplay: isTestMode ? '₹1.00' : '₹999.00',
-      gstAmount: isTestMode ? '₹0.18' : '₹179.82',
-      totalPrice: isTestMode ? 1.18 : 1178.82,
-      totalDisplay: isTestMode ? '₹1.18 (Base ₹1.00 + 18% GST)' : '₹1,178.82',
+      basePriceNum: 999,
+      basePriceDisplay: '₹999.00',
+      gstAmount: '₹179.82',
+      totalPrice: 1178.82,
+      totalDisplay: '₹1,178.82',
       badge: 'Single PC',
       description: 'Instant digital key for 1 Windows PC with full diagnostics & cleanup.',
       features: ['1 PC Lifetime Activation', '5-Stage Repair Wizard', 'Registry & DNS Optimizer', 'Instant Digital Key']
@@ -42,13 +42,11 @@ export default function Products() {
     {
       id: 'tech',
       title: subscriptionCycle === 'monthly' ? 'Tech Pro Monthly Subscription (Autopay)' : 'Tech Pro Annual Subscription (Autopay)',
-      basePriceNum: isTestMode ? (subscriptionCycle === 'monthly' ? 1 : 2) : (subscriptionCycle === 'monthly' ? 399 : 3999),
-      basePriceDisplay: isTestMode ? (subscriptionCycle === 'monthly' ? '₹1.00 / mo' : '₹2.00 / yr') : (subscriptionCycle === 'monthly' ? '₹399.00 / mo' : '₹3,999.00 / yr'),
-      gstAmount: isTestMode ? (subscriptionCycle === 'monthly' ? '₹0.18' : '₹0.36') : (subscriptionCycle === 'monthly' ? '₹71.82' : '₹719.82'),
-      totalPrice: isTestMode ? (subscriptionCycle === 'monthly' ? 1.18 : 2.36) : (subscriptionCycle === 'monthly' ? 470.82 : 4718.82),
-      totalDisplay: isTestMode 
-        ? (subscriptionCycle === 'monthly' ? '₹1.18 / mo (Base ₹1.00 + GST Autopay)' : '₹2.36 / yr (Base ₹2.00 + GST Autopay)')
-        : (subscriptionCycle === 'monthly' ? '₹470.82 / mo' : '₹4,718.82 / yr'),
+      basePriceNum: subscriptionCycle === 'monthly' ? 399 : 3999,
+      basePriceDisplay: subscriptionCycle === 'monthly' ? '₹399.00 / mo' : '₹3,999.00 / yr',
+      gstAmount: subscriptionCycle === 'monthly' ? '₹71.82' : '₹719.82',
+      totalPrice: subscriptionCycle === 'monthly' ? 470.82 : 4718.82,
+      totalDisplay: subscriptionCycle === 'monthly' ? '₹470.82 / month' : '₹4,718.82 / year',
       badge: 'Autopay Subscription',
       description: 'Unlimited PC repair license for technicians & shops with automated recurring monthly/annual billing.',
       features: ['Unlimited PC Repair Scans', 'Autopay Recurring Billing', 'Apple AST-2 Diagnostics', 'Priority 24/7 Support']
@@ -56,13 +54,11 @@ export default function Products() {
     {
       id: 'usb',
       title: usbDeliveryOption === 'soft' ? 'Technician Rescue Boot (Digital ISO Soft Copy)' : 'Technician Rescue Boot (Physical 16GB USB Drive)',
-      basePriceNum: isTestMode ? (usbDeliveryOption === 'soft' ? 2 : 3) : (usbDeliveryOption === 'soft' ? 3999 : 5999),
-      basePriceDisplay: isTestMode ? (usbDeliveryOption === 'soft' ? '₹2.00' : '₹3.00') : (usbDeliveryOption === 'soft' ? '₹3,999.00' : '₹5,999.00'),
-      gstAmount: isTestMode ? (usbDeliveryOption === 'soft' ? '₹0.36' : '₹0.54') : (usbDeliveryOption === 'soft' ? '₹719.82' : '₹1,079.82'),
-      totalPrice: isTestMode ? (usbDeliveryOption === 'soft' ? 2.36 : 3.54) : (usbDeliveryOption === 'soft' ? 4718.82 : 7078.82),
-      totalDisplay: isTestMode 
-        ? (usbDeliveryOption === 'soft' ? '₹2.36 (Base ₹2.00 + GST Soft Copy)' : '₹3.54 (Base ₹3.00 + GST USB Hardware)')
-        : (usbDeliveryOption === 'soft' ? '₹4,718.82 (Digital ISO)' : '₹7,078.82 (Physical 16GB USB)'),
+      basePriceNum: usbDeliveryOption === 'soft' ? 3999 : 5999,
+      basePriceDisplay: usbDeliveryOption === 'soft' ? '₹3,999.00' : '₹5,999.00',
+      gstAmount: usbDeliveryOption === 'soft' ? '₹719.82' : '₹1,079.82',
+      totalPrice: usbDeliveryOption === 'soft' ? 4718.82 : 7078.82,
+      totalDisplay: usbDeliveryOption === 'soft' ? '₹4,718.82 (Digital ISO)' : '₹7,078.82 (Physical 16GB USB)',
       badge: usbDeliveryOption === 'soft' ? 'Digital ISO Download' : 'Physical Hardware Ship',
       description: usbDeliveryOption === 'soft' 
         ? 'Instant bootable ISO / PE image soft copy download for custom USB flashing.'
@@ -78,10 +74,10 @@ export default function Products() {
       id: 'optispace-pc',
       title: 'OptiSpace PC Pro',
       icon: HardDrive,
-      basePriceDisplay: isTestMode ? '₹1.00' : '₹499.00',
-      gstAmount: isTestMode ? '₹0.18' : '₹89.82',
-      totalPrice: isTestMode ? 1.18 : 588.82,
-      totalDisplay: isTestMode ? '₹1.18 (Base ₹1.00 + GST)' : '₹588.82',
+      basePriceDisplay: '₹499.00',
+      gstAmount: '₹89.82',
+      totalPrice: 588.82,
+      totalDisplay: '₹588.82',
       description: 'Windows desktop disk analyzer and high-performance storage manager. Visualizes drive usage and purges orphaned files locally.',
       downloadLink: 'https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix'
     },
@@ -89,10 +85,10 @@ export default function Products() {
       id: 'devibe-oms',
       title: 'De-Vibe OMS Enterprise',
       icon: Briefcase,
-      basePriceDisplay: isTestMode ? '₹2.00' : '₹14,999.00',
-      gstAmount: isTestMode ? '₹0.36' : '₹2,699.82',
-      totalPrice: isTestMode ? 2.36 : 17698.82,
-      totalDisplay: isTestMode ? '₹2.36 (Base ₹2.00 + GST)' : '₹17,698.82',
+      basePriceDisplay: '₹14,999.00',
+      gstAmount: '₹2,699.82',
+      totalPrice: 17698.82,
+      totalDisplay: '₹17,698.82',
       description: 'Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.',
       downloadLink: 'https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix'
     },
@@ -100,10 +96,10 @@ export default function Products() {
       id: 'bahamut-oms',
       title: 'Bahamut OMS High-Freq',
       icon: Database,
-      basePriceDisplay: isTestMode ? '₹3.00' : '₹29,999.00',
-      gstAmount: isTestMode ? '₹0.54' : '₹5,399.82',
-      totalPrice: isTestMode ? 3.54 : 35398.82,
-      totalDisplay: isTestMode ? '₹3.54 (Base ₹3.00 + GST)' : '₹35,398.82',
+      basePriceDisplay: '₹29,999.00',
+      gstAmount: '₹5,399.82',
+      totalPrice: 35398.82,
+      totalDisplay: '₹35,398.82',
       description: 'Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.',
       downloadLink: 'https://github.com/devibe70-ux/De-vibe-OMS/releases/latest/download/DeVibe-OMS-Installer.msix'
     }
@@ -146,7 +142,7 @@ export default function Products() {
   return (
     <>
       <Helmet>
-        <title>Software Products & License Store - De Vibe Studio</title>
+        <title>Software Products & Direct License Store - De Vibe Studio</title>
         <meta name="description" content="Purchase official software licenses (Base Price + 18% GST, GSTIN: 24ASHPS97771ZE) on De Vibe Studio with trackable Serial Keys and Autopay Subscriptions." />
         <link rel="canonical" href="https://www.devibestudio.com/products" />
       </Helmet>
@@ -161,19 +157,20 @@ export default function Products() {
             Purchase official software licenses directly on our site prior to Microsoft Store release.
           </p>
 
-          {/* Test Pricing Alert Banner */}
+          {/* GSTIN & Tax Compliance Banner */}
           <div style={{
-            backgroundColor: 'rgba(239, 68, 68, 0.08)',
-            border: '2px dashed #ef4444',
-            borderRadius: '12px',
-            padding: '1rem 1.5rem',
+            backgroundColor: 'rgba(37, 99, 235, 0.05)',
+            border: '1px solid var(--border)',
+            borderRadius: '10px',
+            padding: '0.85rem 1.5rem',
             marginBottom: '3rem',
             textAlign: 'center',
-            fontSize: '1rem',
-            color: '#ef4444',
-            fontWeight: '700'
+            fontSize: '0.9rem',
+            color: 'var(--text-secondary)'
           }}>
-            🧪 TRIAL PAYMENT MODE ACTIVE: Base Prices set to ₹1.00, ₹2.00, and ₹3.00 (+ 18% GST added at checkout). Includes Trackable Serial Numbers & Autopay Subscriptions! (Seller GSTIN: 24ASHPS97771ZE)
+            <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>📢 Note: All listed prices are Exclusive of 18% GST (SAC Code 997331). 18% GST is added at checkout.</span>
+            <span style={{ margin: '0 0.75rem', opacity: 0.5 }}>|</span>
+            <span>Seller GSTIN: <strong style={{ color: 'var(--accent)' }}>24ASHPS97771ZE</strong></span>
           </div>
 
           {/* OptimaFix Pro Main Card */}
@@ -274,7 +271,7 @@ export default function Products() {
                               cursor: 'pointer'
                             }}
                           >
-                            Monthly Autopay
+                            Monthly (₹399/mo)
                           </button>
                           <button
                             type="button"
@@ -291,7 +288,7 @@ export default function Products() {
                               cursor: 'pointer'
                             }}
                           >
-                            Annual Autopay
+                            Annual (₹3,999/yr)
                           </button>
                         </div>
                       </div>
@@ -319,7 +316,7 @@ export default function Products() {
                               cursor: 'pointer'
                             }}
                           >
-                            Digital ISO (Soft)
+                            Digital ISO (₹3,999)
                           </button>
                           <button
                             type="button"
@@ -336,7 +333,7 @@ export default function Products() {
                               cursor: 'pointer'
                             }}
                           >
-                            16GB Hardware USB
+                            16GB Hardware USB (₹5,999)
                           </button>
                         </div>
                       </div>
@@ -362,7 +359,7 @@ export default function Products() {
                         fontWeight: '600'
                       }}
                     >
-                      <ShoppingCart size={16} /> Checkout ({variant.totalDisplay})
+                      <ShoppingCart size={16} /> Pay {variant.totalDisplay} via Razorpay
                     </button>
                   </div>
                 );

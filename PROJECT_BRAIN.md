@@ -35,10 +35,12 @@
 ### 3.1. OptimaFix Pro (Windows Diagnostic & Repair Suite)
 - **Repository**: `pc-repair-tool`
 - **Installer URL**: `https://github.com/devibe70-ux/pc-repair-tool/releases/latest/download/OptimaFix.msix`
-- **Pricing & Variants**:
-  1. **Digital Home License** — **₹999 INR** (Single PC, 1-click lifetime key)
-  2. **Tech Pro License** — **₹3,999 INR / year** (Unlimited PC repair scans, Apple AST-2 diagnostics, comparative PDF reporting)
-  3. **Technician Rescue USB** — **₹5,999 INR** (Pre-loaded 16GB bootable hardware drive with offline PE console)
+- **GST Compliance**: 18% GST (SAC 997331 - IT Software Product License) | **Seller GSTIN**: `24ASHPS97771ZE`
+- **Pricing & Variants (Incl. 18% GST)**:
+  1. **Digital Home License** — **₹999.00 INR** (Base: ₹846.61 + 18% GST: ₹152.39)
+  2. **Tech Pro License** — **₹3,999.00 INR / year** (Base: ₹3,388.98 + 18% GST: ₹610.02)
+  3. **Technician Rescue USB** — **₹5,999.00 INR** (Base: ₹5,083.90 + 18% GST: ₹915.10)
+
 
 ### 3.2. OptiSpace Mobile (Android AI Storage Cleaner)
 - **Repository**: `optispace-mobile`

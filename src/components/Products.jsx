@@ -10,6 +10,8 @@ const optimafixVariants = [
     id: 'digital',
     title: 'Digital Home License',
     price: 999,
+    basePrice: '₹846.61',
+    gstAmount: '₹152.39',
     priceDisplay: '₹999',
     badge: 'Single PC',
     description: 'Instant digital key for 1 Windows PC with full diagnostics & cleanup.',
@@ -19,6 +21,8 @@ const optimafixVariants = [
     id: 'tech',
     title: 'Tech Pro License',
     price: 3999,
+    basePrice: '₹3,388.98',
+    gstAmount: '₹610.02',
     priceDisplay: '₹3,999 / year',
     badge: 'Multi-PC / Pro',
     description: 'Unlimited PC repair license for technicians & computer repair shops.',
@@ -28,6 +32,8 @@ const optimafixVariants = [
     id: 'usb',
     title: 'Technician Boot USB',
     price: 5999,
+    basePrice: '₹5,083.90',
+    gstAmount: '₹915.10',
     priceDisplay: '₹5,999',
     badge: 'Hardware + Tech',
     description: 'Pre-loaded 16GB Bootable Rescue USB drive with offline PE console.',
@@ -59,7 +65,9 @@ export default function Products() {
           "@type": "Offer",
           "name": v.title,
           "price": v.price.toString(),
-          "priceCurrency": "INR"
+          "priceCurrency": "INR",
+          "eligibleRegion": "IN",
+          "vatID": "24ASHPS97771ZE"
         }))
       }
     ]
@@ -99,7 +107,7 @@ export default function Products() {
     <>
       <Helmet>
         <title>Software Products & Utilities - De Vibe Studio</title>
-        <meta name="description" content="Explore De Vibe's software suites, featuring OptimaFix Pro (Digital Key, Tech Pro, Boot USB), OptiSpace Mobile, and enterprise order management solutions." />
+        <meta name="description" content="Explore De Vibe's software suites with 18% GST tax invoice compliance (GSTIN: 24ASHPS97771ZE), featuring OptimaFix Pro, OptiSpace Mobile, and enterprise OMS." />
         <link rel="canonical" href="https://www.devibestudio.com/products" />
         <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
       </Helmet>
@@ -110,9 +118,25 @@ export default function Products() {
           <h1 style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
             Software Products
           </h1>
-          <p style={{ color: 'var(--text-secondary)', textAlign: 'center', marginBottom: '4rem', fontSize: '1.2rem' }}>
+          <p style={{ color: 'var(--text-secondary)', textAlign: 'center', marginBottom: '1.5rem', fontSize: '1.2rem' }}>
             Next-generation system utility software and enterprise database environments.
           </p>
+
+          {/* GSTIN & Tax Compliance Banner */}
+          <div style={{
+            backgroundColor: 'rgba(37, 99, 235, 0.05)',
+            border: '1px solid var(--border)',
+            borderRadius: '10px',
+            padding: '0.75rem 1.5rem',
+            marginBottom: '3rem',
+            textAlign: 'center',
+            fontSize: '0.9rem',
+            color: 'var(--text-secondary)'
+          }}>
+            <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>🔒 18% GST Tax Invoice Included (SAC 997331)</span>
+            <span style={{ margin: '0 0.75rem', opacity: 0.5 }}>|</span>
+            <span>Seller GSTIN: <strong style={{ color: 'var(--accent)' }}>24ASHPS97771ZE</strong></span>
+          </div>
 
           {/* OptimaFix Pro Main Card */}
           <div style={{ 
@@ -180,9 +204,12 @@ export default function Products() {
                     <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-secondary)', fontWeight: '600', marginBottom: '0.5rem' }}>
                       {variant.badge}
                     </span>
-                    <h4 style={{ fontSize: '1.25rem', margin: '0 0 0.5rem 0' }}>{variant.title}</h4>
-                    <div style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.75rem' }}>
+                    <h4 style={{ fontSize: '1.25rem', margin: '0 0 0.25rem 0' }}>{variant.title}</h4>
+                    <div style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.25rem' }}>
                       {variant.priceDisplay}
+                    </div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
+                      Base: {variant.basePrice} + 18% GST ({variant.gstAmount})
                     </div>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1.5rem', flex: 1, lineHeight: '1.5' }}>
                       {variant.description}
@@ -226,8 +253,11 @@ export default function Products() {
               <div>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: '600' }}>Selected Package:</span>
                 <h4 style={{ margin: '0.25rem 0 0 0', fontSize: '1.1rem' }}>
-                  {selectedVariant.title} ({selectedVariant.priceDisplay})
+                  {selectedVariant.title} ({selectedVariant.priceDisplay} incl. 18% GST)
                 </h4>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                  Base Price: {selectedVariant.basePrice} | 18% GST: {selectedVariant.gstAmount} | GSTIN: 24ASHPS97771ZE
+                </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <button

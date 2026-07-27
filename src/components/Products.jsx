@@ -445,7 +445,7 @@ export default function Products() {
                   {selectedVariant.title} (Base {selectedVariant.basePriceDisplay} + 18% GST = {selectedVariant.totalDisplay})
                 </h4>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-                  Includes Trackable License Serial Number & Sequential Legal GST Bill Number (`RAZORPAY-0111`, `RAZORPAY-0112`...)
+                  Includes Trackable License Serial Number & 18% GST Tax Invoice (Seller GSTIN: 24ASHPS97771ZE)
                 </span>
               </div>
               <div>
@@ -583,10 +583,10 @@ export default function Products() {
                       </td>
                     </tr>
                     <tr>
-                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Official Legal GST Tax Invoice</td>
-                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center', fontFamily: 'monospace', fontWeight: '700' }}>RAZORPAY-0111</td>
-                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center', fontFamily: 'monospace', fontWeight: '700' }}>RAZORPAY-0112</td>
-                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center', fontFamily: 'monospace', fontWeight: '700' }}>RAZORPAY-0113</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>18% GST Tax Invoice & SAC Code</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Official GST Invoice (SAC 997331)</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Official GST Invoice (SAC 997331)</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Official GST Invoice (SAC 997331)</td>
                     </tr>
                     <tr style={{ backgroundColor: 'var(--bg-secondary)' }}>
                       <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Trackable Product Serial Key</td>

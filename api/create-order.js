@@ -1,5 +1,8 @@
 import Razorpay from 'razorpay';
 
+// Global counter fallback starting at 0111
+let invoiceSeqCounter = 111;
+
 export default async function handler(req, res) {
   // CORS Headers
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -36,16 +39,20 @@ export default async function handler(req, res) {
       key_secret: razorpayKeySecret
     });
 
+    const currentInvoiceNum = `RAZORPAY-${String(invoiceSeqCounter).padStart(4, '0')}`;
+    invoiceSeqCounter += 1;
+
     const order = await razorpay.orders.create({
       amount: Math.round(amountInPaise),
       currency: currency.toUpperCase(),
-      receipt: receipt || `rcpt_${Date.now()}`
+      receipt: receipt || `rcpt_${currentInvoiceNum}`
     });
 
     return res.status(200).json({
       order_id: order.id,
       amount: order.amount,
-      currency: order.currency
+      currency: order.currency,
+      invoice_number: currentInvoiceNum
     });
   } catch (error) {
     console.error('Razorpay Create Order Error:', error);

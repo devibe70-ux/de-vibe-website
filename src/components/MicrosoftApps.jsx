@@ -98,6 +98,15 @@ export default function MicrosoftApps() {
                 </span>
               </div>
 
+              {/* App Screenshot Preview */}
+              <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)', marginBottom: '1.75rem', height: '260px', backgroundColor: '#000' }}>
+                <img 
+                  src="/screenshots/optimafix_pro_app.jpg" 
+                  alt="OptimaFix Pro User Interface" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
                 OptimaFix Pro brings our powerful diagnostics and automated system optimization engine to the Windows desktop environment. It deeply scans disk health, clears cache, fixes dead shortcuts, resets DNS, and applies registry customization tweaks.
               </p>
@@ -121,6 +130,15 @@ export default function MicrosoftApps() {
                 <Briefcase size={32} color="var(--accent)" />
                 <h2 style={{ margin: 0, fontSize: '2rem' }}>De-Vibe OMS</h2>
               </div>
+              {/* OMS App Screenshot Preview */}
+              <div style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border)', marginBottom: '1.75rem', height: '240px', backgroundColor: '#000' }}>
+                <img 
+                  src="/screenshots/devibe_oms_app.jpg" 
+                  alt="De-Vibe OMS Executive Interface" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
                 Our proprietary Order Management System (OMS) built to handle complex, omni-channel operational workflows. It serves as the central nervous system for enterprise clients, integrating seamlessly with existing ERPs and frontend systems.
               </p>

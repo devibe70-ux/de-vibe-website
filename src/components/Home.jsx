@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Monitor, HardDrive, Briefcase, ShoppingCart, ShieldCheck, ArrowRight, Eye, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Hero from './Hero';
+import BusinessGrowth from './BusinessGrowth';
 import About from './About';
 
 export default function Home() {
@@ -38,12 +39,15 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>De Vibe | Premium Web & Software Agency</title>
-        <meta name="description" content="Elevate your digital presence. De Vibe specializes in custom web development, corporate software solutions, and premium logo design." />
+        <title>De Vibe | We Help You Build Your Business & Scale Your Growth</title>
+        <meta name="description" content="De Vibe Studio helps entrepreneurs, repair shops, and enterprises build their business with turnkey branding, custom React web engineering, desktop software, and AI search dominance." />
         <link rel="canonical" href="https://www.devibestudio.com/" />
       </Helmet>
 
       <Hero />
+
+      {/* WE HELP YOU BUILD YOUR BUSINESS & SCALE YOUR GROWTH SECTION */}
+      <BusinessGrowth />
 
       {/* FEATURED PRODUCTS & LIVE APP INTERFACES SHOWCASE SECTION */}
       <section style={{ backgroundColor: 'var(--bg-secondary)', padding: '5rem 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>

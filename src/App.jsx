@@ -16,6 +16,7 @@ import Projects from './components/Projects';
 import Reviews from './components/Reviews';
 import CookieBanner from './components/CookieBanner';
 import Products from './components/Products';
+import RemoteDashboard from './components/RemoteDashboard';
 import './App.css';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/remote" element={<RemoteDashboard />} />
           </Routes>
         </main>
         <Footer />

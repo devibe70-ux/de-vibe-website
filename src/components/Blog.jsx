@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import AdSenseSlot from './AdSenseSlot';
 
 const blogPosts = [
   {
@@ -117,6 +118,7 @@ export default function Blog() {
       <section className="bg-alt" style={{ minHeight: '80vh', padding: '6rem 0' }}>
       <div className="container">
         <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>De Vibe Insights</h2>
+        <AdSenseSlot style={{ marginBottom: '2.5rem' }} />
         <div className="grid grid-2 grid-3">
           {shuffledPosts.map(post => (
             <Link to={`/blog/${post.id}`} key={post.id} className="project-card" style={{ display: 'block', textDecoration: 'none' }}>

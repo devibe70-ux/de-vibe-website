@@ -1,5 +1,18 @@
-# User-agent directives for Web Crawlers and AI Search Agents
+# User-agent directives for Web Crawlers, Search Engines, and AI Agents
 User-agent: *
+Allow: /
+
+# Dedicated Google AdSense & Search Engine Crawlers
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Google-InspectionTool
 Allow: /
 
 # Explicit AI Agent & LLM Crawler Permissions

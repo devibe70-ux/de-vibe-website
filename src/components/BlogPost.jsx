@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
+import AdSenseSlot from './AdSenseSlot';
 
 const articles = {
   'why-custom-website-2026': {
@@ -282,7 +283,8 @@ export default function BlogPost() {
             <span style={{ color: 'var(--text-primary)', fontWeight: '500' }}>{article.title}</span>
           </div>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: '1.2' }}>{article.title}</h1>
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Published on {article.date}</p>
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Published on {article.date}</p>
+          <AdSenseSlot style={{ marginBottom: '2.5rem' }} />
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', fontSize: '1.1rem', lineHeight: '1.7', color: 'var(--text-primary)' }}>
             {article.content}

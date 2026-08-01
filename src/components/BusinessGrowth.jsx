@@ -28,7 +28,7 @@ export default function BusinessGrowth() {
       metrics: '💰 +300% Service Margins | ⏱️ 5s Turbo Scans',
       highlights: [
         'Commercial OptimaFix Pro Tech License',
-        'Apple AST-2 Style Hardware Stress Testing',
+        'Enterprise AST-2 Hardware Stress Testing',
         'Branded Client PDF Diagnostic Invoices',
         'Bare-Metal WinPE Offline Rescue Boot USB'
       ],

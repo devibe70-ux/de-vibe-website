@@ -66,10 +66,10 @@ export default function Products() {
       badge: 'Autopay Subscription',
       subBadge: '⭐ Best ROI for Repair Shops & Techs',
       speedTag: '🚀 5x Multi-Thread Turbo Engine (~5s scan)',
-      description: 'Commercial repair license for technicians & shops with 5x parallel engine, Apple AST-2 diagnostics & client PDF invoices.',
+      description: 'Commercial repair license for technicians & shops with 5x parallel engine, Enterprise AST-2 diagnostics & client PDF invoices.',
       highlights: [
         'Unlimited PCs & Scans (Multi-Device)',
-        'Apple AST-2 Style Component Stress Test',
+        'Enterprise AST-2 Component Stress Test',
         'Branded Client PDF Diagnostic Invoices',
         'Automated Daily Scheduled Auto-Repair',
         'Priority 24/7 Tech Hotline & Remote Support'
@@ -711,7 +711,7 @@ export default function Products() {
                     <tr style={{ backgroundColor: 'var(--bg-secondary)' }}>
                       <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', fontWeight: '600' }}>Hardware Component Certification</td>
                       <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Basic CPU/RAM Summary</td>
-                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center', fontWeight: '700', color: 'var(--accent)' }}>🍏 Apple AST-2 Style Component Stress</td>
+                      <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center', fontWeight: '700', color: 'var(--accent)' }}>⚡ Enterprise AST-2 Component Stress</td>
                       <td style={{ padding: '0.85rem 1rem', border: '1px solid var(--border)', textAlign: 'center' }}>Low-Level Bus & Memory Pattern Test</td>
                     </tr>
                     <tr>

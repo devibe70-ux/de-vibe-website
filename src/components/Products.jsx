@@ -77,16 +77,16 @@ export default function Products() {
     },
     {
       id: 'usb',
-      title: usbDeliveryOption === 'soft' ? 'Technician Rescue Boot (Digital ISO)' : 'Technician Rescue Boot (16GB Hardware USB)',
+      title: usbDeliveryOption === 'soft' ? 'Technician Rescue Boot (Digital ISO)' : 'Technician Rescue Boot (8GB / 16GB Hardware USB)',
       basePriceNum: usbDeliveryOption === 'soft' ? 3999 : 5999,
       basePriceDisplay: usbDeliveryOption === 'soft' ? '₹3,999.00' : '₹5,999.00',
       gstAmount: usbDeliveryOption === 'soft' ? '₹719.82' : '₹1,079.82',
       totalPrice: usbDeliveryOption === 'soft' ? 4718.82 : 7078.82,
-      totalDisplay: usbDeliveryOption === 'soft' ? '₹4,718.82 (Digital ISO)' : '₹7,078.82 (16GB USB)',
-      badge: usbDeliveryOption === 'soft' ? 'Digital ISO Download' : 'Physical 16GB Hardware Drive',
+      totalDisplay: usbDeliveryOption === 'soft' ? '₹4,718.82 (Digital ISO)' : '₹7,078.82 (8GB / 16GB USB)',
+      badge: usbDeliveryOption === 'soft' ? 'Digital ISO Download' : 'Physical 8GB / 16GB Hardware Drive',
       description: usbDeliveryOption === 'soft' 
         ? 'Bare-metal WinPE offline boot rescue console soft copy for unbootable PCs and Blue Screen (BSOD) repair.'
-        : 'Pre-loaded 16GB Custom Bootable Hardware USB Drive shipped express with zero-click offline WinPE recovery environment.',
+        : 'Pre-loaded 8GB / 16GB Custom Bootable Hardware USB Drive shipped express with zero-click offline WinPE recovery environment.',
       speedTag: '⚡ Bare-Metal WinPE Kernel (Instant Offline Boot)',
       highlights: usbDeliveryOption === 'soft'
         ? [
@@ -97,7 +97,7 @@ export default function Products() {
             'Pre-activated Unlimited Tech License'
           ]
         : [
-            '16GB Custom Bootable Hardware USB Drive',
+            '8GB / 16GB Custom Bootable Hardware USB Drive',
             'Zero-Click Offline WinPE Rescue Console',
             'Offline Registry Hive Injector & BCD Repair',
             'Bare-Metal Unbootable BSOD OS Recovery',

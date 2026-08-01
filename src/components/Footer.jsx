@@ -63,6 +63,14 @@ export default function Footer() {
               <GithubIcon size={16} /> DAVINCISHAH
             </a>
             <a 
+              href="https://github.com/devibe70-ux/OptimaFix-Pro" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}
+            >
+              <GithubIcon size={16} /> OptimaFix-Pro Repo
+            </a>
+            <a 
               href="https://github.com/devibe70-ux" 
               target="_blank" 
               rel="noopener noreferrer" 

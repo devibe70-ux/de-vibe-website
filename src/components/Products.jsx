@@ -229,9 +229,9 @@ export default function Products() {
           localStorage.setItem('devibe_active_license_receipt', JSON.stringify(receiptData));
         } catch (err) {}
 
-        // 2. Generate Single-Use Cryptographic Expiring Download Token (Expires in 24 Hours, Single Claim)
+        // 2. Generate Single-Use Cryptographic Expiring Download Token (Expires in 48 Hours, Single Claim)
         const downloadToken = Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10);
-        const expiresTimestamp = Date.now() + 86400000; // 24 Hours
+        const expiresTimestamp = Date.now() + 172800000; // 48 Hours (2 Days)
         const secureTokenUrl = `https://www.devibestudio.com/api/download?token=${downloadToken}&serial=${generatedSerial}&exp=${expiresTimestamp}`;
 
         const customerEmail = response.razorpay_email || 'customer@devibestudio.com';
@@ -243,23 +243,24 @@ export default function Products() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               to_email: customerEmail,
-              subject: `[CONFIRMED] OptimaFix Pro Secure Single-Use Download Link (${generatedSerial})`,
+              subject: `[CONFIRMED] OptimaFix Pro Secure Single-Use 48-Hour Download Link (${generatedSerial})`,
               productName: name,
               licenseSerial: generatedSerial,
               paymentId: response.razorpay_payment_id,
               downloadTokenUrl: secureTokenUrl,
-              tokenPolicy: 'Single-Use 24-Hour Security Token (Hardware Bound)',
+              tokenPolicy: 'Single-Use 48-Hour Cryptographic Token (Hardware Bound & Anti-Sharing Locked)',
+              warningNotice: 'IMPORTANT: Do NOT forward or share this link. Sharing will consume your single-use token and permanently lock your personal license key!',
               vendorGstin: '24ASHPS97771ZE'
             })
           });
         } catch (e) {}
 
-        // 3. Dispatch automated WHATSAPP message with Secure Single-Use Token
+        // 3. Dispatch automated WHATSAPP message with Secure Single-Use 48-Hour Token & Anti-Sharing Notice
         if (customerPhone) {
           try {
             const cleanPhone = customerPhone.replace(/[^0-9]/g, '');
             const targetPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
-            const waMsg = encodeURIComponent(`🎉 PAYMENT CONFIRMED!\n\nThank you for purchasing ${name} from De Vibe (GSTIN: 24ASHPS97771ZE).\n\n🔑 License Key: ${generatedSerial}\n💳 Txn ID: ${response.razorpay_payment_id}\n🔒 Single-Use Download Link: ${secureTokenUrl}\n\n⚠️ Note: This download link is single-use and expires in 24 hours.`);
+            const waMsg = encodeURIComponent(`🎉 PAYMENT CONFIRMED!\n\nThank you for purchasing ${name} from De Vibe (GSTIN: 24ASHPS97771ZE).\n\n🔑 License Key: ${generatedSerial}\n💳 Txn ID: ${response.razorpay_payment_id}\n🔒 Secure Single-Use Link (48 Hours): ${secureTokenUrl}\n\n⚠️ IMPORTANT ANTI-PIRACY NOTICE: This link is SINGLE-USE ONLY and expires in 48 hours. Do NOT forward or share this link with anyone, as forwarding will consume your token and lock your license key!`);
             const waLink = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${waMsg}`;
             
             setTimeout(() => {

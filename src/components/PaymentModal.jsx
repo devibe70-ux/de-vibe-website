@@ -114,6 +114,25 @@ export default function PaymentModal({
             </div>
           )}
 
+          {/* Anti-Piracy Single-Use 48-Hour Warning Banner */}
+          <div style={{
+            backgroundColor: 'rgba(239, 68, 68, 0.08)',
+            border: '1px solid #ef4444',
+            borderRadius: '10px',
+            padding: '1rem',
+            width: '100%',
+            marginBottom: '1.25rem',
+            fontSize: '0.85rem',
+            color: '#f87171',
+            textAlign: 'left',
+            lineHeight: '1.4'
+          }}>
+            <strong style={{ color: '#ef4444', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+              ⚠️ Single-Use 48-Hour Security Token Notice
+            </strong>
+            Your download link is a single-use cryptographic token valid for <strong>48 hours</strong>. Do NOT forward or share this link with anyone. Forwarding your link will consume your download token and permanently lock your personal license key!
+          </div>
+
           {paymentId && (
             <div className="payment-id-badge" style={{ marginBottom: '1rem' }}>
               <span>Razorpay Txn ID:</span> <code>{paymentId}</code>

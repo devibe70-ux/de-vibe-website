@@ -156,10 +156,31 @@ export default function PaymentModal({
             </div>
           </div>
 
-          <div style={{ marginTop: '1.75rem', display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+          <div style={{ marginTop: '1.75rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', width: '100%' }}>
             <button onClick={handleDownload} className="btn" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%', padding: '0.9rem' }}>
               <Download size={20} /> Download Software Installer (.msix)
             </button>
+            <a
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`Hello De Vibe Support! I completed my purchase of ${productName}.\n\n🔑 My License Serial Key: ${activeSerialKey}\n💳 Razorpay Txn ID: ${paymentId}\n📦 Invoice No: ${invoiceNumber}\n\nPlease confirm my order details & send my download link!`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                width: '100%',
+                padding: '0.85rem',
+                backgroundColor: '#25D366',
+                color: '#ffffff',
+                fontWeight: '700',
+                borderRadius: '8px',
+                textDecoration: 'none'
+              }}
+            >
+              💬 Send License & Download Link via WhatsApp
+            </a>
             <button onClick={onClose} className="btn-cookie-decline" style={{ width: '100%', textAlign: 'center' }}>
               Close Window
             </button>

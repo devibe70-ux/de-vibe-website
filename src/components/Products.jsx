@@ -14,6 +14,9 @@ export default function Products() {
   // Technician Rescue USB Delivery Option ('soft' vs 'physical')
   const [usbDeliveryOption, setUsbDeliveryOption] = useState('physical');
 
+  // Physical USB Capacity Tier ('8gb' vs '16gb')
+  const [usbCapacity, setUsbCapacity] = useState('16gb');
+
   // Interactive Screenshot Lightbox Modal State
   const [lightboxState, setLightboxState] = useState({
     isOpen: false,
@@ -42,22 +45,21 @@ export default function Products() {
       basePriceDisplay: '₹999.00',
       gstAmount: '₹179.82',
       totalPrice: 1178.82,
-      totalDisplay: '₹1,178.82',
-      badge: 'Single PC Lifetime',
-      subBadge: 'Affordable Home Plan',
-      speedTag: '⚡ 1x Standard Engine (~30s scan)',
-      description: 'Instant digital key for 1 Windows PC with essential diagnostics, junk cleanup & S.M.A.R.T. health checks.',
+      totalDisplay: '₹1,178.82 / lifetime',
+      badge: 'Most Popular for Home & Office',
+      description: 'Single-PC lifetime license with 5-stage automated repair engine, S.M.A.R.T. NVMe disk audit, and RAM latency optimizer.',
+      speedTag: '🚀 5-Stage Automated Repair Engine (~5s scan)',
       highlights: [
-        '1 PC Lifetime Activation',
-        '5-Stage Automated Repair Wizard',
-        'Registry & DNS Latency Reset',
-        'Basic S.M.A.R.T. Disk Health Check',
-        'Instant Digital Key Delivery'
+        'Single PC Lifetime License (No Subscriptions)',
+        'S.M.A.R.T. NVMe/SSD Health Diagnostics',
+        'One-Click System Cleanup & RAM Optimizer',
+        'SFC & DISM Automated Recovery Wizard',
+        'Lifetime Free Version 1.x Software Updates'
       ]
     },
     {
-      id: 'tech',
-      title: subscriptionCycle === 'monthly' ? 'Tech Pro Monthly (Autopay)' : 'Tech Pro Annual (Autopay)',
+      id: 'tech-pro',
+      title: 'Technician Pro Subscription',
       basePriceNum: subscriptionCycle === 'monthly' ? 399 : 3999,
       basePriceDisplay: subscriptionCycle === 'monthly' ? '₹399.00 / mo' : '₹3,999.00 / yr',
       gstAmount: subscriptionCycle === 'monthly' ? '₹71.82' : '₹719.82',
@@ -76,17 +78,23 @@ export default function Products() {
       ]
     },
     {
-      id: 'usb',
-      title: usbDeliveryOption === 'soft' ? 'Technician Rescue Boot (Digital ISO)' : 'Technician Rescue Boot (8GB / 16GB Hardware USB)',
-      basePriceNum: usbDeliveryOption === 'soft' ? 3999 : 5999,
-      basePriceDisplay: usbDeliveryOption === 'soft' ? '₹3,999.00' : '₹5,999.00',
-      gstAmount: usbDeliveryOption === 'soft' ? '₹719.82' : '₹1,079.82',
-      totalPrice: usbDeliveryOption === 'soft' ? 4718.82 : 7078.82,
-      totalDisplay: usbDeliveryOption === 'soft' ? '₹4,718.82 (Digital ISO)' : '₹7,078.82 (8GB / 16GB USB)',
-      badge: usbDeliveryOption === 'soft' ? 'Digital ISO Download' : 'Physical 8GB / 16GB Hardware Drive',
+      id: 'bootable',
+      title: usbDeliveryOption === 'soft' 
+        ? 'Technician Rescue Boot (Digital ISO)' 
+        : (usbCapacity === '8gb' ? 'Technician Rescue Boot (8GB Hardware USB)' : 'Mother of All Recovery Drives (16GB Master USB)'),
+      basePriceNum: usbDeliveryOption === 'soft' ? 3999 : (usbCapacity === '8gb' ? 999 : 1500),
+      basePriceDisplay: usbDeliveryOption === 'soft' ? '₹3,999.00' : (usbCapacity === '8gb' ? '₹999.00' : '₹1,500.00'),
+      gstAmount: usbDeliveryOption === 'soft' ? '₹719.82' : (usbCapacity === '8gb' ? '₹179.82' : '₹270.00'),
+      totalPrice: usbDeliveryOption === 'soft' ? 4718.82 : (usbCapacity === '8gb' ? 1178.82 : 1770.00),
+      totalDisplay: usbDeliveryOption === 'soft' 
+        ? '₹4,718.82 (Digital ISO)' 
+        : (usbCapacity === '8gb' ? '₹1,178.82 (8GB Standard USB)' : '₹1,770.00 (16GB Master USB)'),
+      badge: usbDeliveryOption === 'soft' ? 'Digital ISO Download' : (usbCapacity === '8gb' ? 'Physical 8GB Standard USB' : 'Physical 16GB Master Drive'),
       description: usbDeliveryOption === 'soft' 
         ? 'Bare-metal WinPE offline boot rescue console soft copy for unbootable PCs and Blue Screen (BSOD) repair.'
-        : 'Pre-loaded 8GB / 16GB Custom Bootable Hardware USB Drive shipped express with zero-click offline WinPE recovery environment.',
+        : (usbCapacity === '8gb' 
+            ? 'Pre-loaded 8GB Hardware USB Drive shipped express with OptimaFix Pro 5-stage repair engine & recovery tools.' 
+            : '16GB Mother of All Recovery Drives featuring Interconnected Faulty Driver Remediation, Portable Diagnostics Suite & WinPE Rescue.'),
       speedTag: '⚡ Bare-Metal WinPE Kernel (Instant Offline Boot)',
       highlights: usbDeliveryOption === 'soft'
         ? [
@@ -96,13 +104,21 @@ export default function Products() {
             'Bare-Metal Unbootable BSOD OS Recovery',
             'Pre-activated Unlimited Tech License'
           ]
-        : [
-            '8GB / 16GB Custom Bootable Hardware USB Drive',
-            'Zero-Click Offline WinPE Rescue Console',
-            'Offline Registry Hive Injector & BCD Repair',
-            'Bare-Metal Unbootable BSOD OS Recovery',
-            'Free Express Doorstep Shipping & Lifetime USB Warranty'
-          ]
+        : (usbCapacity === '8gb'
+            ? [
+                '8GB Standard Hardware USB Drive (₹999)',
+                'OptimaFix Pro 5-Stage Repair Wizard',
+                'BCD Bootloader Repair & SFC/DISM Suite',
+                'NTFS Read-Only Write Lock Security',
+                'Free Express Doorstep Shipping'
+              ]
+            : [
+                '16GB Master Mother of All Recovery Drives (₹1,500)',
+                'Interconnected Faulty Driver Remediation Engine',
+                'Universal Wi-Fi/LAN/NVMe DriverPacks (E:\DriverPacks)',
+                'Portable Technician Diagnostics Suite (E:\PortableTools)',
+                'Free Express Doorstep Shipping & Lifetime Warranty'
+              ])
     }
   ];
 

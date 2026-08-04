@@ -215,13 +215,46 @@ export default function Products() {
           serialNumber: generatedSerial
         });
 
+        const receiptData = {
+          productName: name,
+          downloadUrl: downloadLink,
+          paymentId: response.razorpay_payment_id,
+          serialNumber: generatedSerial,
+          purchaseDate: new Date().toISOString(),
+          vendorGstin: '24ASHPS97771ZE'
+        };
+
+        // 1. Save receipt to LocalStorage so download is accessible anytime
+        try {
+          localStorage.setItem('devibe_active_license_receipt', JSON.stringify(receiptData));
+        } catch (err) {}
+
+        // 2. Dispatch automated email with License Serial & Direct Download Link
+        try {
+          fetch('https://formspree.io/f/xbjnqkyy', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              subject: `OptimaFix Pro License & Download Link (${generatedSerial})`,
+              productName: name,
+              licenseSerial: generatedSerial,
+              paymentId: response.razorpay_payment_id,
+              downloadUrl: 'https://www.devibestudio.com' + downloadLink,
+              vendorGstin: '24ASHPS97771ZE'
+            })
+          });
+        } catch (e) {}
+
+        // 3. Trigger immediate direct file download
         if (downloadLink) {
-          const link = document.createElement('a');
-          link.href = downloadLink;
-          link.setAttribute('download', '');
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
+          setTimeout(() => {
+            const link = document.createElement('a');
+            link.href = downloadLink;
+            link.download = downloadLink.split('/').pop() || 'OptimaFix-Pro-Setup.exe';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }, 800);
         }
       },
       onFailure: (errorMsg) => {

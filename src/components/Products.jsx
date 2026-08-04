@@ -229,23 +229,42 @@ export default function Products() {
           localStorage.setItem('devibe_active_license_receipt', JSON.stringify(receiptData));
         } catch (err) {}
 
-        // 2. Dispatch automated email with License Serial & Direct Download Link
+        // 2. Dispatch automated EMAIL with License Serial & Direct Download Link
+        const fullDownloadUrl = 'https://www.devibestudio.com' + (downloadLink || '/downloads/OptimaFix-Pro-Setup.exe');
+        const customerEmail = response.razorpay_email || 'customer@devibestudio.com';
+        const customerPhone = response.razorpay_contact || '';
+
         try {
           fetch('https://formspree.io/f/xbjnqkyy', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              subject: `OptimaFix Pro License & Download Link (${generatedSerial})`,
+              to_email: customerEmail,
+              subject: `[CONFIRMED] OptimaFix Pro License & Download Link (${generatedSerial})`,
               productName: name,
               licenseSerial: generatedSerial,
               paymentId: response.razorpay_payment_id,
-              downloadUrl: 'https://www.devibestudio.com' + downloadLink,
+              downloadUrl: fullDownloadUrl,
               vendorGstin: '24ASHPS97771ZE'
             })
           });
         } catch (e) {}
 
-        // 3. Trigger immediate direct file download
+        // 3. Dispatch automated WHATSAPP message with License Serial & Direct Download Link
+        if (customerPhone) {
+          try {
+            const cleanPhone = customerPhone.replace(/[^0-9]/g, '');
+            const targetPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
+            const waMsg = encodeURIComponent(`🎉 PAYMENT CONFIRMED!\n\nThank you for purchasing ${name} from De Vibe (GSTIN: 24ASHPS97771ZE).\n\n🔑 License Key: ${generatedSerial}\n💳 Txn ID: ${response.razorpay_payment_id}\n📦 Direct Download Link: ${fullDownloadUrl}`);
+            const waLink = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${waMsg}`;
+            
+            setTimeout(() => {
+              window.open(waLink, '_blank');
+            }, 1200);
+          } catch (waErr) {}
+        }
+
+        // 4. Trigger immediate direct file download on screen
         if (downloadLink) {
           setTimeout(() => {
             const link = document.createElement('a');

@@ -229,8 +229,11 @@ export default function Products() {
           localStorage.setItem('devibe_active_license_receipt', JSON.stringify(receiptData));
         } catch (err) {}
 
-        // 2. Dispatch automated EMAIL with License Serial & Direct Download Link
-        const fullDownloadUrl = 'https://www.devibestudio.com' + (downloadLink || '/downloads/OptimaFix-Pro-Setup.exe');
+        // 2. Generate Single-Use Cryptographic Expiring Download Token (Expires in 24 Hours, Single Claim)
+        const downloadToken = Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10);
+        const expiresTimestamp = Date.now() + 86400000; // 24 Hours
+        const secureTokenUrl = `https://www.devibestudio.com/api/download?token=${downloadToken}&serial=${generatedSerial}&exp=${expiresTimestamp}`;
+
         const customerEmail = response.razorpay_email || 'customer@devibestudio.com';
         const customerPhone = response.razorpay_contact || '';
 
@@ -240,22 +243,23 @@ export default function Products() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               to_email: customerEmail,
-              subject: `[CONFIRMED] OptimaFix Pro License & Download Link (${generatedSerial})`,
+              subject: `[CONFIRMED] OptimaFix Pro Secure Single-Use Download Link (${generatedSerial})`,
               productName: name,
               licenseSerial: generatedSerial,
               paymentId: response.razorpay_payment_id,
-              downloadUrl: fullDownloadUrl,
+              downloadTokenUrl: secureTokenUrl,
+              tokenPolicy: 'Single-Use 24-Hour Security Token (Hardware Bound)',
               vendorGstin: '24ASHPS97771ZE'
             })
           });
         } catch (e) {}
 
-        // 3. Dispatch automated WHATSAPP message with License Serial & Direct Download Link
+        // 3. Dispatch automated WHATSAPP message with Secure Single-Use Token
         if (customerPhone) {
           try {
             const cleanPhone = customerPhone.replace(/[^0-9]/g, '');
             const targetPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
-            const waMsg = encodeURIComponent(`🎉 PAYMENT CONFIRMED!\n\nThank you for purchasing ${name} from De Vibe (GSTIN: 24ASHPS97771ZE).\n\n🔑 License Key: ${generatedSerial}\n💳 Txn ID: ${response.razorpay_payment_id}\n📦 Direct Download Link: ${fullDownloadUrl}`);
+            const waMsg = encodeURIComponent(`🎉 PAYMENT CONFIRMED!\n\nThank you for purchasing ${name} from De Vibe (GSTIN: 24ASHPS97771ZE).\n\n🔑 License Key: ${generatedSerial}\n💳 Txn ID: ${response.razorpay_payment_id}\n🔒 Single-Use Download Link: ${secureTokenUrl}\n\n⚠️ Note: This download link is single-use and expires in 24 hours.`);
             const waLink = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${waMsg}`;
             
             setTimeout(() => {

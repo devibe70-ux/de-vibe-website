@@ -56,6 +56,21 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.devibestudio.com/products</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.devibestudio.com/remote</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.devibestudio.com/keywords-hub</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.devibestudio.com/blog/why-custom-website-2026</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

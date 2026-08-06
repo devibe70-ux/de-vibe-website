@@ -21,6 +21,9 @@ const routes = [
   '/quote',
   '/privacy',
   '/terms',
+  '/products',
+  '/remote',
+  '/keywords-hub',
   
   // Blog posts
   '/blog/why-custom-website-2026',

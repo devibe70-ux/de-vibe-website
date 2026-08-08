@@ -24,6 +24,7 @@ const routes = [
   '/products',
   '/remote',
   '/keywords-hub',
+  '/agent-program',
   
   // Blog posts
   '/blog/why-custom-website-2026',

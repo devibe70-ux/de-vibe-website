@@ -21,6 +21,9 @@ export default function Header() {
           <Link to="/keywords-hub" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#10b981', fontWeight: '700' }}>
             <Sparkles size={14} /> Tech Index
           </Link>
+          <Link to="/agent-program" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#f59e0b', fontWeight: '700' }}>
+            💰 Agent Program
+          </Link>
           <Link to="/blog">Insights</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/remote" style={{ backgroundColor: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem', fontWeight: '700', border: '1px solid var(--glass-border)' }}>

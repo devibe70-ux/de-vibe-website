@@ -18,9 +18,6 @@ export default function Header() {
           <Link to="/services">Services</Link>
           <Link to="/projects">Projects</Link>
           <Link to="/microsoft">Windows</Link>
-          <Link to="/keywords-hub" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#10b981', fontWeight: '700' }}>
-            <Sparkles size={14} /> Tech Index
-          </Link>
           <Link to="/agent-program" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#f59e0b', fontWeight: '700' }}>
             💰 Agent Program
           </Link>

@@ -39,7 +39,6 @@ export default function Footer() {
             <Link to="/" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Home</Link>
             <Link to="/products" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Software Store</Link>
             <Link to="/agent-program" style={{ fontSize: '0.9rem', color: '#f59e0b', fontWeight: '600' }}>Become an Agent (20% Comm.)</Link>
-            <Link to="/keywords-hub" style={{ fontSize: '0.9rem', color: 'var(--accent)', fontWeight: '600' }}>Tech & Keyword Index</Link>
             <Link to="/services" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Services</Link>
             <Link to="/projects" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Projects</Link>
             <Link to="/reviews" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Client Reviews</Link>

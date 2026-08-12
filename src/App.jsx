@@ -17,8 +17,6 @@ import Reviews from './components/Reviews';
 import CookieBanner from './components/CookieBanner';
 import Products from './components/Products';
 import RemoteDashboard from './components/RemoteDashboard';
-import ProjectKeywordsHub from './components/ProjectKeywordsHub';
-import AgentCommission from './components/AgentCommission';
 import './App.css';
 
 function App() {
@@ -43,8 +41,6 @@ function App() {
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/products" element={<Products />} />
             <Route path="/remote" element={<RemoteDashboard />} />
-            <Route path="/keywords-hub" element={<ProjectKeywordsHub />} />
-            <Route path="/agent-program" element={<AgentCommission />} />
           </Routes>
         </main>
         <Footer />

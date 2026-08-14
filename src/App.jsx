@@ -17,6 +17,7 @@ import Reviews from './components/Reviews';
 import CookieBanner from './components/CookieBanner';
 import Products from './components/Products';
 import RemoteDashboard from './components/RemoteDashboard';
+import TechGuides from './components/TechGuides';
 import './App.css';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/products" element={<Products />} />
             <Route path="/remote" element={<RemoteDashboard />} />
+            <Route path="/guides" element={<TechGuides />} />
           </Routes>
         </main>
         <Footer />

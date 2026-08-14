@@ -23,6 +23,7 @@ const routes = [
   '/terms',
   '/products',
   '/remote',
+  '/guides',
   
   // Blog posts
   '/blog/why-custom-website-2026',

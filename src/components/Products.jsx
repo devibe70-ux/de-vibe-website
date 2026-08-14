@@ -364,7 +364,7 @@ export default function Products() {
             border: '1px solid var(--border)',
             borderRadius: '10px',
             padding: '0.85rem 1.5rem',
-            marginBottom: '3rem',
+            marginBottom: '2rem',
             textAlign: 'center',
             fontSize: '0.9rem',
             color: 'var(--text-secondary)'
@@ -372,6 +372,42 @@ export default function Products() {
             <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>📢 Note: All listed prices are Exclusive of 18% GST (SAC Code 997331). 18% GST is added at checkout.</span>
             <span style={{ margin: '0 0.75rem', opacity: 0.5 }}>|</span>
             <span>Seller GSTIN: <strong style={{ color: 'var(--accent)' }}>24ASHPS97771ZE</strong></span>
+          </div>
+
+          {/* OFFICIAL GITHUB REPOSITORIES & WEB APP DEMOS BANNER */}
+          <div className="glass-card" style={{ padding: '2rem', marginBottom: '3.5rem', border: '1px solid var(--glass-border)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
+              <div>
+                <span style={{ fontSize: '0.78rem', fontWeight: '700', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Official Open Source & GitHub Repositories
+                </span>
+                <h3 style={{ fontSize: '1.4rem', margin: '0.25rem 0 0.4rem 0' }}>Explore De Vibe Software Repositories & Interactive Demos</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0, maxWidth: '700px' }}>
+                  Inspect full source code, open-source utilities, and upcoming interactive web apps directly on our official GitHub organization.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
+                <a 
+                  href="https://github.com/devibe70-ux/OptimaFix-Pro" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn btn-outline"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', padding: '0.65rem 1.15rem' }}
+                >
+                  <Terminal size={16} /> OptimaFix Pro Repo ➔
+                </a>
+                <a 
+                  href="https://github.com/devibe70-ux/de-vibe-website-builder" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', padding: '0.65rem 1.15rem' }}
+                >
+                  <Sparkles size={16} /> Interactive Web Builder Repo ➔
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* HIGH-CONVERTING LIVE APP SCREENSHOTS & UI GALLERY SECTION */}

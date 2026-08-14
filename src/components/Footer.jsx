@@ -54,14 +54,14 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Developers</h4>
+            <h4>Developers & Repos</h4>
             <a 
-              href="https://github.com/DavinciShah" 
+              href="https://github.com/devibe70-ux/de-vibe-website-builder" 
               target="_blank" 
               rel="noopener noreferrer" 
-              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent)', fontSize: '0.9rem', fontWeight: '600' }}
             >
-              <GithubIcon size={16} /> DAVINCISHAH
+              <GithubIcon size={16} /> Web Builder App Repo ➔
             </a>
             <a 
               href="https://github.com/devibe70-ux/OptimaFix-Pro" 
@@ -77,7 +77,15 @@ export default function Footer() {
               rel="noopener noreferrer" 
               style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}
             >
-              <GithubIcon size={16} /> DEVIBE70-UX
+              <GithubIcon size={16} /> DEVIBE70-UX Org
+            </a>
+            <a 
+              href="https://github.com/DavinciShah" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}
+            >
+              <GithubIcon size={16} /> DAVINCISHAH
             </a>
           </div>
         </div>

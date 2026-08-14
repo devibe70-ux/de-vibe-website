@@ -27,20 +27,31 @@ export default function Header() {
       transition: 'background-color 0.3s ease, border-color 0.3s ease'
     }}>
       <div className="container header-content">
-        <Link to="/" className="logo">
-          <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--gradient-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
+        <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <div style={{ 
+            width: '36px', 
+            height: '36px', 
+            borderRadius: '10px', 
+            background: 'var(--gradient-primary)', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            color: 'var(--btn-text)' 
+          }}>
             <Hexagon size={22} />
           </div>
-          <span className="gradient-text" style={{ fontWeight: '800', letterSpacing: '-0.03em' }}>DE VIBE</span>
+          <span className="gradient-text" style={{ fontWeight: '800', letterSpacing: '-0.03em', fontSize: '1.25rem' }}>
+            DE VIBE
+          </span>
         </Link>
         
         <nav className="nav-links">
           <Link to="/">Home</Link>
-          <Link to="/products" style={{ color: 'var(--accent)', fontWeight: '700' }}>Store</Link>
+          <Link to="/products" style={{ color: 'var(--text-primary)', fontWeight: '700' }}>Store</Link>
           <Link to="/services">Services</Link>
           <Link to="/projects">Projects</Link>
           <Link to="/microsoft">Windows</Link>
-          <Link to="/guides" style={{ color: 'var(--accent-emerald)', fontWeight: '700' }}>PC Guides</Link>
+          <Link to="/guides" style={{ color: 'var(--text-secondary)', fontWeight: '700' }}>PC Guides</Link>
           <Link to="/blog">Insights</Link>
           <Link to="/contact">Contact</Link>
           
@@ -61,10 +72,10 @@ export default function Header() {
               transition: 'all 0.2s ease'
             }}
           >
-            {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#6366f1" />}
+            {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#71717a" />}
           </button>
 
-          <Link to="/remote" style={{ backgroundColor: 'var(--glass-bg)', color: 'var(--accent)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem', fontWeight: '700', border: '1px solid var(--glass-border)' }}>
+          <Link to="/remote" style={{ backgroundColor: 'var(--surface)', color: 'var(--text-primary)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem', fontWeight: '700', border: '1px solid var(--glass-border)' }}>
             Remote Portal
           </Link>
           <Link to="/quote" className="btn" style={{ padding: '0.6rem 1.25rem', fontSize: '0.88rem' }}>

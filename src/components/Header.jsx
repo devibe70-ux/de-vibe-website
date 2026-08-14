@@ -46,14 +46,17 @@ export default function Header() {
         </Link>
         
         <nav className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/products" style={{ color: 'var(--text-primary)', fontWeight: '700' }}>Store</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/microsoft">Windows</Link>
-          <Link to="/guides" style={{ color: 'var(--text-secondary)', fontWeight: '700' }}>PC Guides</Link>
-          <Link to="/blog">Insights</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/" style={{ color: 'var(--text-primary)' }}>Home</Link>
+          <Link to="/products" style={{ color: 'var(--text-primary)' }}>Store</Link>
+          <Link to="/services" style={{ color: 'var(--text-primary)' }}>Services</Link>
+          <Link to="/projects" style={{ color: 'var(--text-primary)' }}>Projects</Link>
+          <Link to="/microsoft" style={{ color: 'var(--text-primary)' }}>Windows</Link>
+          <Link to="/guides" style={{ color: 'var(--text-primary)' }}>PC Guides</Link>
+          <Link to="/blog" style={{ color: 'var(--text-primary)' }}>Insights</Link>
+          <Link to="/contact" style={{ color: 'var(--text-primary)' }}>Contact</Link>
+          <Link to="/remote" style={{ color: 'var(--text-primary)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem', border: '1px solid var(--glass-border)', backgroundColor: 'var(--surface)' }}>
+            Remote Portal
+          </Link>
           
           <button 
             onClick={toggleTheme} 
@@ -75,9 +78,6 @@ export default function Header() {
             {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#71717a" />}
           </button>
 
-          <Link to="/remote" style={{ backgroundColor: 'var(--surface)', color: 'var(--text-primary)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem', fontWeight: '700', border: '1px solid var(--glass-border)' }}>
-            Remote Portal
-          </Link>
           <Link to="/quote" className="btn" style={{ padding: '0.6rem 1.25rem', fontSize: '0.88rem' }}>
             Get Quote
           </Link>

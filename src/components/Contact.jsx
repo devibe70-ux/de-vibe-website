@@ -43,7 +43,7 @@ export default function Contact() {
                 <div>
                   <h4 style={{ margin: '0 0 0.35rem 0', fontSize: '1.1rem' }}>Phone & WhatsApp Direct</h4>
                   <a href="tel:+919328412916" style={{ color: 'var(--text-primary)', fontWeight: '800', fontSize: '1.15rem', textDecoration: 'none' }}>+91 93284 12916</a>
-                  <span style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>Mon - Sat: 9:30 AM - 8:30 PM IST</span>
+                  <span style={{ display: 'block', fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>Mon - Sat: 11:00 AM - 8:00 PM IST</span>
                 </div>
               </div>
 

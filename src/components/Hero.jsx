@@ -174,6 +174,8 @@ export default function Hero() {
         <img 
           src="/banner.jpg" 
           alt="De Vibe Team — We Help You Build & Scale Your Business" 
+          decoding="async"
+          className="interactive-hover"
           style={{ 
             width: '100%', 
             maxWidth: '900px', 

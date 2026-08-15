@@ -1,4 +1,4 @@
-import { Monitor, PenTool, Rocket, Code, TrendingUp, ShieldCheck, CheckCircle2, Clock } from 'lucide-react';
+import { Monitor, PenTool, Rocket, Code, TrendingUp, Calculator, Users, CheckCircle2 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +8,24 @@ const servicesList = [
     title: 'Complete 96-Hour Turnkey Business Launchpad',
     delivery: '⚡ 96-Hour Delivery Guarantee',
     pricing: 'Base ₹24,999.00 (+18% GST = ₹29,498.82 Total)',
-    description: 'Go from concept to market-ready business in 96 hours: Custom brand logo, high-converting React web application, instant payment gateway setup (Razorpay 18% GST), and Google/AI search indexing.',
-    features: ['Custom Brand Logo & Style Guidelines', 'High-Speed React Web Application', 'Razorpay 18% GST Invoicing Setup', '96-Hour Guaranteed Turnaround']
+    description: 'Go from concept to market-ready business in 96 hours: Custom brand logo, brand story, high-converting React web app, Razorpay 18% GST invoicing, and Google/AI search indexing.',
+    features: ['Custom Brand Logo & Style Guidelines', 'Brand Story & USP Positioning Paper', 'Razorpay 18% GST Invoicing Setup', '96-Hour Guaranteed Turnaround']
+  },
+  {
+    icon: <Calculator size={32} />,
+    title: 'Custom GST Accounting & Financial Ledger Software',
+    delivery: '🔒 Lifetime Commercial License',
+    pricing: 'Base ₹14,999.00 (+18% GST = ₹17,698.82 Total)',
+    description: 'Custom desktop MSIX and web accounting software: Automated 18% GST tax invoicing (SAC 997331), real-time ledger tracking, expense logging, and digital client receipts.',
+    features: ['Automated 18% GST Tax Invoice Generator', 'Real-Time Income, Expense & Ledger Audit', 'Sequential Tax Bill Formatting (RAZORPAY-0111)', 'One-Click Monthly GST Returns Export (CSV/PDF)']
+  },
+  {
+    icon: <Users size={32} />,
+    title: 'Employee Attendance, HR & Payroll Management Suite',
+    delivery: '⏱️ 7-Day Custom Setup',
+    pricing: 'Base ₹19,999.00 (+18% GST = ₹23,598.82 Total)',
+    description: 'Streamline staff management: Biometric/Geo-location mobile & desktop staff check-in, shift planner, automated salary slip generation, and leave management.',
+    features: ['Geo-Location Staff Check-In Tracker', 'Shift Scheduling & Overtime Calculator', 'Automated Salary Slip & Payroll Distribution', 'Leave Application & Approval Workflow']
   },
   {
     icon: <TrendingUp size={32} />,

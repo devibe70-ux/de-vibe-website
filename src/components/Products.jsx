@@ -1035,14 +1035,16 @@ export default function Products() {
       )}
 
       {/* Payment Confirmation Modal with Serial Key & Legal Razorpay Invoice Number Generation */}
-      <PaymentModal
-        isOpen={paymentSuccess.isOpen}
-        onClose={() => setPaymentSuccess(prev => ({ ...prev, isOpen: false }))}
-        productName={paymentSuccess.productName}
-        downloadUrl={paymentSuccess.downloadUrl}
-        paymentId={paymentSuccess.paymentId}
-        serialNumber={paymentSuccess.serialNumber}
-      />
+      {paymentSuccess.isOpen && (
+        <PaymentModal
+          isOpen={paymentSuccess.isOpen}
+          onClose={() => setPaymentSuccess(prev => ({ ...prev, isOpen: false }))}
+          productName={paymentSuccess.productName}
+          downloadUrl={paymentSuccess.downloadUrl}
+          paymentId={paymentSuccess.paymentId}
+          serialNumber={paymentSuccess.serialNumber}
+        />
+      )}
     </>
   );
 }

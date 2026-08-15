@@ -5,35 +5,35 @@ import { Link } from 'react-router-dom';
 const servicesList = [
   {
     icon: <Rocket size={32} />,
-    title: 'Turnkey Business Setup & Launchpad',
-    delivery: '⚡ 96-Hour Delivery',
+    title: 'Complete 96-Hour Turnkey Business Launchpad',
+    delivery: '⚡ 96-Hour Delivery Guarantee',
     pricing: 'Base ₹24,999.00 (+18% GST = ₹29,498.82 Total)',
-    description: 'Complete 96-hour business launchpad: Custom brand logo, high-converting React 19 web application, payment gateway setup, and Google indexing.',
-    features: ['Custom Logo & Brand Guidelines', 'Fast React Web App (Vite 8)', 'Razorpay 18% GST Invoicing', '96-Hour Turnaround Guarantee']
+    description: 'Go from concept to market-ready business in 96 hours: Custom brand logo, high-converting React web application, instant payment gateway setup (Razorpay 18% GST), and Google/AI search indexing.',
+    features: ['Custom Brand Logo & Style Guidelines', 'High-Speed React Web Application', 'Razorpay 18% GST Invoicing Setup', '96-Hour Guaranteed Turnaround']
   },
   {
     icon: <TrendingUp size={32} />,
-    title: 'AI Search & Answer Engine Dominance (AEO/GEO)',
-    delivery: '🚀 96-Hour Setup',
+    title: 'AI Search & Answer Engine Optimization (AEO/GEO)',
+    delivery: '🚀 96-Hour Implementation',
     pricing: 'Base ₹14,999.00 (+18% GST = ₹17,698.82 Total)',
-    description: 'Route high-intent buyer traffic directly to your site from AI answer engines (ChatGPT, Perplexity, Gemini, Claude, Apple Intelligence) with structured JSON-LD & llms.txt manifests.',
-    features: ['Full-Stack AEO & GEO Setup', 'Machine-Readable `llms.txt` Context', 'Schema.org FAQ & Product Directives', 'High-Intent Buyer Conversion Funnels']
+    description: 'Route high-intent buyer traffic directly to your business from AI search engines (ChatGPT, Perplexity, Gemini, Claude, Copilot) using structured JSON-LD schemas and llms.txt manifests.',
+    features: ['Full-Stack AEO & GEO Optimization', 'Machine-Readable `llms.txt` Directives', 'Schema.org Product & Service Markup', 'High-Intent Customer Conversion Funnels']
   },
   {
     icon: <Monitor size={32} />,
-    title: 'Custom Web Design & Application Engineering',
-    delivery: '⏱️ 7-14 Days Delivery',
+    title: 'Custom Web Application & E-Commerce Engineering',
+    delivery: '⏱️ 7 - 14 Days Delivery',
     pricing: 'Base ₹19,999.00 (+18% GST = ₹23,598.82 Total)',
-    description: 'High-performance bespoke web applications, e-commerce storefronts, and diagnostic web portals with 200 OK static pre-rendering.',
-    features: ['Custom UI/UX & Micro-Animations', 'Static Pre-Rendering (200 OK Status)', '100% Mobile & Tablet Responsive', 'SEO Optimization & PageSpeed 95+']
+    description: 'High-performance bespoke web applications, e-commerce storefronts, and diagnostic web portals featuring 200 OK static pre-rendering and mobile responsiveness.',
+    features: ['Modern UI/UX & Micro-Animations', 'Static Pre-Rendering (200 OK Status)', '100% Mobile & Tablet Responsive', 'SEO Optimized with PageSpeed 95+']
   },
   {
     icon: <Code size={32} />,
-    title: 'Enterprise Software & Order Systems (OMS)',
-    delivery: '🔒 Commercial License',
+    title: 'Enterprise Software & Order Systems (De-Vibe OMS)',
+    delivery: '🔒 Commercial Software License',
     pricing: 'De-Vibe OMS Base ₹14,999 / Bahamut OMS Base ₹29,999',
-    description: 'Omni-channel order routing, real-time inventory synchronization matrix, and high-frequency PostgreSQL/Redis database architecture.',
-    features: ['Real-Time Inventory Matrix', 'PostgreSQL ACID Locks', 'Redis Sub-Millisecond Execution', 'Raft Consensus Clustering']
+    description: 'Omni-channel order routing, real-time inventory synchronization matrix, and high-frequency PostgreSQL and Redis transactional database locks.',
+    features: ['Real-Time Multi-Channel Inventory Matrix', 'PostgreSQL ACID Transaction Locks', 'Redis Sub-Millisecond Execution Engine', 'Raft Consensus Database Clustering']
   }
 ];
 

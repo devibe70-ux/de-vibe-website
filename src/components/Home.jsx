@@ -107,7 +107,7 @@ export default function Home() {
 
           <div style={{ textAlign: 'center' }}>
             <Link to="/quote" className="btn" style={{ padding: '0.85rem 2.25rem', fontSize: '1rem' }}>
-              Request Your Free 7-Day Live Demo ➔
+              Get Your Custom Project Quote ➔
             </Link>
           </div>
 

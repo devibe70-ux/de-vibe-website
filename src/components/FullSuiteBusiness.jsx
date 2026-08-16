@@ -189,14 +189,14 @@ export default function FullSuiteBusiness() {
             ))}
           </div>
 
-          {/* 7-Day Live Staging Trial CTA */}
+          {/* Custom Project Quote CTA */}
           <div style={{ backgroundColor: 'var(--surface)', borderRadius: '20px', border: '1px solid var(--glass-border)', padding: '3rem', textAlign: 'center' }}>
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '0.75rem' }}>Need a Custom All-In-One Package for Your Business?</h3>
+            <h3 style={{ fontSize: '1.8rem', marginBottom: '0.75rem' }}>Need a Custom All-In-One Solution for Your Business?</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', maxWidth: '750px', margin: '0 auto 1.75rem auto' }}>
-              We offer <strong>7-Day Free Live Staging Previews</strong>. Test your custom web app, accounting software, or staff attendance portal on a live staging domain before finalizing your order.
+              Request a custom project quote. We build bespoke websites, brand logos, GST accounting tools, and staff management software with guaranteed <strong>96-Hour Delivery</strong>. (For free software trials, try OptimaFix Pro in our Software Store).
             </p>
             <Link to="/quote" className="btn" style={{ padding: '0.9rem 2.25rem', fontSize: '1rem', fontWeight: '700' }}>
-              Request 7-Day Free Live Staging Trial ➔
+              Request Custom Project Quote ➔
             </Link>
           </div>
 

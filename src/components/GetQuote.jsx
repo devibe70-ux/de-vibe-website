@@ -144,10 +144,40 @@ export default function GetQuote() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxe7Q1UZbx8JDgQqVDYlGhSKTrtOSRoq8fqfulFmnHcOdIHTjqs4szESQOrOjCPYz6O/exec";
+
     const payload = {
+      timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+      companyName: formData.q1 || "",
+      fieldOfBusiness: formData.q2 || "",
+      registeredBusiness: formData.q3 || "",
+      hasCoOwner: formData.q4 || "",
+      businessAddress: formData.q5 || "",
+      productsServices: formData.q6 || "",
+      missionVision: formData.q7 || "",
+      hasLogo: formData.q8 || "",
+      sloganTagline: formData.q9 || "",
+      targetAudience: formData.q10 || "",
+      brandGuidelines: formData.q11 || "",
+      competitors: formData.q12 || "",
+      usp: formData.q13 || "",
+      hasDomain: formData.q14 || "",
+      socialProfiles: formData.q15 || "",
+      googleBusinessListing: formData.q16 || "",
+      hasMediaKit: formData.q17 || "",
+      usesContentPlanner: formData.q18 || "",
+      liveWebsiteUrl: formData.q19 || "",
+      paidAdCampaigns: formData.q20 || "",
+      marketingGoals: formData.q21 || "",
+      businessEmail: formData.q22 || "",
+      phone: formData.q23 || "",
+      whatsappAccount: formData.q24 || "",
+      physicalBusinessCards: formData.q25 || "",
+      primaryContactPerson: formData.q26 || "",
+      // Web3Forms Fallback Fields
       access_key: "45435487-fdf4-41dd-972a-de5a219ce29f",
       subject: "New Project Inquiry - De Vibe",
-      from_name: formData.q1 || "New Client",
+      from_name: formData.q1 || "New Client"
     };
 
     phases.forEach(phase => {
@@ -159,22 +189,28 @@ export default function GetQuote() {
     });
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // 1. Post to Google Apps Script Web App
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // 2. Dual Backup Post to Web3Forms
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify(payload),
-      });
+      }).catch(() => {});
 
-      const result = await response.json();
-      if (result.success) {
-        setSubmitStatus("success");
-        localStorage.setItem('lastQuoteSubmit', Date.now().toString());
-      } else {
-        setSubmitStatus("error");
-      }
+      setSubmitStatus("success");
+      localStorage.setItem('lastQuoteSubmit', Date.now().toString());
     } catch (error) {
       setSubmitStatus("error");
     } finally {

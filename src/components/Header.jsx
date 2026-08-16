@@ -46,17 +46,12 @@ export default function Header() {
         </Link>
         
         <nav className="nav-links">
-          <Link to="/" style={{ color: 'var(--text-primary)' }}>Home</Link>
-          <Link to="/products" style={{ color: 'var(--text-primary)' }}>Store</Link>
-          <Link to="/services" style={{ color: 'var(--text-primary)' }}>Services</Link>
-          <Link to="/projects" style={{ color: 'var(--text-primary)' }}>Projects</Link>
-          <Link to="/microsoft" style={{ color: 'var(--text-primary)' }}>Windows</Link>
-          <Link to="/guides" style={{ color: 'var(--text-primary)' }}>PC Guides</Link>
-          <Link to="/blog" style={{ color: 'var(--text-primary)' }}>Insights</Link>
-          <Link to="/contact" style={{ color: 'var(--text-primary)' }}>Contact</Link>
-          <Link to="/remote" style={{ color: 'var(--text-primary)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem', border: '1px solid var(--glass-border)', backgroundColor: 'var(--surface)' }}>
-            Remote Portal
-          </Link>
+          <Link to="/" style={{ color: 'var(--text-primary)' }} className="interactive-pop">Home</Link>
+          <Link to="/products" style={{ color: 'var(--text-primary)' }} className="interactive-pop">Store</Link>
+          <Link to="/full-suite-business" style={{ color: 'var(--text-primary)', fontWeight: '700' }} className="interactive-pop">Full Suite</Link>
+          <Link to="/services" style={{ color: 'var(--text-primary)' }} className="interactive-pop">Services</Link>
+          <Link to="/guides" style={{ color: 'var(--text-primary)' }} className="interactive-pop">PC Guides</Link>
+          <Link to="/contact" style={{ color: 'var(--text-primary)' }} className="interactive-pop">Contact</Link>
           
           <button 
             onClick={toggleTheme} 
@@ -78,7 +73,11 @@ export default function Header() {
             {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#71717a" />}
           </button>
 
-          <Link to="/quote" className="btn" style={{ padding: '0.6rem 1.25rem', fontSize: '0.88rem' }}>
+          <Link to="/quote" className="btn btn-outline" style={{ padding: '0.55rem 1.1rem', fontSize: '0.85rem', color: '#10b981', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
+            🎁 Free Demo
+          </Link>
+
+          <Link to="/quote" className="btn" style={{ padding: '0.55rem 1.25rem', fontSize: '0.88rem' }}>
             Get Quote
           </Link>
         </nav>

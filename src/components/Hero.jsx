@@ -68,12 +68,12 @@ export default function Hero() {
           </Link>
         </div>
 
-        <h1 className="gradient-text" style={{ fontSize: '3.4rem', lineHeight: '1.2', marginBottom: '1.25rem', maxWidth: '1000px', margin: '0 auto 1.25rem auto' }}>
-          We Help You Build Your Business & Accelerate Your Growth
+        <h1 className="gradient-text text-glow" style={{ fontSize: '3.4rem', lineHeight: '1.2', marginBottom: '1.25rem', maxWidth: '1000px', margin: '0 auto 1.25rem auto' }}>
+          We Build Your Dream Website, Logo & Business Software
         </h1>
 
-        <p style={{ maxWidth: '800px', margin: '0 auto 2.5rem auto', fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-          De Vibe Studio is your complete digital growth partner. From high-speed web application engineering and branding to enterprise OMS software and Windows diagnostic tools (OptimaFix Pro), we build software that scales your success.
+        <p style={{ maxWidth: '850px', margin: '0 auto 2.5rem auto', fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+          Launch your complete business in 4 days. From custom websites and brand logos to GST accounting software and staff attendance tools — test your live website for <strong>7 days 100% free</strong> before deciding.
         </p>
 
         {/* INTERACTIVE BROWSER PC DIAGNOSTIC WIDGET (SOLVES 2-SECOND ENGAGEMENT PROBLEM) */}

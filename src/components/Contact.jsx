@@ -65,15 +65,15 @@ export default function Contact() {
               <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div>
                   <label htmlFor="name" style={{ display: 'block', marginBottom: '0.4rem', fontSize: '0.85rem', fontWeight: 600 }}>Full Name *</label>
-                  <input type="text" id="name" placeholder="John Doe" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--glass-border)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', outline: 'none' }} required />
+                  <input type="text" id="name" placeholder="John Doe" spellCheck={true} style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--glass-border)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', outline: 'none' }} required />
                 </div>
                 <div>
                   <label htmlFor="email" style={{ display: 'block', marginBottom: '0.4rem', fontSize: '0.85rem', fontWeight: 600 }}>Email Address *</label>
-                  <input type="email" id="email" placeholder="john@example.com" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--glass-border)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', outline: 'none' }} required />
+                  <input type="email" id="email" placeholder="john@example.com" spellCheck={true} style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--glass-border)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', outline: 'none' }} required />
                 </div>
                 <div>
                   <label htmlFor="message" style={{ display: 'block', marginBottom: '0.4rem', fontSize: '0.85rem', fontWeight: 600 }}>Message *</label>
-                  <textarea id="message" rows="4" placeholder="How can we help your business?" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--glass-border)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', resize: 'vertical', outline: 'none' }} required></textarea>
+                  <textarea id="message" rows="4" placeholder="How can we help your business?" spellCheck={true} style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--glass-border)', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', resize: 'vertical', outline: 'none' }} required></textarea>
                 </div>
                 <button type="submit" className="btn" style={{ width: '100%', marginTop: '0.5rem', padding: '0.85rem', fontSize: '1rem' }}>Send Message ➔</button>
               </form>

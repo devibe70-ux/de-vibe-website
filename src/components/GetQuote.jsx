@@ -319,6 +319,7 @@ export default function GetQuote() {
                     value={formData[q.id] || ''}
                     onChange={(e) => handleInputChange(q.id, e.target.value)}
                     placeholder={q.placeholder || ''}
+                    spellCheck={true}
                     style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: `1px solid ${errors[q.id] ? 'red' : 'var(--border)'}`, backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
                   />
                 )}
@@ -328,6 +329,7 @@ export default function GetQuote() {
                     onChange={(e) => handleInputChange(q.id, e.target.value)}
                     placeholder={q.placeholder || ''}
                     rows={3}
+                    spellCheck={true}
                     style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: `1px solid ${errors[q.id] ? 'red' : 'var(--border)'}`, backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)', resize: 'vertical' }}
                   />
                 )}

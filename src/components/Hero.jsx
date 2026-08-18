@@ -73,7 +73,7 @@ export default function Hero() {
         </h1>
 
         <p style={{ maxWidth: '850px', margin: '0 auto 2.5rem auto', fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-          Launch your complete business with custom websites, brand logos, GST accounting tools, and staff management software. Try our free PC diagnostic tools below, or request a custom project quote to get started.
+          Launch your complete business in 4 days. From custom websites and brand logos to GST accounting software and staff attendance tools — test your live website for <strong>7 days 100% free</strong> before deciding.
         </p>
 
         {/* INTERACTIVE BROWSER PC DIAGNOSTIC WIDGET (SOLVES 2-SECOND ENGAGEMENT PROBLEM) */}

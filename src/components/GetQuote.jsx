@@ -259,31 +259,31 @@ export default function GetQuote() {
         <div className="container quote-container" style={{ maxWidth: '750px' }}>
           <h1 style={{ marginBottom: '0.5rem' }}>Start Your Project</h1>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '2.5rem', fontSize: '1.1rem' }}>
-            Tell us about your business vision or request a custom project quote for your website, brand logo, or software.
+            Tell us about your business vision or request a <strong>7-Day Live Staging Preview</strong>.
           </p>
 
-          {/* 96-HOUR DELIVERY & STAGING REVIEW PROTOCOL BANNER */}
+          {/* 7-DAY LIVE TRIAL STAGING & OUTREACH DEMO PROTOCOL BANNER */}
           <div className="glass-card" style={{ padding: '2rem', marginBottom: '2.5rem', textAlign: 'left', border: '1px solid var(--glass-border)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <div style={{ backgroundColor: 'rgba(16, 185, 129, 0.15)', color: '#10b981', padding: '0.4rem 0.85rem', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase' }}>
-                ⚡ 96-Hour Guaranteed Delivery Protocol
+                ⚡ 7-Day Live Staging Preview Protocol
               </div>
-              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Professional Custom Project</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Zero-Risk Trial</span>
             </div>
 
             <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>
-              Bespoke Custom Websites, Logos & Software Delivered in 96 Hours
+              Test Your Live Custom Website for 7 Days Before Finalizing
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-              We build dedicated staging environments for your project with full source code transfer, custom domain configuration, and an official 18% GST tax invoice. (For general software trials like OptimaFix Pro, explore our Software Store).
+              We build a dedicated staging repository and host your live interactive demo for <strong>7 full days</strong>. Test UI responsiveness, page load speeds, and share with your team. If approved within 7 days, we migrate the site to your domain with full source code transfer and 18% GST tax invoice. If not renewed, the sandbox automatically spins down.
             </p>
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: '600' }}>
-              <span>✅ Guaranteed 96-Hour Turnaround</span>
+              <span>✅ 100% Free 7-Day Live Sandbox</span>
               <span>•</span>
-              <span>✅ Full Source Code Ownership</span>
+              <span>✅ Custom GitHub Staging Repo</span>
               <span>•</span>
-              <span>✅ Instant WhatsApp & Email Support</span>
+              <span>✅ Instant WhatsApp Team Outreach</span>
             </div>
           </div>
         

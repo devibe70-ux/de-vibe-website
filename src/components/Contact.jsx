@@ -49,12 +49,12 @@ export default function Contact() {
 
               <div className="glass-card" style={{ padding: '1.75rem', display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
                 <div style={{ padding: '0.85rem', backgroundColor: 'var(--surface)', borderRadius: '12px', color: 'var(--text-primary)' }}>
-                  <MapPin size={24} />
+                  <Building2 size={24} />
                 </div>
                 <div>
-                  <h4 style={{ margin: '0 0 0.35rem 0', fontSize: '1.1rem' }}>Business Headquarters & Location</h4>
+                  <h4 style={{ margin: '0 0 0.35rem 0', fontSize: '1.1rem' }}>GSTIN & Business Location</h4>
                   <span style={{ color: 'var(--text-primary)', fontWeight: '600', display: 'block', fontSize: '0.95rem' }}>De Vibe Studio — State Code 24 (Gujarat, India)</span>
-                  <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginTop: '0.2rem' }}>Registered Commercial Software & Web Development Agency</span>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', display: 'block', marginTop: '0.2rem' }}>GSTIN Tax Compliance: <strong>24ASHPS97771ZE</strong></span>
                 </div>
               </div>
             </div>

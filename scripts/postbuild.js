@@ -24,7 +24,6 @@ const routes = [
   '/products',
   '/remote',
   '/guides',
-  '/full-suite-business',
   
   // Blog posts
   '/blog/why-custom-website-2026',

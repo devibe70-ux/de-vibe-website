@@ -48,8 +48,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Ecosystems & Suites</h4>
-            <Link to="/full-suite-business" style={{ fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: '700' }}>All-In-One Business Suite ➔</Link>
+            <h4>Ecosystems</h4>
             <Link to="/android" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Android Ecosystem</Link>
             <Link to="/microsoft" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Windows Ecosystem</Link>
             <Link to="/quote" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Get a Free Quote</Link>

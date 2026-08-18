@@ -18,7 +18,6 @@ import CookieBanner from './components/CookieBanner';
 import Products from './components/Products';
 import RemoteDashboard from './components/RemoteDashboard';
 import TechGuides from './components/TechGuides';
-import FullSuiteBusiness from './components/FullSuiteBusiness';
 import './App.css';
 
 function App() {
@@ -44,7 +43,6 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/remote" element={<RemoteDashboard />} />
             <Route path="/guides" element={<TechGuides />} />
-            <Route path="/full-suite-business" element={<FullSuiteBusiness />} />
           </Routes>
         </main>
         <Footer />

@@ -445,16 +445,11 @@ export default function Products() {
                   }}
                   className="screenshot-card"
                 >
-                  <div style={{ position: 'relative', height: '180px', overflow: 'hidden', backgroundColor: 'var(--surface)' }}>
+                  <div style={{ position: 'relative', height: '180px', overflow: 'hidden', backgroundColor: '#000' }}>
                     <img 
                       src={item.image} 
                       alt={item.title} 
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="180"
-                      className="interactive-hover"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.95 }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9, transition: 'transform 0.3s ease' }}
                     />
                     <div style={{
                       position: 'absolute',

@@ -48,7 +48,7 @@ export default function Header() {
         <nav className="nav-links">
           <Link to="/" style={{ color: 'var(--text-primary)' }} className="interactive-pop">Home</Link>
           <Link to="/products" style={{ color: 'var(--text-primary)' }} className="interactive-pop">Store</Link>
-          <Link to="/full-suite-business" style={{ color: 'var(--text-primary)', fontWeight: '700' }} className="interactive-pop">Business Suite</Link>
+          <Link to="/full-suite-business" style={{ color: 'var(--text-primary)', fontWeight: '700' }} className="interactive-pop">Full Suite</Link>
           <Link to="/services" style={{ color: 'var(--text-primary)' }} className="interactive-pop">Services</Link>
           <Link to="/guides" style={{ color: 'var(--text-primary)' }} className="interactive-pop">PC Guides</Link>
           <Link to="/contact" style={{ color: 'var(--text-primary)' }} className="interactive-pop">Contact</Link>

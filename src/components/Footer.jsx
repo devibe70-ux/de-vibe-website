@@ -29,10 +29,8 @@ export default function Footer() {
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem', fontSize: '0.9rem', lineHeight: '1.6' }}>
               Feel The Vibe. Crafting bespoke websites, enterprise software, and brand identities that scale.
             </p>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: '1.5' }}>
-              <strong>Phone:</strong> <a href="tel:+919328412916" style={{ color: 'var(--text-primary)' }}>+91 93284 12916</a><br />
-              <strong>Email:</strong> <a href="mailto:help@devibestudio.in" style={{ color: 'var(--text-primary)' }}>help@devibestudio.in</a><br />
-              <strong>Admin:</strong> <a href="mailto:devibe70@gmail.com" style={{ color: 'var(--text-muted)' }}>devibe70@gmail.com</a>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+              <strong>Phone:</strong> +91 93284 12916
             </p>
           </div>
 

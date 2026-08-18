@@ -8,8 +8,8 @@ export default function BusinessGrowth() {
       icon: Rocket,
       badge: 'For Startups & Founders',
       title: 'Turnkey Business Setup & Launchpad',
-      description: 'Go from concept to market-ready business in 96 hours with custom branding, logo design, lightning-fast React website, and Google/AI indexing.',
-      metrics: '⚡ 96-Hour Turnaround | 📈 100% Turnkey',
+      description: 'Go from idea to market-ready business in 48 hours with custom branding, logo design, lightning-fast React website, and Google/AI indexing.',
+      metrics: '⚡ 48-Hour Turnaround | 📈 100% Turnkey',
       highlights: [
         'Custom Brand Identity & Professional Logo Design',
         'High-Converting React/Vite Web Application',
@@ -56,16 +56,16 @@ export default function BusinessGrowth() {
       icon: TrendingUp,
       badge: 'For Growth Brands',
       title: 'AI Search Dominance (AEO & GEO)',
-      description: 'Dominate traditional Google Search AND next-generation AI Search Engines (ChatGPT, Perplexity, Gemini, Claude) to route high-intent buyer traffic directly to your business.',
-      metrics: '🤖 AEO & GEO Setup | ₹14,999 (+18% GST)',
+      description: 'Dominate traditional Google Search AND next-generation AI Search Engines (Perplexity, ChatGPT, Gemini, Claude) to drive 1,000+ daily buyers to your site.',
+      metrics: '🎯 1,000+ Daily Buyers Target | 🤖 AEO Optimized',
       highlights: [
         'Full-Stack AEO (Answer Engine Optimization)',
         'GEO (Generative Engine Optimization) Schema',
         'Machine-Readable LLM Directives (`llms.txt`)',
         'High-Intent Buyer Conversion Funnels'
       ],
-      ctaText: 'Get AI Search Optimization',
-      ctaLink: '/quote'
+      ctaText: 'Scale Your Traffic',
+      ctaLink: '/contact'
     }
   ];
 

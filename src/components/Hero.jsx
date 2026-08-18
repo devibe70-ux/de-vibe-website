@@ -58,14 +58,14 @@ export default function Hero() {
     <section className="hero" style={{ padding: '5rem 0 6rem 0' }}>
       <div className="container" style={{ maxWidth: '1240px' }}>
         
-        {/* Interactive Growth Metric Pill Buttons */}
+        {/* Growth Metric Pill Badges */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
-          <Link to="/products" style={{ backgroundColor: 'var(--surface)', color: 'var(--text-primary)', fontSize: '0.85rem', fontWeight: '700', padding: '0.5rem 1.25rem', borderRadius: '20px', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', border: '1px solid var(--glass-border)', transition: 'all 0.2s ease' }}>
-            <Rocket size={15} /> Turnkey Business & Software Suite ➔
-          </Link>
-          <Link to="/quote" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', color: '#10b981', fontSize: '0.85rem', fontWeight: '700', padding: '0.5rem 1.25rem', borderRadius: '20px', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', border: '1px solid rgba(16, 185, 129, 0.3)', transition: 'all 0.2s ease' }}>
-            <TrendingUp size={15} /> Scale Revenue & Business Automation ➔
-          </Link>
+          <span style={{ backgroundColor: 'rgba(56, 189, 248, 0.1)', color: 'var(--accent)', fontSize: '0.85rem', fontWeight: '700', padding: '0.4rem 1.25rem', borderRadius: '20px', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', border: '1px solid var(--glass-border)' }}>
+            <Rocket size={15} /> Turnkey Business & Software Suite
+          </span>
+          <span style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', color: '#10b981', fontSize: '0.85rem', fontWeight: '700', padding: '0.4rem 1.25rem', borderRadius: '20px', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+            <TrendingUp size={15} /> Scale Revenue & Automation
+          </span>
         </div>
 
         <h1 className="gradient-text" style={{ fontSize: '3.4rem', lineHeight: '1.2', marginBottom: '1.25rem', maxWidth: '1000px', margin: '0 auto 1.25rem auto' }}>

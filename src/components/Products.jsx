@@ -40,48 +40,50 @@ export default function Products() {
   const optimafixVariants = [
     {
       id: 'digital',
-      title: 'Digital Home License',
+      title: 'Digital Home License (v2.5.0 Release)',
       basePriceNum: 999,
       basePriceDisplay: '₹999.00',
       gstAmount: '₹179.82',
       totalPrice: 1178.82,
       totalDisplay: '₹1,178.82 / lifetime',
-      badge: 'Most Popular for Home & Office',
-      description: 'Single-PC lifetime license with 5-stage automated repair engine, S.M.A.R.T. NVMe disk audit, and RAM latency optimizer.',
+      badge: 'v2.5.0 Enterprise Engine',
+      description: 'Single-PC lifetime license with 5-stage automated repair engine, S.M.A.R.T. NVMe disk audit, targeted RAM latency optimizer, and Defender fast disinfector.',
       speedTag: '🚀 5-Stage Automated Repair Engine (~5s scan)',
       highlights: [
-        'Single PC Lifetime License (No Subscriptions)',
-        'S.M.A.R.T. NVMe/SSD Health Diagnostics',
-        'One-Click System Cleanup & RAM Optimizer',
+        'Single PC Lifetime License (v2.5.0 Build)',
+        'S.M.A.R.T. NVMe/SSD Health & Wear Level Audit',
+        'Targeted RAM Working-Set Latency Optimizer',
+        'TronScript Defender Fast Disinfector Engine',
         'SFC & DISM Automated Recovery Wizard',
-        'Lifetime Free Version 1.x Software Updates'
+        'Lifetime Free Version 2.x Software Updates'
       ]
     },
     {
       id: 'tech-pro',
-      title: 'Technician Pro Subscription',
+      title: 'Technician Pro Subscription (v2.5.0 Release)',
       basePriceNum: subscriptionCycle === 'monthly' ? 399 : 3999,
       basePriceDisplay: subscriptionCycle === 'monthly' ? '₹399.00 / mo' : '₹3,999.00 / yr',
       gstAmount: subscriptionCycle === 'monthly' ? '₹71.82' : '₹719.82',
       totalPrice: subscriptionCycle === 'monthly' ? 470.82 : 4718.82,
       totalDisplay: subscriptionCycle === 'monthly' ? '₹470.82 / month' : '₹4,718.82 / year',
-      badge: 'Autopay Subscription',
+      badge: 'Autopay Subscription (v2.5.0)',
       subBadge: '⭐ Best ROI for Repair Shops & Techs',
       speedTag: '🚀 5x Multi-Thread Turbo Engine (~5s scan)',
-      description: 'Commercial repair license for technicians & shops with 5x parallel engine, Enterprise AST-2 diagnostics & client PDF invoices.',
+      description: 'Commercial repair license with WinUtil Multi-PC Profile Exporter, WHQL Authenticode driver auto-remediator, and branded PDF client invoices.',
       highlights: [
-        'Unlimited PCs & Scans (Multi-Device)',
-        'Enterprise AST-2 Component Stress Test',
-        'Branded Client PDF Diagnostic Invoices',
-        'Automated Daily Scheduled Auto-Repair',
-        'Priority 24/7 Tech Hotline & Remote Support'
+        'Unlimited PCs & Scans (Multi-Device Deployment)',
+        'WinUtil Multi-PC Tweak Automation Profile Exporter',
+        'WHQL Authenticode Driver Signature Auto-Remediator',
+        'Windows Update 30-90 Day Stability Delay Engine',
+        'NTFS ACL Lockdown Logging Infrastructure (SEC-12)',
+        'Branded Headless Vector PDF Client Reports'
       ]
     },
     {
       id: 'bootable',
       title: usbDeliveryOption === 'soft' 
-        ? 'Technician Rescue Boot (Digital ISO)' 
-        : (usbCapacity === '8gb' ? 'Technician Rescue Boot (8GB Hardware USB)' : 'Mother of All Recovery Drives (16GB Master USB)'),
+        ? 'Technician Rescue Boot (Digital ISO v2.5.0)' 
+        : (usbCapacity === '8gb' ? 'Technician Rescue Boot (8GB Hardware USB v2.5.0)' : 'Mother of All Recovery Drives (16GB Master USB v2.5.0)'),
       basePriceNum: usbDeliveryOption === 'soft' ? 3999 : (usbCapacity === '8gb' ? 999 : 1500),
       basePriceDisplay: usbDeliveryOption === 'soft' ? '₹3,999.00' : (usbCapacity === '8gb' ? '₹999.00' : '₹1,500.00'),
       gstAmount: usbDeliveryOption === 'soft' ? '₹719.82' : (usbCapacity === '8gb' ? '₹179.82' : '₹270.00'),
@@ -89,35 +91,35 @@ export default function Products() {
       totalDisplay: usbDeliveryOption === 'soft' 
         ? '₹4,718.82 (Digital ISO)' 
         : (usbCapacity === '8gb' ? '₹1,178.82 (8GB Standard USB)' : '₹1,770.00 (16GB Master USB)'),
-      badge: usbDeliveryOption === 'soft' ? 'Digital ISO Download' : (usbCapacity === '8gb' ? 'Physical 8GB Standard USB' : 'Physical 16GB Master Drive'),
+      badge: usbDeliveryOption === 'soft' ? 'Digital ISO Download (v2.5.0)' : (usbCapacity === '8gb' ? 'Physical 8GB Standard USB (v2.5.0)' : 'Physical 16GB Master Drive (v2.5.0)'),
       description: usbDeliveryOption === 'soft' 
-        ? 'Bare-metal WinPE offline boot rescue console soft copy for unbootable PCs and Blue Screen (BSOD) repair.'
+        ? 'Bare-metal WinPE offline boot rescue console soft copy with 1-Plug USB Auto-Updater, TestDisk partition carver & Rescuezilla bare-metal imager.'
         : (usbCapacity === '8gb' 
-            ? 'Pre-loaded 8GB Hardware USB Drive shipped express with OptimaFix Pro 5-stage repair engine & recovery tools.' 
-            : '16GB Mother of All Recovery Drives featuring Interconnected Faulty Driver Remediation, Portable Diagnostics Suite & WinPE Rescue.'),
-      speedTag: '⚡ Bare-Metal WinPE Kernel (Instant Offline Boot)',
+            ? 'Pre-loaded 8GB Hardware USB Drive shipped express with OptimaFix Pro v2.5.0 1-Plug auto-updater, CycloneDX SBOM & recovery tools.' 
+            : '16GB Mother of All Recovery Drives featuring 1-Plug USB OTA Auto-Updater, CycloneDX v1.5 SBOM, TestDisk Partition Carver & Rescuezilla Imager.'),
+      speedTag: '⚡ 1-Plug USB Auto-Updater & WinPE Bare-Metal Kernel',
       highlights: usbDeliveryOption === 'soft'
         ? [
-            'Instant Bootable ISO Image Soft Copy',
-            'Zero-Click Offline WinPE Rescue Console',
-            'Offline Registry Hive Injector & BCD Repair',
-            'Bare-Metal Unbootable BSOD OS Recovery',
-            'Pre-activated Unlimited Tech License'
+            '1-Plug Automated USB OTA Firmware & Software Updater',
+            'CycloneDX v1.5 Software Bill of Materials (sbom.json)',
+            'TestDisk / PhotoRec Partition & File Carver Engine',
+            'Rescuezilla / Clonezilla 1-Click Bare-Metal Imager',
+            'Air-Gapped Kiosk Offline RSA License Verification'
           ]
         : (usbCapacity === '8gb'
             ? [
-                '8GB Standard Hardware USB Drive (₹999)',
-                'OptimaFix Pro 5-Stage Repair Wizard',
-                'BCD Bootloader Repair & SFC/DISM Suite',
-                'NTFS Read-Only Write Lock Security',
-                'Free Express Doorstep Shipping'
+                '8GB Standard Hardware USB Drive (v2.5.0 Engine)',
+                '1-Plug Automated USB Firmware & Software Updater',
+                'OptimaFix Pro 5-Stage Repair & Disinfect Wizard',
+                'CycloneDX v1.5 Software Bill of Materials (SBOM)',
+                'NTFS Read-Only Write Lock & Free Express Shipping'
               ]
             : [
-                '16GB Master Mother of All Recovery Drives (₹1,500)',
-                'Interconnected Faulty Driver Remediation Engine',
-                'Universal Wi-Fi/LAN/NVMe DriverPacks (E:\DriverPacks)',
-                'Portable Technician Diagnostics Suite (E:\PortableTools)',
-                'Free Express Doorstep Shipping & Lifetime Warranty'
+                '16GB Master Mother of All Recovery Drives (v2.5.0 Engine)',
+                '1-Plug Automated USB Firmware & Software OTA Updater',
+                'TestDisk Partition Carver & Rescuezilla Bare-Metal Imager',
+                'WHQL Authenticode Driver Auto-Remediator (DriverPacks)',
+                'CycloneDX v1.5 SBOM Manifest & Free Express Shipping'
               ])
     }
   ];

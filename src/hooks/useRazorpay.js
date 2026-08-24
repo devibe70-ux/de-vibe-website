@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 const RAZORPAY_SCRIPT_URL = 'https://checkout.razorpay.com/v1/checkout.js';
 
@@ -6,23 +6,28 @@ export function useRazorpay() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
 
-  useEffect(() => {
-    if (window.Razorpay) {
-      setIsLoaded(true);
-      return;
-    }
+  const loadRazorpayScript = useCallback(() => {
+    return new Promise((resolve) => {
+      if (window.Razorpay) {
+        setIsLoaded(true);
+        resolve(true);
+        return;
+      }
 
-    const script = document.createElement('script');
-    script.src = RAZORPAY_SCRIPT_URL;
-    script.async = true;
-    script.onload = () => {
-      setIsLoaded(true);
-    };
-    script.onerror = () => {
-      setLoadingError('Failed to load Razorpay Payment Gateway SDK.');
-    };
+      const script = document.createElement('script');
+      script.src = RAZORPAY_SCRIPT_URL;
+      script.async = true;
+      script.onload = () => {
+        setIsLoaded(true);
+        resolve(true);
+      };
+      script.onerror = () => {
+        setLoadingError('Failed to load Razorpay Payment Gateway SDK.');
+        resolve(false);
+      };
 
-    document.body.appendChild(script);
+      document.body.appendChild(script);
+    });
   }, []);
 
   const openPaymentModal = useCallback(
@@ -37,14 +42,15 @@ export function useRazorpay() {
       prefillPhone = '',
       prefillName = ''
     }) => {
-      // If a dedicated Razorpay Payment Link URL is provided (recommended for static sites)
       if (paymentLinkUrl) {
         window.open(paymentLinkUrl, '_blank');
         return;
       }
 
-      if (!window.Razorpay) {
-        alert('Razorpay Payment Gateway is still loading. Please try again in a moment.');
+      // Defer loading Razorpay SDK until user clicks checkout
+      const loaded = await loadRazorpayScript();
+      if (!loaded || !window.Razorpay) {
+        alert('Payment gateway is initializing. Please try again in a moment.');
         return;
       }
 
@@ -54,7 +60,7 @@ export function useRazorpay() {
       let orderId = null;
       let hasBackend = false;
 
-      // Attempt backend order creation
+      // Attempt backend order creation if API is available
       try {
         const orderResponse = await fetch('/api/create-order', {
           method: 'POST',
@@ -135,7 +141,7 @@ export function useRazorpay() {
         const razorpayInstance = new window.Razorpay(options);
 
         razorpayInstance.on('payment.failed', function (response) {
-          console.warn('Razorpay SDK requires order_id from backend API:', response.error);
+          console.warn('Razorpay SDK error:', response.error);
           if (onFailure) {
             onFailure(response.error ? response.error.description : 'Payment failed');
           }
@@ -149,7 +155,7 @@ export function useRazorpay() {
         }
       }
     },
-    []
+    [loadRazorpayScript]
   );
 
   return { isLoaded, loadingError, openPaymentModal };

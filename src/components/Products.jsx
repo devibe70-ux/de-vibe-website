@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useMemo, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck, HardDrive, HelpCircle, Key, Radio, Disc, FileSpreadsheet, XCircle, Cpu, Sliders, Layers, Sparkles, Clock, Award, Terminal, CheckCircle, Eye, Maximize2, X, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRazorpay } from '../hooks/useRazorpay';
-import PaymentModal from './PaymentModal';
+
+const PaymentModal = lazy(() => import('./PaymentModal'));
 
 export default function Products() {
   const [selectedVariantId, setSelectedVariantId] = useState('digital');
@@ -37,7 +38,7 @@ export default function Products() {
   // Official Production Pricing (Exclusive of 18% GST)
   const isTestMode = false;
 
-  const optimafixVariants = [
+  const optimafixVariants = useMemo(() => [
     {
       id: 'digital',
       title: 'Digital Home License (v2.5.0 Release)',
@@ -122,7 +123,7 @@ export default function Products() {
                 'CycloneDX v1.5 SBOM Manifest & Free Express Shipping'
               ])
     }
-  ];
+  ], [subscriptionCycle, usbDeliveryOption, usbCapacity]);
 
   const appScreenshots = [
     {
@@ -1032,14 +1033,18 @@ export default function Products() {
       )}
 
       {/* Payment Confirmation Modal with Serial Key & Legal Razorpay Invoice Number Generation */}
-      <PaymentModal
-        isOpen={paymentSuccess.isOpen}
-        onClose={() => setPaymentSuccess(prev => ({ ...prev, isOpen: false }))}
-        productName={paymentSuccess.productName}
-        downloadUrl={paymentSuccess.downloadUrl}
-        paymentId={paymentSuccess.paymentId}
-        serialNumber={paymentSuccess.serialNumber}
-      />
+      {paymentSuccess.isOpen && (
+        <Suspense fallback={null}>
+          <PaymentModal
+            isOpen={paymentSuccess.isOpen}
+            onClose={() => setPaymentSuccess(prev => ({ ...prev, isOpen: false }))}
+            productName={paymentSuccess.productName}
+            downloadUrl={paymentSuccess.downloadUrl}
+            paymentId={paymentSuccess.paymentId}
+            serialNumber={paymentSuccess.serialNumber}
+          />
+        </Suspense>
+      )}
     </>
   );
 }

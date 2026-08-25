@@ -201,7 +201,7 @@ export default function BusinessGrowth() {
 
           {/* High-Converting CTA Button inside Blueprint Banner */}
           <div style={{ marginTop: '3rem', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Link to="/get-quote" className="btn" style={{ padding: '0.9rem 2.25rem', fontSize: '1rem', fontWeight: '700' }}>
+            <Link to="/quote" className="btn" style={{ padding: '0.9rem 2.25rem', fontSize: '1rem', fontWeight: '700' }}>
               Schedule Free Growth Strategy Call
             </Link>
             <Link to="/products" className="btn btn-outline" style={{ padding: '0.9rem 2.25rem', fontSize: '1rem', fontWeight: '700' }}>

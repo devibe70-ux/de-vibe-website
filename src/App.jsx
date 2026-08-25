@@ -42,6 +42,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/quote" element={<GetQuote />} />
+              <Route path="/get-quote" element={<GetQuote />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
               <Route path="/blog" element={<Blog />} />

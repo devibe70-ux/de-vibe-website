@@ -66,7 +66,16 @@ function prerenderRoutes() {
 
   // 2. Create 404.html fallback
   fs.copyFileSync(indexHtmlPath, path.join(DIST_DIR, '404.html'));
-  console.log('Static routing directories generated successfully.');
+
+  // 3. Ensure root verification files (ads.txt, llms.txt, ai-invite.json) are copied to dist/
+  ['ads.txt', 'llms.txt', 'ai-invite.json', 'robots.txt'].forEach(file => {
+    const srcFile = path.join(PUBLIC_DIR, file);
+    if (fs.existsSync(srcFile)) {
+      fs.copyFileSync(srcFile, path.join(DIST_DIR, file));
+    }
+  });
+
+  console.log('Static routing directories and root verification files generated successfully.');
 }
 
 function generateSitemap() {

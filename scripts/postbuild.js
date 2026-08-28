@@ -22,6 +22,8 @@ const routes = [
   '/get-quote',
   '/privacy',
   '/terms',
+  '/return-policy',
+  '/refund-policy',
   '/products',
   '/remote',
   '/guides',

@@ -22,6 +22,7 @@ const Reviews = lazy(() => import('./components/Reviews'));
 const Products = lazy(() => import('./components/Products'));
 const RemoteDashboard = lazy(() => import('./components/RemoteDashboard'));
 const TechGuides = lazy(() => import('./components/TechGuides'));
+const ReturnPolicy = lazy(() => import('./components/ReturnPolicy'));
 
 const PageFallback = () => (
   <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4rem 0' }}>
@@ -45,6 +46,8 @@ function App() {
               <Route path="/get-quote" element={<GetQuote />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/return-policy" element={<ReturnPolicy />} />
+              <Route path="/refund-policy" element={<ReturnPolicy />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />

@@ -95,6 +95,7 @@ export default function Footer() {
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link to="/privacy" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Privacy Policy</Link>
             <Link to="/terms" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Terms of Service</Link>
+            <Link to="/return-policy" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Return & Refund Policy</Link>
             <a 
               href="javascript:googlefc.callbackQueue.push(googlefc.showRevocationMessage)" 
               style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textDecoration: 'underline' }}

@@ -67,8 +67,8 @@ function prerenderRoutes() {
   // 2. Create 404.html fallback
   fs.copyFileSync(indexHtmlPath, path.join(DIST_DIR, '404.html'));
 
-  // 3. Ensure root verification files (ads.txt, llms.txt, ai-invite.json) are copied to dist/
-  ['ads.txt', 'llms.txt', 'ai-invite.json', 'robots.txt'].forEach(file => {
+  // 3. Ensure root verification & feed files (ads.txt, llms.txt, ai-invite.json, google-merchant-feed.xml) are copied to dist/
+  ['ads.txt', 'llms.txt', 'ai-invite.json', 'robots.txt', 'google-merchant-feed.xml'].forEach(file => {
     const srcFile = path.join(PUBLIC_DIR, file);
     if (fs.existsSync(srcFile)) {
       fs.copyFileSync(srcFile, path.join(DIST_DIR, file));

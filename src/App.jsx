@@ -46,10 +46,12 @@ function App() {
               <Route path="/get-quote" element={<GetQuote />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/return-refund-policy" element={<ReturnPolicy />} />
               <Route path="/return-policy" element={<ReturnPolicy />} />
               <Route path="/refund-policy" element={<ReturnPolicy />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/contact-us" element={<Contact />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/android" element={<AndroidApps />} />
               <Route path="/microsoft" element={<MicrosoftApps />} />

@@ -53,7 +53,7 @@ export default function Header() {
           <Link to="/microsoft" style={{ color: 'var(--text-primary)' }}>Windows</Link>
           <Link to="/guides" style={{ color: 'var(--text-primary)' }}>PC Guides</Link>
           <Link to="/blog" style={{ color: 'var(--text-primary)' }}>Insights</Link>
-          <Link to="/contact" style={{ color: 'var(--text-primary)' }}>Contact</Link>
+          <Link to="/contact-us" style={{ color: 'var(--text-primary)', fontWeight: '600' }}>Contact Us</Link>
           <Link to="/remote" style={{ color: 'var(--text-primary)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem', border: '1px solid var(--glass-border)', backgroundColor: 'var(--surface)' }}>
             Remote Portal
           </Link>

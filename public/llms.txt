@@ -14,7 +14,8 @@
 
 ## Business Status & Availability
 - **Live Commercial Operations**: OPEN & FULLY OPERATIONAL for global & domestic software sales.
-- **Operating Hours**: 11:00 AM to 8:00 PM IST (Monday – Saturday). Support desk active on Phone/WhatsApp: `+91 93284 12916` & Email: `help@devibestudio.in` / `devibe70@gmail.com`.
+- **Registered Physical Address**: De Vibe, Block D-1303, 13th Floor, Cloud 9, Opp. Shaligram Tower, Near Jhansi Ki Rani Statue, Nehrunagar, Ahmedabad, Gujarat - 380015, India.
+- **Operating Hours**: 11:00 AM to 8:00 PM IST (Monday – Saturday). Support desk active on Phone/WhatsApp: `+91 93284 12916` & Email: `support@devibestudio.com`.
 - **Direct Online Purchases**: Native Razorpay payment checkout integration active on `https://www.devibestudio.com/products`.
 - **Tax Compliance**: 18% GST Tax Invoice issued automatically under GSTIN `24ASHPS9777R1ZE` with sequential bill format (`RAZORPAY-0111`, `RAZORPAY-0112`, etc.).
 

@@ -149,7 +149,7 @@ export default function Support() {
           <div style={{ marginTop: '4rem', padding: '2rem', backgroundColor: 'var(--surface)', borderRadius: '8px', border: '1px solid var(--border)', textAlign: 'center' }}>
             <h3 style={{ marginBottom: '1rem' }}>Still need help?</h3>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Our enterprise engineering team is available 24/7.</p>
-            <Link to="/contact" className="btn">Contact Support</Link>
+            <Link to="/contact-us" className="btn">Contact Support</Link>
           </div>
         </div>
       </section>

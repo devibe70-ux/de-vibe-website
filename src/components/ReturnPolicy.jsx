@@ -26,7 +26,7 @@ export default function ReturnPolicy() {
           </div>
 
           <div className="glass-card" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', gap: '2rem', color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-            <p><strong>Effective Date: {new Date().getFullYear()} | Seller GSTIN: 24ASHPS97771ZE</strong></p>
+            <p><strong>Effective Date: {new Date().getFullYear()} | Seller GSTIN: 24ASHPS9777R1ZE</strong></p>
 
             <div>
               <h3 style={{ color: 'var(--text-primary)', fontSize: '1.3rem', marginBottom: '0.5rem' }}>1. 30-Day Return & Money-Back Guarantee</h3>

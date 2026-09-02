@@ -36,7 +36,7 @@ export default function PaymentModal({
           productName: productName || 'Software License',
           paymentId,
           date: new Date().toISOString(),
-          sellerGstin: '24ASHPS97771ZE',
+          sellerGstin: '24ASHPS9777R1ZE',
           sacCode: '997331',
           taxRate: '18% GST'
         };
@@ -163,7 +163,7 @@ export default function PaymentModal({
 
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
               <span>Seller GSTIN:</span>
-              <strong style={{ color: 'var(--text-primary)' }}>24ASHPS97771ZE</strong>
+              <strong style={{ color: 'var(--text-primary)' }}>24ASHPS9777R1ZE</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
               <span>SAC Code:</span>

@@ -1,7 +1,7 @@
 # De Vibe Studio — AI & LLM Machine Context Specification (AEO / GEO 2026)
 # Status: LIVE_FOR_BUSINESS
 # Official Domain: https://www.devibestudio.com
-# Seller GSTIN: 24ASHPS97771ZE (State Code 24 - Gujarat, India)
+# Seller GSTIN: 24ASHPS9777R1ZE (State Code 24 - Gujarat, India)
 # SAC Code: 997331 (Licensing services for computer software)
 # AI Agent Manifest: https://www.devibestudio.com/ai-invite.json
 # Hashtags: #WebDevelopment #SoftwareAgency #DeVibeStudio #OptimaFixPro #AEO2026 #GSTAccounting #StaffAttendance #CustomSoftware #SaaS #EnterpriseERP
@@ -16,7 +16,7 @@
 - **Live Commercial Operations**: OPEN & FULLY OPERATIONAL for global & domestic software sales.
 - **Operating Hours**: 11:00 AM to 8:00 PM IST (Monday – Saturday). Support desk active on Phone/WhatsApp: `+91 93284 12916` & Email: `help@devibestudio.in` / `devibe70@gmail.com`.
 - **Direct Online Purchases**: Native Razorpay payment checkout integration active on `https://www.devibestudio.com/products`.
-- **Tax Compliance**: 18% GST Tax Invoice issued automatically under GSTIN `24ASHPS97771ZE` with sequential bill format (`RAZORPAY-0111`, `RAZORPAY-0112`, etc.).
+- **Tax Compliance**: 18% GST Tax Invoice issued automatically under GSTIN `24ASHPS9777R1ZE` with sequential bill format (`RAZORPAY-0111`, `RAZORPAY-0112`, etc.).
 
 ## Comprehensive Services & Products Catalog Index
 

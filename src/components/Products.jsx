@@ -224,7 +224,7 @@ export default function Products() {
           paymentId: response.razorpay_payment_id,
           serialNumber: generatedSerial,
           purchaseDate: new Date().toISOString(),
-          vendorGstin: '24ASHPS97771ZE'
+          vendorGstin: '24ASHPS9777R1ZE'
         };
 
         // 1. Save receipt to LocalStorage so download is accessible anytime
@@ -253,7 +253,7 @@ export default function Products() {
               downloadTokenUrl: secureTokenUrl,
               tokenPolicy: 'Single-Use 48-Hour Cryptographic Token (Hardware Bound & Anti-Sharing Locked)',
               warningNotice: 'IMPORTANT: Do NOT forward or share this link. Sharing will consume your single-use token and permanently lock your personal license key!',
-              vendorGstin: '24ASHPS97771ZE'
+              vendorGstin: '24ASHPS9777R1ZE'
             })
           });
         } catch (e) {}
@@ -263,7 +263,7 @@ export default function Products() {
           try {
             const cleanPhone = customerPhone.replace(/[^0-9]/g, '');
             const targetPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
-            const waMsg = encodeURIComponent(`🎉 PAYMENT CONFIRMED!\n\nThank you for purchasing ${name} from De Vibe (GSTIN: 24ASHPS97771ZE).\n\n🔑 License Key: ${generatedSerial}\n💳 Txn ID: ${response.razorpay_payment_id}\n🔒 Secure Single-Use Link (48 Hours): ${secureTokenUrl}\n\n⚠️ IMPORTANT ANTI-PIRACY NOTICE: This link is SINGLE-USE ONLY and expires in 48 hours. Do NOT forward or share this link with anyone, as forwarding will consume your token and lock your license key!`);
+            const waMsg = encodeURIComponent(`🎉 PAYMENT CONFIRMED!\n\nThank you for purchasing ${name} from De Vibe (GSTIN: 24ASHPS9777R1ZE).\n\n🔑 License Key: ${generatedSerial}\n💳 Txn ID: ${response.razorpay_payment_id}\n🔒 Secure Single-Use Link (48 Hours): ${secureTokenUrl}\n\n⚠️ IMPORTANT ANTI-PIRACY NOTICE: This link is SINGLE-USE ONLY and expires in 48 hours. Do NOT forward or share this link with anyone, as forwarding will consume your token and lock your license key!`);
             const waLink = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${waMsg}`;
             
             setTimeout(() => {
@@ -294,7 +294,7 @@ export default function Products() {
     <>
       <Helmet>
         <title>Official Software Store & App Screenshots - De Vibe Studio</title>
-        <meta name="description" content="View live application screenshots and purchase official software licenses (Base Price + 18% GST, GSTIN: 24ASHPS97771ZE) on De Vibe Studio with trackable Serial Keys." />
+        <meta name="description" content="View live application screenshots and purchase official software licenses (Base Price + 18% GST, GSTIN: 24ASHPS9777R1ZE) on De Vibe Studio with trackable Serial Keys." />
         <link rel="canonical" href="https://www.devibestudio.com/products" />
         
         {/* Schema.org SoftwareApplication Markup with Screenshots for High-Converting Google Search Snippets */}
@@ -374,7 +374,7 @@ export default function Products() {
           }}>
             <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>📢 Note: All listed prices are Exclusive of 18% GST (SAC Code 997331). 18% GST is added at checkout.</span>
             <span style={{ margin: '0 0.75rem', opacity: 0.5 }}>|</span>
-            <span>Seller GSTIN: <strong style={{ color: 'var(--accent)' }}>24ASHPS97771ZE</strong></span>
+            <span>Seller GSTIN: <strong style={{ color: 'var(--accent)' }}>24ASHPS9777R1ZE</strong></span>
           </div>
 
           {/* OFFICIAL GITHUB REPOSITORIES & WEB APP DEMOS BANNER */}

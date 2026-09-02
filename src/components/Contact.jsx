@@ -99,7 +99,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 style={{ margin: '0 0 0.25rem 0' }}>Location & Tax Compliance</h4>
-                  <span style={{ color: 'var(--text-secondary)' }}>Gujarat, India | GSTIN 24ASHPS97771ZE</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>Gujarat, India | GSTIN 24ASHPS9777R1ZE</span>
                 </div>
               </div>
             </div>

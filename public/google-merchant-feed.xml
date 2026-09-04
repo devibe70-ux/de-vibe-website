@@ -3,13 +3,13 @@
   <channel>
     <title><![CDATA[De Vibe Studio Software & Business Solutions Catalog]]></title>
     <link>https://www.devibestudio.com</link>
-    <description><![CDATA[Official Google Merchant Center Product Feed for De Vibe Studio commercial software tools, Windows diagnostics, GST billing tools, and business launchpads.]]></description>
+    <description><![CDATA[Official Google Merchant Center Product Feed for De Vibe Studio commercial software tools, Windows diagnostics, GST billing tools, and business launchpads. Dispatched from registered origin facility: Ahmedabad, Gujarat - 380015, India.]]></description>
     
     <!-- Item 1: OptimaFix Pro Digital Home License -->
     <item>
       <g:id>optfix-digital-v25</g:id>
       <g:title><![CDATA[OptimaFix Pro v2.5.0 Digital Home License — Windows PC Repair Software]]></g:title>
-      <g:description><![CDATA[Single PC lifetime license for OptimaFix Pro. Features 5-stage automated repair engine, S.M.A.R.T. NVMe SSD health audit, targeted RAM latency optimizer, and Defender fast disinfector.]]></g:description>
+      <g:description><![CDATA[Single PC lifetime license for OptimaFix Pro. Features 5-stage automated repair engine, S.M.A.R.T. NVMe SSD health audit, targeted RAM latency optimizer, and Defender fast disinfector. Instant digital delivery from Gujarat, India.]]></g:description>
       <g:link>https://www.devibestudio.com/products</g:link>
       <g:image_link>https://www.devibestudio.com/screenshots/optimafix_pro_app.jpg</g:image_link>
       <g:price>1178.82 INR</g:price>
@@ -19,6 +19,7 @@
       <g:identifier_exists>no</g:identifier_exists>
       <g:shipping>
         <g:country>IN</g:country>
+        <g:region>Gujarat</g:region>
         <g:service>Digital Download</g:service>
         <g:price>0.00 INR</g:price>
       </g:shipping>
@@ -29,7 +30,7 @@
     <item>
       <g:id>optfix-techpro-annual</g:id>
       <g:title><![CDATA[OptimaFix Pro Technician Pro Subscription — Multi-PC Commercial License]]></g:title>
-      <g:description><![CDATA[Commercial PC repair license for IT repair shops and technicians. Unlimited PC deployment, WinUtil profile exporter, driver signature auto-remediator, and branded vector PDF client diagnostic reports.]]></g:description>
+      <g:description><![CDATA[Commercial PC repair license for IT repair shops and technicians. Unlimited PC deployment, WinUtil profile exporter, driver signature auto-remediator, and branded vector PDF client diagnostic reports. Instant activation from Gujarat, India.]]></g:description>
       <g:link>https://www.devibestudio.com/products</g:link>
       <g:image_link>https://www.devibestudio.com/screenshots/optimafix_pro_app.jpg</g:image_link>
       <g:price>4718.82 INR</g:price>
@@ -39,6 +40,7 @@
       <g:identifier_exists>no</g:identifier_exists>
       <g:shipping>
         <g:country>IN</g:country>
+        <g:region>Gujarat</g:region>
         <g:service>Digital Activation</g:service>
         <g:price>0.00 INR</g:price>
       </g:shipping>
@@ -49,7 +51,7 @@
     <item>
       <g:id>optfix-usb-16gb-master</g:id>
       <g:title><![CDATA[OptimaFix Pro 16GB Master Hardware USB Rescue Drive (v2.5.0 WinPE)]]></g:title>
-      <g:description><![CDATA[Pre-loaded 16GB Mother of All Recovery Drives. Features bare-metal WinPE offline boot rescue console, 1-Plug USB OTA Auto-Updater, TestDisk partition carver, and Rescuezilla imager.]]></g:description>
+      <g:description><![CDATA[Pre-loaded 16GB Mother of All Recovery Drives. Features bare-metal WinPE offline boot rescue console, 1-Plug USB OTA Auto-Updater, TestDisk partition carver, and Rescuezilla imager. Shipped directly from registered facility: De Vibe, Block D-1303, Cloud 9, Nehrunagar, Ahmedabad, Gujarat - 380015, India.]]></g:description>
       <g:link>https://www.devibestudio.com/products</g:link>
       <g:image_link>https://www.devibestudio.com/screenshots/optimafix_winpe_app.jpg</g:image_link>
       <g:price>1770.00 INR</g:price>
@@ -59,7 +61,8 @@
       <g:identifier_exists>no</g:identifier_exists>
       <g:shipping>
         <g:country>IN</g:country>
-        <g:service>Express Courier</g:service>
+        <g:region>Gujarat</g:region>
+        <g:service>Express Courier (Ships from Ahmedabad, Gujarat - 380015, India)</g:service>
         <g:price>0.00 INR</g:price>
       </g:shipping>
       <g:google_product_category><![CDATA[Software > Computer Utilities & Operating Systems > System Maintenance & Optimization Software]]></g:google_product_category>
@@ -69,7 +72,7 @@
     <item>
       <g:id>optispace-pc-pro</g:id>
       <g:title><![CDATA[OptiSpace PC Pro — Disk Space Treemap & Storage Manager]]></g:title>
-      <g:description><![CDATA[Windows desktop disk volume visualizer with color-coded treemaps, duplicate file remover, and automated local junk purger.]]></g:description>
+      <g:description><![CDATA[Windows desktop disk volume visualizer with color-coded treemaps, duplicate file remover, and automated local junk purger. Shipped digitally from Gujarat, India.]]></g:description>
       <g:link>https://www.devibestudio.com/products</g:link>
       <g:image_link>https://www.devibestudio.com/screenshots/optispace_pc_app.jpg</g:image_link>
       <g:price>588.82 INR</g:price>
@@ -79,6 +82,7 @@
       <g:identifier_exists>no</g:identifier_exists>
       <g:shipping>
         <g:country>IN</g:country>
+        <g:region>Gujarat</g:region>
         <g:service>Digital Download</g:service>
         <g:price>0.00 INR</g:price>
       </g:shipping>
@@ -89,7 +93,7 @@
     <item>
       <g:id>devibe-launchpad-96h</g:id>
       <g:title><![CDATA[Turnkey 96-Hour Business Launchpad & Brand Logo Design Package]]></g:title>
-      <g:description><![CDATA[Complete business startup launchpad: Custom brand logo, brand story, high-speed React 19 web application, Razorpay 18% GST billing setup, and Google/AI search indexing in 96 hours.]]></g:description>
+      <g:description><![CDATA[Complete business startup launchpad: Custom brand logo, brand story, high-speed React 19 web application, Razorpay 18% GST billing setup, and Google/AI search indexing in 96 hours. Delivered by De Vibe Studio, Ahmedabad, Gujarat, India.]]></g:description>
       <g:link>https://www.devibestudio.com/services</g:link>
       <g:image_link>https://www.devibestudio.com/banner.jpg</g:image_link>
       <g:price>29498.82 INR</g:price>
@@ -99,6 +103,7 @@
       <g:identifier_exists>no</g:identifier_exists>
       <g:shipping>
         <g:country>IN</g:country>
+        <g:region>Gujarat</g:region>
         <g:service>Digital Delivery</g:service>
         <g:price>0.00 INR</g:price>
       </g:shipping>
@@ -109,7 +114,7 @@
     <item>
       <g:id>devibe-gst-accounting</g:id>
       <g:title><![CDATA[Custom GST Accounting & Financial Ledger Software]]></g:title>
-      <g:description><![CDATA[Automated 18% GST tax invoice generator (SAC Code 997331), income and expense ledger tracking, sequential bill formatting, and digital PDF receipts.]]></g:description>
+      <g:description><![CDATA[Automated 18% GST tax invoice generator (SAC Code 997331), income and expense ledger tracking, sequential bill formatting, and digital PDF receipts. Operating from Gujarat, India (State Code 24).]]></g:description>
       <g:link>https://www.devibestudio.com/services</g:link>
       <g:image_link>https://www.devibestudio.com/banner.jpg</g:image_link>
       <g:price>17698.82 INR</g:price>
@@ -119,6 +124,7 @@
       <g:identifier_exists>no</g:identifier_exists>
       <g:shipping>
         <g:country>IN</g:country>
+        <g:region>Gujarat</g:region>
         <g:service>Digital Delivery</g:service>
         <g:price>0.00 INR</g:price>
       </g:shipping>
@@ -129,7 +135,7 @@
     <item>
       <g:id>devibe-staff-attendance</g:id>
       <g:title><![CDATA[Employee Attendance, HR & Payroll Management Suite]]></g:title>
-      <g:description><![CDATA[Geo-location staff check-in tracker, shift planning matrix, automated monthly salary slips, and leave management system.]]></g:description>
+      <g:description><![CDATA[Geo-location staff check-in tracker, shift planning matrix, automated monthly salary slips, and leave management system. Shipped digitally from Gujarat, India.]]></g:description>
       <g:link>https://www.devibestudio.com/services</g:link>
       <g:image_link>https://www.devibestudio.com/banner.jpg</g:image_link>
       <g:price>23598.82 INR</g:price>
@@ -139,6 +145,7 @@
       <g:identifier_exists>no</g:identifier_exists>
       <g:shipping>
         <g:country>IN</g:country>
+        <g:region>Gujarat</g:region>
         <g:service>Digital Delivery</g:service>
         <g:price>0.00 INR</g:price>
       </g:shipping>
@@ -149,7 +156,7 @@
     <item>
       <g:id>devibe-oms-enterprise</g:id>
       <g:title><![CDATA[De-Vibe OMS Enterprise — Omni-Channel Order Management ERP]]></g:title>
-      <g:description><![CDATA[Omni-channel order routing engine, real-time inventory synchronization matrix, and PostgreSQL ACID transaction locks.]]></g:description>
+      <g:description><![CDATA[Omni-channel order routing engine, real-time inventory synchronization matrix, and PostgreSQL ACID transaction locks. Delivered from Ahmedabad, Gujarat, India.]]></g:description>
       <g:link>https://www.devibestudio.com/products</g:link>
       <g:image_link>https://www.devibestudio.com/screenshots/devibe_oms_app.jpg</g:image_link>
       <g:price>17698.82 INR</g:price>
@@ -159,6 +166,7 @@
       <g:identifier_exists>no</g:identifier_exists>
       <g:shipping>
         <g:country>IN</g:country>
+        <g:region>Gujarat</g:region>
         <g:service>Digital Delivery</g:service>
         <g:price>0.00 INR</g:price>
       </g:shipping>

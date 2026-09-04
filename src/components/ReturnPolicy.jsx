@@ -39,13 +39,25 @@ export default function ReturnPolicy() {
             </div>
 
             <div>
-              <h3 style={{ color: 'var(--text-primary)', fontSize: '1.3rem', marginBottom: '0.5rem' }}>2. Digital Software License Cancellation</h3>
+              <h3 style={{ color: 'var(--text-primary)', fontSize: '1.3rem', marginBottom: '0.5rem' }}>2. Instant Same-Day Digital Delivery & Fulfillment Policy</h3>
               <p>
-                For digital software downloads and instant serial key activations:
+                All commercial software licenses (OptimaFix Pro, OptiSpace PC, De-Vibe OMS, GST Accounting, Employee HR Suite) are <strong>digital download products</strong>:
+              </p>
+              <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem' }}>
+                <li><strong>Fulfillment Timeline:</strong> Instant Same-Day Delivery (0-Day Lead Time). License serial keys (`OPTFIX-2026-XXXX-XXXX`), installer files (.msix), and PDF tax invoices are generated instantly on screen upon Razorpay checkout completion.</li>
+                <li><strong>Delivery Fee:</strong> ₹0.00 (Free Instant Digital Delivery worldwide).</li>
+                <li><strong>Email Confirmation:</strong> An automated confirmation receipt containing your single-use download token and tax invoice is sent immediately to your email address from <strong>support@devibestudio.com</strong>.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 style={{ color: 'var(--text-primary)', fontSize: '1.3rem', marginBottom: '0.5rem' }}>3. Digital Software License Cancellation & Refund Process</h3>
+              <p>
+                For digital software downloads and serial key activations:
               </p>
               <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem' }}>
                 <li>Refund requests submitted to <strong>support@devibestudio.com</strong> within 30 days of purchase will be processed immediately.</li>
-                <li>Upon issuing a refund, the associated software license key (`OPTFIX-2026-XXXX-XXXX`) will be deactivated in our server.</li>
+                <li>Upon issuing a refund, the associated software license key will be deactivated in our activation server.</li>
                 <li>No cancellation fee or restocking penalty applies.</li>
               </ul>
             </div>

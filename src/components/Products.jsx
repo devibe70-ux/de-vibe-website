@@ -1,6 +1,6 @@
 import { useState, useMemo, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck, HardDrive, HelpCircle, Key, Radio, Disc, FileSpreadsheet, XCircle, Cpu, Sliders, Layers, Sparkles, Clock, Award, Terminal, CheckCircle, Eye, Maximize2, X, Star } from 'lucide-react';
+import { Monitor, Smartphone, Briefcase, Database, Check, Shield, Zap, RefreshCw, ShoppingCart, ShieldCheck, HardDrive, HelpCircle, Key, Radio, Disc, FileSpreadsheet, XCircle, Cpu, Sliders, Layers, Sparkles, Clock, Award, Terminal, CheckCircle, Eye, Maximize2, X, Star, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRazorpay } from '../hooks/useRazorpay';
 
@@ -757,19 +757,19 @@ export default function Products() {
               <div>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: '600' }}>Selected Package:</span>
                 <h4 style={{ margin: '0.25rem 0 0 0', fontSize: '1.1rem' }}>
-                  {selectedVariant.title} (Base {selectedVariant.basePriceDisplay} + 18% GST = {selectedVariant.totalDisplay})
+                  {selectedVariant?.title || 'OptimaFix Pro'} (Base {selectedVariant?.basePriceDisplay} + 18% GST = {selectedVariant?.totalDisplay})
                 </h4>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-                  Includes Trackable License Serial Number & 18% GST Tax Invoice (Seller GSTIN: 24ASHPS97771ZE)
+                  Includes Trackable License Serial Number & 18% GST Tax Invoice (Seller GSTIN: 24ASHPS9777R1ZE)
                 </span>
               </div>
               <div>
                 <button
-                  onClick={() => handleCheckoutProduct(`OptimaFix Pro (${selectedVariant.title})`, selectedVariant.totalPrice, selectedVariant.description, "/downloads/OptimaFix.msix")}
+                  onClick={() => handleCheckoutProduct(`OptimaFix Pro (${selectedVariant?.title || ''})`, selectedVariant?.totalPrice || 1178.82, selectedVariant?.description || '', "/downloads/OptimaFix.msix")}
                   className="btn"
                   style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1.5rem' }}
                 >
-                  <ShieldCheck size={18} /> Proceed to Razorpay Checkout ({selectedVariant.totalDisplay})
+                  <ShieldCheck size={18} /> Proceed to Razorpay Checkout ({selectedVariant?.totalDisplay})
                 </button>
               </div>
             </div>

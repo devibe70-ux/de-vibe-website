@@ -8,7 +8,7 @@ export default function Projects() {
     <>
       <Helmet>
         <title>Our Projects & Ecosystem - De Vibe Agency</title>
-        <meta name="description" content="View our portfolio of custom software, websites, and open-source projects." />
+        <meta name="description" content="View our portfolio of custom software, enterprise applications, and web solutions." />
         <link rel="canonical" href="https://www.devibestudio.com/projects" />
         <meta property="og:title" content="Our Projects & Ecosystem - De Vibe Agency" />
         <meta property="og:url" content="https://www.devibestudio.com/projects" />

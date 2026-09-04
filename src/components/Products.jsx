@@ -377,37 +377,38 @@ export default function Products() {
             <span>Seller GSTIN: <strong style={{ color: 'var(--accent)' }}>24ASHPS9777R1ZE</strong></span>
           </div>
 
-          {/* OFFICIAL GITHUB REPOSITORIES & WEB APP DEMOS BANNER */}
+          {/* OFFICIAL COMMERCIAL LICENSING BANNER */}
           <div className="glass-card" style={{ padding: '2rem', marginBottom: '3.5rem', border: '1px solid var(--glass-border)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
               <div>
                 <span style={{ fontSize: '0.78rem', fontWeight: '700', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  Official Open Source & GitHub Repositories
+                  Official Commercial Software & Direct Licensing
                 </span>
-                <h3 style={{ fontSize: '1.4rem', margin: '0.25rem 0 0.4rem 0' }}>Explore De Vibe Software Repositories & Interactive Demos</h3>
+                <h3 style={{ fontSize: '1.4rem', margin: '0.25rem 0 0.4rem 0' }}>Genuine Licensed Software & Verified Digital Downloads</h3>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0, maxWidth: '700px' }}>
-                  Inspect full source code, open-source utilities, and upcoming interactive web apps directly on our official GitHub organization.
+                  Purchase authentic commercial software licenses directly from De Vibe Studio. All products include trackable serial keys, digitally signed MSIX installers, and official 18% GST tax invoices.
                 </p>
               </div>
 
               <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
-                <a 
-                  href="https://github.com/devibe70-ux/OptimaFix-Pro" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <button 
+                  onClick={() => {
+                    const el = document.getElementById('optimafix-store-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="btn btn-outline"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', padding: '0.65rem 1.15rem' }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', padding: '0.65rem 1.15rem', cursor: 'pointer' }}
                 >
-                  <Terminal size={16} /> OptimaFix Pro Repo ➔
-                </a>
+                  <ShieldCheck size={16} /> Purchase Genuine License ➔
+                </button>
                 <a 
-                  href="https://github.com/devibe70-ux/de-vibe-website-builder" 
+                  href="https://github.com/devibe70-ux" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="btn"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', padding: '0.65rem 1.15rem' }}
                 >
-                  <Sparkles size={16} /> Interactive Web Builder Repo ➔
+                  <Sparkles size={16} /> Official Organization Profile ➔
                 </a>
               </div>
             </div>
@@ -486,7 +487,7 @@ export default function Products() {
           </div>
 
           {/* OptimaFix Pro Main Card */}
-          <div style={{ 
+          <div id="optimafix-store-section" style={{ 
             backgroundColor: 'var(--bg-primary)', 
             padding: '3rem', 
             borderRadius: '16px', 

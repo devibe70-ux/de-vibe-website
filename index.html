@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- High-Performance Preconnect & Preload Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
     <link rel="preconnect" href="https://checkout.razorpay.com" crossorigin />
     <link rel="dns-prefetch" href="https://api.razorpay.com" />
     <link rel="preload" as="image" href="/screenshots/optimafix_pro_app.jpg" fetchpriority="high" />
@@ -31,8 +35,27 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="De Vibe Studio | Custom Websites & Business Software" />
     <meta name="twitter:description" content="Build your dream business with custom React websites, brand logos, GST accounting tools, and staff management software." />
-    <!-- Google AdSense Auto-Ads & Publisher Script Tag (Active Across All Pages) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7107715238624071" crossorigin="anonymous"></script>
+    <!-- Non-Blocking Deferred Google AdSense Auto-Ads & Publisher Script -->
+    <script>
+      (function() {
+        var loadAdSense = function() {
+          if (window.adSenseLoaded) return;
+          window.adSenseLoaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7107715238624071';
+          s.crossOrigin = 'anonymous';
+          document.head.appendChild(s);
+        };
+        if (document.readyState === 'complete') {
+          setTimeout(loadAdSense, 1000);
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(loadAdSense, 1000);
+          });
+        }
+      })();
+    </script>
 
     <!-- Agentic Search Optimization (AEO), Google Business Profile & Organization Schema -->
     <script type="application/ld+json">

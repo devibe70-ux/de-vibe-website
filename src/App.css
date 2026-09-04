@@ -478,5 +478,15 @@ ins.adsbygoogle {
   font-weight: 600;
 }
 
+/* High-Performance Rendering & Hardware Acceleration Optimizations */
+.screenshot-card,
+.service-card,
+.glass-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 
 

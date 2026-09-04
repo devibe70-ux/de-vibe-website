@@ -41,7 +41,6 @@ const ADDITIONAL_PRODUCTS = [
   {
     id: 'optispace-pc',
     title: 'OptiSpace PC Pro',
-    icon: HardDrive,
     image: '/screenshots/optispace_pc_app.jpg',
     basePriceDisplay: '₹499.00',
     gstAmount: '₹89.82',
@@ -53,7 +52,6 @@ const ADDITIONAL_PRODUCTS = [
   {
     id: 'devibe-oms',
     title: 'De-Vibe OMS Enterprise',
-    icon: Briefcase,
     image: '/screenshots/devibe_oms_app.jpg',
     basePriceDisplay: '₹14,999.00',
     gstAmount: '₹2,699.82',
@@ -65,7 +63,6 @@ const ADDITIONAL_PRODUCTS = [
   {
     id: 'bahamut-oms',
     title: 'Bahamut OMS High-Freq',
-    icon: Database,
     image: '/screenshots/devibe_oms_app.jpg',
     basePriceDisplay: '₹29,999.00',
     gstAmount: '₹5,399.82',
@@ -130,7 +127,7 @@ export default function Products() {
       ]
     },
     {
-      id: 'tech-pro',
+      id: 'tech',
       title: 'Technician Pro Subscription (v2.5.0 Release)',
       basePriceNum: subscriptionCycle === 'monthly' ? 399 : 3999,
       basePriceDisplay: subscriptionCycle === 'monthly' ? '₹399.00 / mo' : '₹3,999.00 / yr',
@@ -151,7 +148,7 @@ export default function Products() {
       ]
     },
     {
-      id: 'bootable',
+      id: 'usb',
       title: usbDeliveryOption === 'soft' 
         ? 'Technician Rescue Boot (Digital ISO v2.5.0)' 
         : (usbCapacity === '8gb' ? 'Technician Rescue Boot (8GB Hardware USB v2.5.0)' : 'Mother of All Recovery Drives (16GB Master USB v2.5.0)'),
@@ -925,7 +922,6 @@ export default function Products() {
           
           <div className="grid grid-3">
             {additionalProducts.map((prod) => {
-              const IconComp = prod.icon;
               return (
                 <div key={prod.id} style={{ backgroundColor: 'var(--surface)', padding: '2rem', borderRadius: '14px', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
                   
@@ -948,7 +944,9 @@ export default function Products() {
                   )}
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                    <IconComp size={24} color="var(--accent)" />
+                    {prod.id === 'optispace-pc' && <HardDrive size={24} color="var(--accent)" />}
+                    {prod.id === 'devibe-oms' && <Briefcase size={24} color="var(--accent)" />}
+                    {prod.id === 'bahamut-oms' && <Database size={24} color="var(--accent)" />}
                     <h3 style={{ margin: 0, fontSize: '1.3rem' }}>{prod.title}</h3>
                   </div>
                   <div style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '0.1rem' }}>

@@ -79,7 +79,7 @@ export default function Home() {
                 }}
               >
                 <div style={{ height: '200px', overflow: 'hidden', position: 'relative', backgroundColor: '#000' }}>
-                  <img src={app.image} alt={app.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={app.image} alt={app.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <span style={{ position: 'absolute', top: '12px', right: '12px', backgroundColor: 'var(--accent)', color: '#fff', fontSize: '0.75rem', fontWeight: '700', padding: '0.25rem 0.75rem', borderRadius: '12px' }}>
                     {app.badge}
                   </span>

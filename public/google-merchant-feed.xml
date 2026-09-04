@@ -16,6 +16,12 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand><![CDATA[De Vibe Studio]]></g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Digital Download</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
       <g:google_product_category><![CDATA[Software > Computer Utilities & Operating Systems > System Maintenance & Optimization Software]]></g:google_product_category>
     </item>
 
@@ -30,6 +36,12 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand><![CDATA[De Vibe Studio]]></g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Digital Activation</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
       <g:google_product_category><![CDATA[Software > Computer Utilities & Operating Systems > System Maintenance & Optimization Software]]></g:google_product_category>
     </item>
 
@@ -44,6 +56,12 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand><![CDATA[De Vibe Studio]]></g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Express Courier</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
       <g:google_product_category><![CDATA[Software > Computer Utilities & Operating Systems > System Maintenance & Optimization Software]]></g:google_product_category>
     </item>
 
@@ -58,6 +76,12 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand><![CDATA[De Vibe Studio]]></g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Digital Download</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
       <g:google_product_category><![CDATA[Software > Computer Utilities & Operating Systems > System Maintenance & Optimization Software]]></g:google_product_category>
     </item>
 
@@ -72,6 +96,12 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand><![CDATA[De Vibe Studio]]></g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Digital Delivery</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
       <g:google_product_category><![CDATA[Business & Industrial > Business Services]]></g:google_product_category>
     </item>
 
@@ -86,6 +116,12 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand><![CDATA[De Vibe Studio]]></g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Digital Delivery</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
       <g:google_product_category><![CDATA[Software > Business & Productivity Software > Financial & Accounting Software]]></g:google_product_category>
     </item>
 
@@ -100,6 +136,12 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand><![CDATA[De Vibe Studio]]></g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Digital Delivery</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
       <g:google_product_category><![CDATA[Software > Business & Productivity Software > Human Resources Software]]></g:google_product_category>
     </item>
 
@@ -114,6 +156,12 @@
       <g:availability>in_stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand><![CDATA[De Vibe Studio]]></g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Digital Delivery</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
       <g:google_product_category><![CDATA[Software > Business & Productivity Software]]></g:google_product_category>
     </item>
 

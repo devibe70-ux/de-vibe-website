@@ -6,6 +6,76 @@ import { useRazorpay } from '../hooks/useRazorpay';
 
 const PaymentModal = lazy(() => import('./PaymentModal'));
 
+const APP_SCREENSHOTS = [
+  {
+    id: 'optimafix-dash',
+    title: 'OptimaFix Pro — Diagnostic Dashboard',
+    image: '/screenshots/optimafix_pro_app.jpg',
+    category: 'Windows Repair Suite',
+    caption: 'Real-time 5-Stage Repair Wizard, S.M.A.R.T. NVMe drive health monitoring, and RAM latency optimizer.'
+  },
+  {
+    id: 'optimafix-winpe',
+    title: 'OptimaFix Pro — WinPE Bare-Metal Rescue Console',
+    image: '/screenshots/optimafix_winpe_app.jpg',
+    category: 'Emergency Boot Recovery',
+    caption: 'Zero-click offline Windows PE recovery environment for repairing unbootable PCs and Blue Screen (BSOD) crashes.'
+  },
+  {
+    id: 'optispace-pc',
+    title: 'OptiSpace PC — Storage & Treemap Analyzer',
+    image: '/screenshots/optispace_pc_app.jpg',
+    category: 'Storage Management',
+    caption: 'Interactive disk volume visualizer with color-coded treemaps, duplicate file remover, and automated junk purger.'
+  },
+  {
+    id: 'devibe-oms',
+    title: 'De-Vibe OMS — Enterprise Order Dashboard',
+    image: '/screenshots/devibe_oms_app.jpg',
+    category: 'Enterprise OMS Software',
+    caption: 'Omni-channel order management console with real-time inventory synchronization and automated sales reporting.'
+  }
+];
+
+const ADDITIONAL_PRODUCTS = [
+  {
+    id: 'optispace-pc',
+    title: 'OptiSpace PC Pro',
+    icon: HardDrive,
+    image: '/screenshots/optispace_pc_app.jpg',
+    basePriceDisplay: '₹499.00',
+    gstAmount: '₹89.82',
+    totalPrice: 588.82,
+    totalDisplay: '₹588.82',
+    description: 'Windows desktop disk analyzer and high-performance storage manager. Visualizes drive usage and purges orphaned files locally.',
+    downloadLink: '/downloads/OptimaFix.msix'
+  },
+  {
+    id: 'devibe-oms',
+    title: 'De-Vibe OMS Enterprise',
+    icon: Briefcase,
+    image: '/screenshots/devibe_oms_app.jpg',
+    basePriceDisplay: '₹14,999.00',
+    gstAmount: '₹2,699.82',
+    totalPrice: 17698.82,
+    totalDisplay: '₹17,698.82',
+    description: 'Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.',
+    downloadLink: '/downloads/DeVibe-OMS-Installer.msix'
+  },
+  {
+    id: 'bahamut-oms',
+    title: 'Bahamut OMS High-Freq',
+    icon: Database,
+    image: '/screenshots/devibe_oms_app.jpg',
+    basePriceDisplay: '₹29,999.00',
+    gstAmount: '₹5,399.82',
+    totalPrice: 35398.82,
+    totalDisplay: '₹35,398.82',
+    description: 'Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.',
+    downloadLink: '/downloads/DeVibe-OMS-Installer.msix'
+  }
+];
+
 export default function Products() {
   const [selectedVariantId, setSelectedVariantId] = useState('digital');
   
@@ -125,75 +195,8 @@ export default function Products() {
     }
   ], [subscriptionCycle, usbDeliveryOption, usbCapacity]);
 
-  const appScreenshots = [
-    {
-      id: 'optimafix-dash',
-      title: 'OptimaFix Pro — Diagnostic Dashboard',
-      image: '/screenshots/optimafix_pro_app.jpg',
-      category: 'Windows Repair Suite',
-      caption: 'Real-time 5-Stage Repair Wizard, S.M.A.R.T. NVMe drive health monitoring, and RAM latency optimizer.'
-    },
-    {
-      id: 'optimafix-winpe',
-      title: 'OptimaFix Pro — WinPE Bare-Metal Rescue Console',
-      image: '/screenshots/optimafix_winpe_app.jpg',
-      category: 'Emergency Boot Recovery',
-      caption: 'Zero-click offline Windows PE recovery environment for repairing unbootable PCs and Blue Screen (BSOD) crashes.'
-    },
-    {
-      id: 'optispace-pc',
-      title: 'OptiSpace PC — Storage & Treemap Analyzer',
-      image: '/screenshots/optispace_pc_app.jpg',
-      category: 'Storage Management',
-      caption: 'Interactive disk volume visualizer with color-coded treemaps, duplicate file remover, and automated junk purger.'
-    },
-    {
-      id: 'devibe-oms',
-      title: 'De-Vibe OMS — Enterprise Order Dashboard',
-      image: '/screenshots/devibe_oms_app.jpg',
-      category: 'Enterprise OMS Software',
-      caption: 'Omni-channel order management console with real-time inventory synchronization and automated sales reporting.'
-    }
-  ];
-
-  const additionalProducts = [
-    {
-      id: 'optispace-pc',
-      title: 'OptiSpace PC Pro',
-      icon: HardDrive,
-      image: '/screenshots/optispace_pc_app.jpg',
-      basePriceDisplay: '₹499.00',
-      gstAmount: '₹89.82',
-      totalPrice: 588.82,
-      totalDisplay: '₹588.82',
-      description: 'Windows desktop disk analyzer and high-performance storage manager. Visualizes drive usage and purges orphaned files locally.',
-      downloadLink: '/downloads/OptimaFix.msix'
-    },
-    {
-      id: 'devibe-oms',
-      title: 'De-Vibe OMS Enterprise',
-      icon: Briefcase,
-      image: '/screenshots/devibe_oms_app.jpg',
-      basePriceDisplay: '₹14,999.00',
-      gstAmount: '₹2,699.82',
-      totalPrice: 17698.82,
-      totalDisplay: '₹17,698.82',
-      description: 'Proprietary enterprise Order Management System to streamline omni-channel inventory flow, status routing, and sales reports automation.',
-      downloadLink: '/downloads/DeVibe-OMS-Installer.msix'
-    },
-    {
-      id: 'bahamut-oms',
-      title: 'Bahamut OMS High-Freq',
-      icon: Database,
-      image: '/screenshots/devibe_oms_app.jpg',
-      basePriceDisplay: '₹29,999.00',
-      gstAmount: '₹5,399.82',
-      totalPrice: 35398.82,
-      totalDisplay: '₹35,398.82',
-      description: 'Specialized high-frequency fork designed for extreme database loads, transactional security, and sub-millisecond data synchronization.',
-      downloadLink: '/downloads/DeVibe-OMS-Installer.msix'
-    }
-  ];
+  const appScreenshots = APP_SCREENSHOTS;
+  const additionalProducts = ADDITIONAL_PRODUCTS;
 
   const selectedVariant = optimafixVariants.find(v => v.id === selectedVariantId) || optimafixVariants[0];
 
@@ -452,6 +455,8 @@ export default function Products() {
                     <img 
                       src={item.image} 
                       alt={item.title} 
+                      loading="lazy"
+                      decoding="async"
                       style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9, transition: 'transform 0.3s ease' }}
                     />
                     <div style={{
@@ -532,6 +537,9 @@ export default function Products() {
               <img 
                 src="/screenshots/optimafix_pro_app.jpg" 
                 alt="OptimaFix Pro Dashboard Screenshot" 
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
                 style={{ width: '100%', height: 'auto', maxHeight: '380px', objectFit: 'cover', display: 'block' }}
               />
               <div style={{
@@ -932,7 +940,7 @@ export default function Products() {
                         caption: prod.description
                       })}
                     >
-                      <img src={prod.image} alt={prod.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={prod.image} alt={prod.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       <div style={{ position: 'absolute', bottom: '8px', right: '8px', backgroundColor: 'rgba(0, 0, 0, 0.75)', color: '#fff', fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '4px', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
                         <Maximize2 size={12} /> Inspect UI
                       </div>
